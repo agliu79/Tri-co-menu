@@ -561,15 +561,15 @@ function renderVerify(){const d=S.draft;
  $("#app").innerHTML=`<div class="shell"><div class="panel" id="reg"><div class="wordmark">${WORDMARK}</div>
   <div class="kicker">Check your email</div><h1 style="font-size:28px;margin-top:6px">Enter your code</h1>
   <p class="sub">We sent a sign-in code to <b>${esc(d.email)}</b>. It can take a minute, so check spam too.</p>
-  <label class="f" for="code">Code</label><input class="inp" id="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456" style="font-size:22px;letter-spacing:.2em">
+  <label class="f" for="code">8-digit code</label><input class="inp" id="code" type="text" inputmode="numeric" pattern="[0-9]{8}" autocomplete="one-time-code" maxlength="8" placeholder="12345678" aria-describedby="err" style="font-size:22px;letter-spacing:.2em">
   <div class="err" id="err"></div><button class="btn full" id="vgo">Verify</button>
   <p class="verify"><button class="linkbtn" id="resend">Send a new code</button> · <button class="linkbtn" id="chg">Use a different email</button></p></div></div>`;
  const inp=$("#code");inp.addEventListener("keydown",e=>{e.stopPropagation();if(e.key==="Enter")go();});setTimeout(()=>inp.focus(),50);
- inp.oninput=()=>{inp.value=inp.value.replace(/\D/g,"");};
+ inp.oninput=()=>{inp.value=inp.value.replace(/\D/g,"").slice(0,8);$("#err").textContent="";if(inp.value.length===8)go();};
  $("#vgo").onclick=go;
  $("#resend").onclick=async()=>{try{await sendCode(d.email);toast("New code sent");}catch(e){$("#err").textContent=e.message;}};
  $("#chg").onclick=()=>{S.view=null;render();};
- async function go(){const t=inp.value.trim();if(t.length<6){$("#err").textContent="Enter the code from the email.";return;}
+ async function go(){if($("#vgo").disabled)return;const t=inp.value.trim();if(!/^\d{8}$/.test(t)){$("#err").textContent="Enter the 8-digit code from the email.";return;}
   $("#vgo").disabled=true;$("#err").textContent="";
   try{await verifyCode(d.email,t);await Shared.init();
    const prof=await Shared.db?.doc("data/users/"+Shared.uid+"/profile").get?.().catch(()=>null);
