@@ -7,5 +7,5 @@ cred = {k: v for k, v in cred.items() if (r/"site/img"/f"{k}.jpg").exists()}
 html = (r/"template.html").read_text()
 html = html.replace("/*DATA*/null", data.replace("</", "<\\/"), 1)
 html = html.replace("/*STOCK*/{}", json.dumps(cred, ensure_ascii=False).replace("</", "<\\/"), 1)
-(r/"site/index.html").write_text(html)
-print("site/index.html", round(len(html)/1024), "KB;", len(cred), "stock photos")
+(r/"index.html").write_text(html)
+print("index.html", round(len(html)/1024), "KB;", len(cred), "stock photos")

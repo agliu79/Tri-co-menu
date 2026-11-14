@@ -10,7 +10,8 @@ Dining menus for Bryn Mawr, Haverford and Swarthmore in one place, filtered by d
 
 | Path | What it is |
 | --- | --- |
-| `index.html`, `img/`, `config.js` | The built site (a copy of `site/`). `config.js` holds your Supabase address and key |
+| `index.html`, `config.js` | The built site. `config.js` holds your Supabase address and key |
+| `site/img/` | All images: stock photos, logos, the team's dish photos, and web-sized copies in `site/img/dishes/` |
 | `DEPLOY.md`, `supabase_setup.sql` | How to set up the database and publish on GitHub Pages |
 | `template.html` | Page HTML and CSS; the app code is spliced in |
 | `app.js` | All the app code |
@@ -31,8 +32,8 @@ Dining menus for Bryn Mawr, Haverford and Swarthmore in one place, filtered by d
 python3 convert_bmc.py  # only after pasting a new Bryn Mawr menu into data/source/
 python3 build_data.py   # only if data/raw_*.txt changed
 python3 splice.py       # after editing app.js
-python3 assemble.py     # writes site/index.html
-cp site/index.html index.html && cp site/img/* img/   # don't overwrite your filled-in config.js
+python3 dish_photos.py  # after adding dish photos to site/img/
+python3 assemble.py     # writes index.html
 ```
 
 ## Shared data

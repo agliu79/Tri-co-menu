@@ -1,5 +1,5 @@
 """Match the team's dish photos (site/img/<dish-name>.jpg in the GitHub repo) to dishes, and save web-sized copies
-as img/dishes/<dish-id>.jpg. Usage: python3 dish_photos.py <folder with the photos>"""
+as site/img/dishes/<dish-id>.jpg. Usage: python3 dish_photos.py <folder with the photos>"""
 import json, re, sys, pathlib
 from PIL import Image, ImageOps
 R = pathlib.Path(__file__).parent

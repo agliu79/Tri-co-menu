@@ -406,6 +406,9 @@ button.lbrow{width:100%;background:none;border:0;border-bottom:1px solid var(--l
 button.lbrow:hover{background:var(--soft)}
 span.av.lb{width:40px;height:40px;font-size:16px;justify-self:center}
 .lbwho{display:flex;align-items:center;gap:0;flex-wrap:wrap}.lbwho .ulink{color:var(--muted)}
+.lbrow.me{background:#fff7d6!important;box-shadow:inset 4px 0 0 var(--gold)}.lbrow.me .rk{color:var(--navy)}
+.authtabs{display:flex;border-bottom:2px solid var(--line);margin:0 0 18px}.authtabs button{flex:1;background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:10px;font:inherit;font-weight:700;font-size:15px;color:var(--muted);cursor:pointer}.authtabs button.on{color:var(--navy);border-bottom-color:var(--gold)}
+.lockname{padding:10px 12px;background:var(--soft);border:1.5px solid var(--line);font-weight:600;color:var(--text);margin-bottom:6px}
 .lbgap{text-align:center;color:var(--muted);padding:4px 0}
 .mycard{display:flex;align-items:center;gap:16px;width:100%;border:1.5px solid var(--navy);background:var(--soft);padding:14px 18px;margin:0 0 20px;font:inherit;color:inherit;text-align:left;cursor:pointer}
 .mycard b{display:block;font-size:20px;color:var(--navy)}.mycard small{color:var(--muted);font-size:14px}.mycard .kicker{margin:0}
@@ -565,9 +568,10 @@ function supaAssets(sb,uid){return{
   const {error}=await sb.storage.from("photos").upload(path,file,{contentType:"image/jpeg",upsert:false});if(error)throw error;
   return{url:PHOTO_URL()+path,path};},
  async delete(path){await sb.storage.from("photos").remove([path]);}};}
-async function sendCode(email){const sb=await loadSupabase();
- const {error}=await sb.auth.signInWithOtp({email,options:{shouldCreateUser:true}});
+async function sendCode(email,opts={}){const sb=await loadSupabase();const create=opts.create!==false;
+ const {error}=await sb.auth.signInWithOtp({email,options:{shouldCreateUser:create}});
  if(error){const m=error.message||"";
+  if(!create&&/signups? not allowed|not found|no user|user does not exist/i.test(m))throw Object.assign(new Error("No account"),{noAccount:true});
   if(/database error|saving new user/i.test(m))throw new Error("Only Bryn Mawr, Haverford and Swarthmore students can join.");
   if(/not authorized/i.test(m))throw new Error("The site can't email this address yet. The site owner needs to set up email sending (custom SMTP) in Supabase.");
   if(/rate limit|security purposes|only request this/i.test(m))throw new Error("Too many codes requested. Wait a minute and try again.");
@@ -575,7 +579,7 @@ async function sendCode(email){const sb=await loadSupabase();
 async function verifyCode(email,token){const sb=await loadSupabase();
  const {data,error}=await sb.auth.verifyOtp({email,token,type:"email"});
  if(error)throw new Error(/expired|invalid/i.test(error.message)?"That code is wrong or has expired. Check it, or send a new one.":error.message);return data.session;}
-async function saveProfile(){if(Shared.backend!=="supabase"||!S.user)return;try{await Shared.db.doc("data/users/"+Shared.uid+"/profile").set(S.user);}catch(e){}}
+async function saveProfile(){if(!S.user)return;rememberAccount();if(Shared.mode!=="shared"||!Shared.db)return;try{await Shared.db.doc("data/users/"+Shared.uid+"/profile").set(S.user);}catch(e){}}
 function renderVerify(){const d=S.draft;
  $("#app").innerHTML=`<div class="shell"><div class="panel" id="reg"><div class="wordmark">${WORDMARK}</div>
   <div class="kicker">Check your email</div><h1 style="font-size:28px;margin-top:6px">Enter your code</h1>
@@ -586,15 +590,16 @@ function renderVerify(){const d=S.draft;
  const inp=$("#code");inp.addEventListener("keydown",e=>{e.stopPropagation();if(e.key==="Enter")go();});setTimeout(()=>inp.focus(),50);
  inp.oninput=()=>{inp.value=inp.value.replace(/\D/g,"").slice(0,8);$("#err").textContent="";if(inp.value.length===8)go();};
  $("#vgo").onclick=go;
- $("#resend").onclick=async()=>{try{await sendCode(d.email);toast("New code sent");}catch(e){$("#err").textContent=e.message;}};
- $("#chg").onclick=()=>{S.view=null;render();};
+ $("#resend").onclick=async()=>{try{await sendCode(d.email,{create:d.mode!=="login"});toast("New code sent");}catch(e){$("#err").textContent=e.message;}};
+ $("#chg").onclick=()=>{S.view=null;S.authMode=d.mode||"signup";render();};
  async function go(){if($("#vgo").disabled)return;const t=inp.value.trim();if(!/^\d{8}$/.test(t)){$("#err").textContent="Enter the 8-digit code from the email.";return;}
   $("#vgo").disabled=true;$("#err").textContent="";
   try{await verifyCode(d.email,t);await Shared.init();
-   const prof=await Shared.db?.doc("data/users/"+Shared.uid+"/profile").get?.().catch(()=>null);
+   const prof=await getProfileDoc();
    const pend=S.pendingUser&&S.pendingUser.email===d.email?S.pendingUser:null;
    const back=prof&&prof.email===d.email?prof:pend;
-   if(back){S.user={...back,name:back.name||d.name};local.set("tce_user",S.user);S.pendingUser=null;S.draft=null;S.view="home";S.tab=S.user.college;S.day=null;await saveProfile();await Shared.saveMine(Shared.mine());render();toast(`Welcome back, ${S.user.name.split(" ")[0]}!`);}
+   if(back){const was=d.mode==="signup";finishLogin({...back,email:d.email},was?`You already had an account, so we logged you in as ${back.name}.`:null);await saveProfile();await Shared.saveMine(Shared.mine());}
+   else if(d.mode==="login"||!d.name){S.authMode="complete";S.view=null;S.draft={...d,name:""};render();}
    else{S.view="survey";S.step=0;render();}}
   catch(e){$("#err").textContent=e.message;$("#vgo").disabled=false;}}
 }
@@ -614,7 +619,7 @@ const Shared={mode:"local",uid:"local",db:null,assets:null,docs:{},canWrite:true
      let db,assets,id;
      if(SUPA_ON){
        const sb=await loadSupabase();const {data}=await sb.auth.getSession();const sess=data?.session;
-       if(!sess){this.mode="signedout";if(S.user){S.pendingUser=S.user;S.draft={name:S.user.name,email:S.user.email};S.user=null;S.view=null;S.signinNote="Sign in again with your school email to continue.";render();}return;}
+       if(!sess){this.mode="signedout";if(S.user){S.pendingUser=S.user;S.draft={name:S.user.name,email:S.user.email};S.user=null;S.view=null;S.authMode="login";S.signinNote="Log in again with your school email to continue.";render();}return;}
        id=sess.user.id;db=supaDb(sb,id);assets=supaAssets(sb,id);this.backend="supabase";
        try{const r=await sb.rpc("is_admin");this.isOwner=!!r.data;}catch(e){}
        if(S.user&&sess.user.email&&S.user.email!==sess.user.email){S.user={...S.user,email:sess.user.email};local.set("tce_user",S.user);}
@@ -629,7 +634,9 @@ const Shared={mode:"local",uid:"local",db:null,assets:null,docs:{},canWrite:true
      try{this.isOwner=!!(await user.isOwner());}catch(e){}
      }
      let timer=setTimeout(()=>{S.sharedNote="Reviews are still loading…";rerender();},10000);
-     db.collection("contrib").onSnapshot(snap=>{clearTimeout(timer);S.sharedNote="";const docs={};snap.docs.forEach(d=>{if(d.exists)docs[d.id]=d.data();});this.docs=docs;rerender();},
+     db.collection("contrib").onSnapshot(snap=>{clearTimeout(timer);S.sharedNote="";const docs={};snap.docs.forEach(d=>{if(d.exists)docs[d.id]=d.data();});this.docs=docs;
+       if(!this._synced&&S.user&&this.canWrite){this._synced=true;const m=docs[this.uid];if(m&&(m.avatar!==(S.user.avatar||null)||m.name!==S.user.name.split(" ")[0]||m.college!==S.user.college))this.saveMine(this.mine());}
+       rerender();},
        ()=>{clearTimeout(timer);S.sharedNote="Shared reviews are unavailable right now.";rerender();});
      const fref=db.doc("data/users/"+id+"/prefs");
      db.doc("data/users/"+id+"/fuel").onSnapshot(s=>{try{if(!s.exists){if(Fuel.data.profile)Fuel.save();return;}const d=s.data();if(d&&typeof d.days==="object"&&(d.profile===null||typeof d.profile==="object")){Fuel.data={profile:d.profile||null,days:d.days||{}};local.set("tce_fuel",Fuel.data);if(S.view==="fuel")rerender();}}catch(e){}},()=>{});
@@ -683,7 +690,7 @@ function fmtH(x){const h=Math.floor(x),m=Math.round((x-h)*60);const ap=h>=12?"pm
 function ago(ts){const m=Math.round((Date.now()-ts)/60000);if(m<1)return "just now";if(m<60)return m+"m ago";const h=Math.round(m/60);if(h<24)return h+"h ago";return new Date(ts).toLocaleDateString(undefined,{month:"short",day:"numeric"});}
 function toast(msg){const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2600);}
 function rerender(){if(!S.user||S.view==="survey")return;const ae=document.activeElement;if(ae&&ae.matches&&ae.matches("textarea,input[type=text],#q,.cmtform input"))return;render();}
-function stockSrc(it){return it.img?`img/dishes/${it.id}.jpg`:it.photo&&STOCK[it.photo]?`img/${it.photo}.jpg`:null;}
+function stockSrc(it){return it.img?`site/img/dishes/${it.id}.jpg`:it.photo&&STOCK[it.photo]?`site/img/${it.photo}.jpg`:null;}
 function pic(it){const s=stockSrc(it);return s?`<div class="pic" style="background-image:url('${s}')"></div>`:`<div class="pic blank"><span>${esc(it.category)}</span></div>`;}
 function heartBtn(id,big){const on=Shared.favs.has(id);return `<button class="heart ${on?"on":""} ${big?"big":""}" data-fav="${id}" aria-label="${on?"Remove from":"Add to"} favorites" aria-pressed="${on}">${on?HEART:HEART_O}</button>`;}
 function wireHearts(){document.querySelectorAll("[data-fav]").forEach(b=>b.onclick=async e=>{e.stopPropagation();const id=b.dataset.fav;await Shared.toggleFav(id);toast(Shared.favs.has(id)?"Added to favorites":"Removed from favorites");render();});}
@@ -1097,22 +1104,16 @@ function squareAvatar(file,size=160){return new Promise((res,rej)=>{const img=ne
 function openProfileEditor(){
  let pic=S.user.avatar||null;
  const m=document.createElement("div");m.className="modal";
- const draw=()=>{m.innerHTML=`<div class="card" role="dialog" aria-label="Edit profile"><h2 style="margin-bottom:14px">Edit profile</h2>
-  <div class="pedit">${avatarHTML($("#pnm")?.value||S.user.name,pic,"xl")}<div><button class="btn sm ghost" id="ppick">${pic?"Change photo":"Upload photo"}</button>${pic?` <button class="linkbtn red" id="prm" style="margin-left:8px">Remove</button>`:""}<p class="note2">Square crop from the middle. Everyone at the Tri-Co can see it next to your posts and reviews.</p></div></div>
-  <label class="f" for="pnm">Name</label><input class="inp" id="pnm" type="text" maxlength="40" value="${esc(m._name??S.user.name)}">
-  <p class="note2">Your first name shows on posts, reviews and the leaderboard.</p><div class="err" id="perr2"></div>
+ const draw=()=>{m.innerHTML=`<div class="card" role="dialog" aria-label="Change profile photo"><h2 style="margin-bottom:14px">Profile photo</h2>
+  <div class="pedit">${avatarHTML(S.user.name,pic,"xl")}<div><button class="btn sm ghost" id="ppick">${pic?"Change photo":"Upload photo"}</button>${pic?` <button class="linkbtn red" id="prm" style="margin-left:8px">Remove</button>`:""}<p class="note2">Square crop from the middle. Everyone at the Tri-Co can see it on your posts, reviews and the leaderboard.</p></div></div>
+  <div class="f">Name</div><div class="lockname">${esc(S.user.name)}</div><p class="note2">Names can't be changed after signing up.</p>
   <div class="nav-row"><button class="btn ghost" id="pcancel">Cancel</button><button class="btn" id="psave">Save</button></div></div>`;
-  const nm=m.querySelector("#pnm");nm.addEventListener("keydown",e=>e.stopPropagation());nm.oninput=()=>{m._name=nm.value;};
   m.querySelector("#ppick").onclick=()=>{const inp=$("#photoInput");inp.multiple=false;inp.value="";inp.onchange=async()=>{const f=inp.files[0];if(!f||!f.type.startsWith("image/"))return;try{pic=await squareAvatar(f);draw();}catch(e){toast("Couldn't read that image.");}};inp.click();};
   m.querySelector("#prm")&&(m.querySelector("#prm").onclick=()=>{pic=null;draw();});
   m.querySelector("#pcancel").onclick=()=>m.remove();
-  m.querySelector("#psave").onclick=async()=>{const name=nm.value.trim().replace(/\s+/g," ");let err="";
-   if(name.length<2||name.length>40||!/^[\p{L}][\p{L}\p{M}\p{N} .'’-]*$/u.test(name))err="Use your name: letters, numbers, spaces, hyphens and apostrophes.";
-   else if(hasBad(name))err=MOD_MSG;
-   if(err){m.querySelector("#perr2").textContent=err;return;}
-   S.user={...S.user,name,avatar:pic||null};local.set("tce_user",S.user);saveProfile();
+  m.querySelector("#psave").onclick=async()=>{S.user={...S.user,avatar:pic||null};local.set("tce_user",S.user);saveProfile();
    if(Shared.mode==="shared"||Shared.docs[Shared.uid])await Shared.saveMine(Shared.mine());
-   m.remove();toast("Profile updated");render();};};
+   m.remove();toast("Photo updated");render();};};
  m.onclick=e=>{if(e.target===m)m.remove();};draw();document.body.appendChild(m);
 }
 
@@ -1139,7 +1140,7 @@ function renderProfile(){
   <div class="profhead"><button class="bigavbtn" id="pav" aria-label="Change profile photo">${avatarHTML(S.user.name,S.user.avatar,"big")}<span>Edit</span></button>
    <div><h1>${esc(S.user.name)}</h1><div class="legend" style="margin:2px 0 0">${esc(S.user.email)} · ${COLLEGES[S.user.college].name}</div></div>
    <div class="karma"><b>${me.karma}</b><span>karma${rank?` · #${rank}`:""}</span></div></div>
-  <div class="pbtns"><button class="btn sm ghost" id="pprof">Edit name &amp; photo</button><button class="btn sm ghost" id="pedit">Edit dining preferences</button><button class="btn sm ghost" id="pfuel">Fuel tracker</button><button class="btn sm ghost" id="pout">Sign out</button></div>
+  <div class="pbtns"><button class="btn sm ghost" id="pprof">Change photo</button><button class="btn sm ghost" id="pedit">Edit dining preferences</button><button class="btn sm ghost" id="pfuel">Fuel tracker</button><button class="btn sm ghost" id="pout">Sign out</button></div>
   <section class="box"><h3>Karma</h3><div class="kgrid"><div><b>${me.likes}</b>likes on your plates</div><div><b>${me.comments}</b>comments received</div><div><b>${me.posts}</b>plates posted</div><div><b>${me.reviews}</b>dish reviews</div><div><b>${me.photos}</b>review photos</div></div>
    <p class="note2">${KARMA_RULES} <button class="linkbtn" id="goleaders">See the leaderboard</button></p></section>
   <section class="box"><h3>Favorites (${favs.length})</h3>
@@ -1171,6 +1172,9 @@ function renderUser(){
  const doc=Shared.docs[uid]||{};
  const reviews=Object.entries(doc.reviews||{}).filter(([id,r])=>D[id]&&r&&typeof r.stars==="number"&&!Shared.hidden('review:'+uid+'|'+id,uid)).map(([id,r])=>({id,...r,text:clean(r.text)})).sort((a,b)=>(b.ts||0)-(a.ts||0));
  const known=!!Shared.docs[uid];
+ const cmts=[];for(const [key,arr] of Object.entries(doc.comments||{})){const [owner,pid]=key.split("~");const post=Shared.docs[owner]?.posts?.[pid];if(!post)continue;
+  (arr||[]).forEach((c,i)=>{const rk='cmt:'+key+'|'+uid+'|'+(c.ts||i);if(!Shared.hidden(rk,uid))cmts.push({text:clean(c.text),ts:c.ts||0,owner,title:clean(post.title||"a plate"),ownerName:Shared.who(owner).name});});}
+ cmts.sort((a,b)=>b.ts-a.ts);
  $("#app").innerHTML=header()+`<main>
   <button class="linkbtn" id="uback" style="margin-bottom:12px">← Back</button>
   ${known?`<div class="profhead">${avatarHTML(x.name,who.avatar,"big")}
@@ -1178,6 +1182,7 @@ function renderUser(){
    <div class="karma"><b>${x.karma}</b><span>karma${rank?` · #${rank} of ${total}`:""}</span></div></div>
   <section class="box"><h3>Karma</h3>${karmaGrid(x,false)}<p class="note2">${KARMA_RULES}</p></section>
   <section class="box"><h3>Plates (${plates.length})</h3>${plates.length?`<div class="ugrid">${plates.map(p=>`<button class="uplate" data-zoom="${esc(p.src)}" aria-label="${esc(p.title||"Plate")}"><span class="ph" style="background-image:url('${esc(p.src)}')"></span><b>${esc(p.title||"Plate")}</b><small>${HEART} ${p.likes} · ${p.comments.length} comment${p.comments.length===1?"":"s"}</small></button>`).join("")}</div>`:`<p class="legend" style="margin:0">No plates posted yet.</p>`}</section>
+  <section class="box"><h3>Comments (${cmts.length})</h3>${cmts.length?cmts.slice(0,30).map(c=>`<div class="urev">“${esc(c.text)}”<div class="legend" style="margin:2px 0 0">on ${c.owner===uid?"their own":`${userLink(c.owner,c.ownerName)}'s`} plate <b>${esc(c.title)}</b> · ${ago(c.ts)}</div></div>`).join(""):`<p class="legend" style="margin:0">No comments yet.</p>`}</section>
   <section class="box"><h3>Reviews (${reviews.length})</h3>${reviews.length?reviews.map(r=>`<div class="urev"><button class="linkbtn" data-open="${r.id}" style="font-weight:700">${esc(D[r.id].name)}</button> <span class="stars" style="font-size:13px">${stars(r.stars)}</span>${r.text?`<p>${esc(r.text)}</p>`:""}</div>`).join(""):`<p class="legend" style="margin:0">No reviews yet.</p>`}</section>`
   :`<div class="empty">This student's profile isn't available.</div>`}
   ${footer()}</main>`;
@@ -1186,21 +1191,21 @@ function renderUser(){
  document.querySelectorAll("[data-zoom]").forEach(b=>b.onclick=()=>showImage(b.dataset.zoom));
  document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openDish(b.dataset.open));
 }
-function signOut(){return(async()=>{if(Shared.backend==="supabase"){try{await sbClient.auth.signOut();}catch(e){}Shared.mode="signedout";Shared.backend=null;Shared.uid="local";Shared.docs={};}local.del("tce_user");S.user=null;S.menuOpen=false;S.view=null;S.draft=null;S.tab=null;render();})();}
+function signOut(){return(async()=>{rememberAccount();if(Shared.backend==="supabase"){try{await sbClient.auth.signOut();}catch(e){}Shared.mode="signedout";Shared.backend=null;Shared.uid="local";Shared.docs={};}local.del("tce_user");S.user=null;S.menuOpen=false;S.view=null;S.draft=null;S.tab=null;S.authMode="login";render();})();}
 
 function renderLeaders(){
- const all=karmaTable();const kt=all.filter(x=>x.karma>0);const plates=Shared.posts().sort((a,b)=>b.likes-a.likes||b.ts-a.ts).slice(0,10);
+ const all=karmaTable();const kt=all.filter(x=>x.karma>0);const plates=Shared.posts().sort((a,b)=>b.likes-a.likes||b.ts-a.ts).slice(0,5);
  const me=all.find(x=>x.uid===Shared.uid)||{karma:0,likes:0,comments:0,posts:0,reviews:0,photos:0};const myRank=me.karma>0?rankOf(Shared.uid,kt):0;
  const row=(x,i)=>`<button class="lbrow ${x.uid===Shared.uid?"me":""}" data-user="${esc(x.uid)}"><span class="rk">${rankOf(x.uid,kt)}</span>${avatarHTML(x.name,x.avatar,"lb")}<div><b>${esc(x.name)}${x.uid===Shared.uid?" (you)":""}</b><small>${COLLEGES[x.college]?.name||""} · ${x.posts} plate${x.posts===1?"":"s"}, ${x.likes} like${x.likes===1?"":"s"}</small></div><span class="lbscore">${x.karma}</span></button>`;
  $("#app").innerHTML=header()+`<main><div class="hero"><h1>Leaderboard</h1></div>
   <button class="mycard" data-user="${esc(Shared.uid)}">${avatarHTML(S.user.name,S.user.avatar,"big")}
    <div><span class="kicker">You</span><b>${esc(S.user.name)}</b><small>${myRank?`#${myRank} of ${kt.length} on the leaderboard`:"Not on the board yet. Post a plate or review a dish to start earning karma."}</small></div>
    <div class="karma"><b>${me.karma}</b><span>karma</span></div></button>
-  <div class="lbwrap"><section class="box"><h3>Top plates</h3>
+  <div class="lbwrap"><section class="box"><h3>Top 5 plates</h3>
    ${plates.length?plates.map((p,i)=>`<div class="lbrow"><span class="rk">${i+1}</span><button class="lbimg" data-zoom="${esc(p.src)}" style="background-image:url('${esc(p.src)}')" aria-label="View photo"></button><div><b>${esc(p.title||"Plate")}</b><small class="lbwho">${avatarHTML(p.name,p.avatar,"xs")}${userLink(p.uid,p.name)} · ${COLLEGES[p.college].name}</small></div><span class="lbscore">${p.likes} like${p.likes===1?"":"s"}</span></div>`).join("")
     :`<p class="legend">No plates yet. Post one on Rate My Plate.</p>`}</section>
-  <section class="box"><h3>Most karma</h3>
-   ${kt.length?kt.slice(0,20).map(row).join("")+(myRank>20?`<div class="lbgap">⋯</div>`+row(kt.find(x=>x.uid===Shared.uid)):""):`<p class="legend">Nobody has karma yet.</p>`}
+  <section class="box"><h3>Top 5 students</h3>
+   ${kt.slice(0,5).map(row).join("")}${myRank>0&&myRank<=5?"":`${kt.length>5?`<div class="lbgap">⋯</div>`:""}<div class="lbrow me" aria-label="Your standing"><span class="rk">${myRank||"–"}</span>${avatarHTML(S.user.name,S.user.avatar,"lb")}<div><b>${esc(S.user.name.split(" ")[0])} (you)</b><small>${myRank?`Your rank out of ${kt.length}`:"Not ranked yet. Post a plate or review a dish."}</small></div><span class="lbscore">${me.karma}</span></div>`}${kt.length?"":`<p class="legend">Nobody has karma yet.</p>`}
    <p class="note2">${KARMA_RULES} Tap anyone to see their profile.</p></section></div>
   ${Shared.mode==="local"?`<div class="note">You're seeing only this browser's activity.</div>`:""}
   ${footer()}</main>`;
@@ -1214,43 +1219,65 @@ function bottomNav(){let n=$("#bnav");if(!S.user||S.view==="survey"){n&&n.remove
  const cur=S.view==="detail"?"home":S.view;n.innerHTML=[["home","Menus"],["feed","Rate My Plate"],["leaders","Leaders"],["profile","Profile"],["fuel","Fuel"]].map(([v,l])=>`<button data-go="${v}" class="${cur===v?"on":""}" aria-current="${cur===v?"page":"false"}">${l}</button>`).join("");
  n.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{if(b.dataset.go==="home"){S.tab=S.tab||S.user.college;}go(b.dataset.go);});}
 let themed=false;function applyThemeOnce(){if(!themed){themed=true;applyTheme(false);}}
-const WORDMARK=`<img src="img/logo-dark.png" alt="Tri-Co Eatmaxxing">`;
-const WORDMARK_H=()=>`<img class="lg-dark" src="img/logo-dark.png" alt="Tri-Co Eatmaxxing"><img class="lg-light" src="img/logo-light.png" alt="" aria-hidden="true">`;
+const WORDMARK=`<img src="site/img/logo-dark.png" alt="Tri-Co Eatmaxxing">`;
+const WORDMARK_H=()=>`<img class="lg-dark" src="site/img/logo-dark.png" alt="Tri-Co Eatmaxxing"><img class="lg-light" src="site/img/logo-light.png" alt="" aria-hidden="true">`;
 const onScroll=()=>document.body.classList.toggle("scrolled",window.scrollY>8);
 window.addEventListener("scroll",onScroll,{passive:true});
 const collegeOf=raw=>{const email=String(raw||"").replace(/[\s\u00a0\u200b-\u200d\u2060\ufeff]/g,"").toLowerCase();const g=CFG.guestEmails&&CFG.guestEmails[email.trim().toLowerCase()];if(g&&COLLEGES[g])return g;const m=/^[^@\s]+@([a-z0-9.-]+)$/i.exec(email.trim());if(!m)return null;const dom=m[1].toLowerCase();return Object.keys(COLLEGES).find(k=>dom===COLLEGES[k].domain)||null;};
 
 /* ================= registration ================= */
 function renderRegister(){
- const d=S.draft||{name:"",email:""};
+ const mode=S.authMode||"signup";const d=S.draft||{name:"",email:""};
+ const complete=mode==="complete";
+ const heads={signup:["Create your account","This week's dining halls, filtered for you."],login:["Welcome back","Log in to Eatmaxxing."],complete:["Almost done","What should we call you?"]};
  $("#app").innerHTML=`<div class="shell"><div class="panel" id="reg">
   <div class="wordmark">${WORDMARK}</div>
-  <div class="kicker">Create your account</div>
-  <h1 style="font-size:30px;margin-top:6px">This week's dining halls, filtered for you.</h1>
-  <p class="sub">Bryn Mawr, Haverford and Swarthmore menus in one place.</p>
-  <label class="f" for="nm">Name</label><input class="inp" id="nm" type="text" value="${esc(d.name)}" placeholder="Jordan Lee" autocomplete="off" spellcheck="false">
-  <label class="f" for="em">School email</label><input class="inp" id="em" type="text" inputmode="email" autocapitalize="off" value="${esc(d.email)}" placeholder="jlee@haverford.edu" autocomplete="off" spellcheck="false">
-  <div class="logos" aria-live="polite">${Object.entries(COLLEGES).map(([k,c])=>`<div class="logo-badge" data-c="${k}" style="--c:${c.color}"><span class="mono">${c.mono}</span><span class="nm">${c.name}</span></div>`).join("")}</div>
+  ${complete?"":`<div class="authtabs" role="tablist">${[["signup","Sign up"],["login","Log in"]].map(([k,l])=>`<button role="tab" aria-selected="${mode===k}" class="${mode===k?"on":""}" data-am="${k}">${l}</button>`).join("")}</div>`}
+  <div class="kicker">${heads[mode][0]}</div>
+  <h1 style="font-size:30px;margin-top:6px">${heads[mode][1]}</h1>
+  <p class="sub">${mode==="login"?"Enter the school email you signed up with.":complete?`Signed in as <b>${esc(d.email)}</b>. Your name can't be changed later.`:"Bryn Mawr, Haverford and Swarthmore menus in one place."}</p>
+  ${mode==="login"?"":`<label class="f" for="nm">Name</label><input class="inp" id="nm" type="text" value="${esc(d.name||"")}" placeholder="Jordan Lee" autocomplete="off" spellcheck="false">${complete?"":`<p class="note2" style="margin:-4px 0 6px">You can't change your name after signing up.</p>`}`}
+  ${complete?"":`<label class="f" for="em">School email</label><input class="inp" id="em" type="text" inputmode="email" autocapitalize="off" value="${esc(d.email||"")}" placeholder="jlee@haverford.edu" autocomplete="off" spellcheck="false">
+  <div class="logos" aria-live="polite">${Object.entries(COLLEGES).map(([k,c])=>`<div class="logo-badge" data-c="${k}" style="--c:${c.color}"><span class="mono">${c.mono}</span><span class="nm">${c.name}</span></div>`).join("")}</div>`}
   <div class="okmsg" id="ok"></div><div class="err" id="err"></div>
-  ${S.signinNote?`<div class="okmsg" style="margin-bottom:10px">${esc(S.signinNote)}</div>`:""}<button class="btn full" type="button" id="go">${SUPA_ON?"Email me a code":"Continue to dining survey"}</button>
-  <p class="verify">Only @brynmawr.edu, @haverford.edu and @swarthmore.edu addresses can sign up.${SUPA_ON?" We email you a code to prove the address is yours.":""}</p></div></div>`;
- const upd=()=>{const k=collegeOf($("#em").value);document.querySelectorAll(".logo-badge").forEach(b=>{b.classList.toggle("on",b.dataset.c===k);b.classList.toggle("dim",!!k&&b.dataset.c!==k);});$("#ok").textContent=k?`${COLLEGES[k].name} email recognised.`:"";if(k)$("#err").textContent="";};
- $("#em").addEventListener("input",upd);upd();
+  ${S.signinNote?`<div class="okmsg" style="margin-bottom:10px">${esc(S.signinNote)}</div>`:""}
+  <button class="btn full" type="button" id="go">${complete?"Continue to dining survey":SUPA_ON?"Email me a code":mode==="login"?"Log in":"Continue to dining survey"}</button>
+  ${complete?"":`<p class="verify">${mode==="login"?`New here? <button class="linkbtn" data-am="signup">Create an account</button>`:`Already have an account? <button class="linkbtn" data-am="login">Log in</button>`}<br>Only @brynmawr.edu, @haverford.edu and @swarthmore.edu addresses can join.${SUPA_ON?" We email you a code to prove the address is yours.":""}</p>`}</div></div>`;
+ document.querySelectorAll("[data-am]").forEach(b=>b.onclick=()=>{const em=$("#em")?.value||d.email||"",nm=$("#nm")?.value||d.name||"";S.draft={...(S.draft||{}),email:em,name:nm};S.authMode=b.dataset.am;S.signinNote="";render();});
+ const upd=()=>{if(!$("#em"))return;const k=collegeOf($("#em").value);document.querySelectorAll(".logo-badge").forEach(b=>{b.classList.toggle("on",b.dataset.c===k);b.classList.toggle("dim",!!k&&b.dataset.c!==k);});$("#ok").textContent=k?`${COLLEGES[k].name} email recognised.`:"";if(k)$("#err").textContent="";};
+ $("#em")&&$("#em").addEventListener("input",upd);upd();
  document.querySelectorAll("#reg .inp").forEach(i=>{i.addEventListener("pointerdown",()=>setTimeout(()=>i.focus(),0));i.addEventListener("keydown",e=>{e.stopPropagation();if(e.key==="Enter"){e.preventDefault();submit();}});});
- setTimeout(()=>{try{$("#nm").focus()}catch(e){}},50);
+ setTimeout(()=>{try{($("#nm")||$("#em")).focus()}catch(e){}},50);
  $("#go").onclick=submit;
- function submit(){const name=$("#nm").value.trim().replace(/\s+/g," "),email=$("#em").value.replace(/[\s\u00a0\u200b-\u200d\u2060\ufeff]/g,"").toLowerCase();let m="";
-  const k=collegeOf(email),local=email.split("@")[0]||"";
-  if(!name)m="Please enter your name.";
-  else if(name.length<2||name.length>40||!/^[\p{L}][\p{L}\p{M}\p{N} .'’-]*$/u.test(name))m="Use your name: letters, numbers, spaces, hyphens and apostrophes.";
-  else if(hasBad(name))m=MOD_MSG;
-  else if(!/^[a-z0-9._%+'-]{1,64}@[a-z0-9.-]+\.[a-z]{2,}$/.test(email))m="That doesn't look like a valid email address.";
-  else if(!k)m="Only Bryn Mawr, Haverford and Swarthmore students can join. Use your @brynmawr.edu, @haverford.edu or @swarthmore.edu address.";
-  if(m){$("#err").textContent=m;return;}
-  S.draft={name,email,college:k,prefs:{diets:[],allergens:[],cuisines:{},goals:[]}};
-  if(SUPA_ON){const b=$("#go");b.disabled=true;b.textContent="Sending code…";sendCode(email).then(()=>{S.view="verify";render();}).catch(e=>{$("#err").textContent=e.message;b.disabled=false;b.textContent="Email me a code";});return;}
+ function checkName(name){if(!name)return"Please enter your name.";if(name.length<2||name.length>40||!/^[\p{L}][\p{L}\p{M}\p{N} .'’-]*$/u.test(name))return"Use your name: letters, numbers, spaces, hyphens and apostrophes.";if(hasBad(name))return MOD_MSG;return"";}
+ function busy(on,label){const b=$("#go");b.disabled=on;if(label)b.textContent=label;}
+ async function submit(){const err=m=>{$("#err").textContent=m;};
+  if(complete){const name=$("#nm").value.trim().replace(/\s+/g," ");const m=checkName(name);if(m)return err(m);
+   S.draft={...d,name,college:d.college||collegeOf(d.email),prefs:d.prefs||{diets:[],allergens:[],cuisines:{},goals:[]}};S.authMode="signup";S.view="survey";S.step=0;render();return;}
+  const email=$("#em").value.replace(/[\s ​-‍⁠﻿]/g,"").toLowerCase();const k=collegeOf(email);
+  const name=mode==="signup"?$("#nm").value.trim().replace(/\s+/g," "):"";
+  if(mode==="signup"){const m=checkName(name);if(m)return err(m);}
+  if(!/^[a-z0-9._%+'-]{1,64}@[a-z0-9.-]+\.[a-z]{2,}$/.test(email))return err("That doesn't look like a valid email address.");
+  if(!k)return err("Only Bryn Mawr, Haverford and Swarthmore students can join. Use your @brynmawr.edu, @haverford.edu or @swarthmore.edu address.");
+  S.draft={name,email,college:k,mode,prefs:{diets:[],allergens:[],cuisines:{},goals:[]}};
+  if(SUPA_ON){busy(true,"Sending code…");
+   try{await sendCode(email,{create:mode==="signup"});S.view="verify";render();}
+   catch(e){err(e.noAccount?"There's no account with that email yet. Sign up instead.":e.message);busy(false,"Email me a code");}
+   return;}
+  // without the database: accounts are remembered per device (and per Claude user inside Claude)
+  busy(true);const found=await findAccount(email);busy(false);
+  if(mode==="login"){if(!found)return err("There's no account with that email on this device yet. Sign up instead.");finishLogin(found);return;}
+  if(found)return err("You already have an account with that email. Log in instead.");
   S.view="survey";S.step=0;render();}
 }
+function localAccounts(){return local.get("tce_accounts")||{};}
+function rememberAccount(){if(!S.user?.email)return;const a=localAccounts();a[S.user.email]=S.user;local.set("tce_accounts",a);}
+function getProfileDoc(){return new Promise(res=>{if(Shared.mode!=="shared"||!Shared.db)return res(null);const ref=Shared.db.doc("data/users/"+Shared.uid+"/profile");
+ if(ref.get){ref.get().then(res,()=>res(null));return;}let done=false;const t=setTimeout(()=>{if(!done){done=true;res(null);}},4000);
+ try{ref.onSnapshot(s=>{if(done)return;done=true;clearTimeout(t);res(s&&s.exists?s.data():null);},()=>{if(!done){done=true;clearTimeout(t);res(null);}});}catch(e){done=true;clearTimeout(t);res(null);}});}
+async function findAccount(email){const a=localAccounts()[email];if(a)return a;const p=await getProfileDoc();if(p&&p.email===email)return p;
+ const mine=Shared.docs?.[Shared.uid];if(mine&&mine.email===email)return null;return null;}
+function finishLogin(u,note){S.user=u;local.set("tce_user",S.user);rememberAccount();S.pendingUser=null;S.draft=null;S.authMode="signup";S.signinNote="";S.view="home";S.tab=S.user.college;S.day=null;render();toast(note||`Welcome back, ${S.user.name.split(" ")[0]}!`);}
 
 /* ================= survey ================= */
 const STEPS=[{key:"diets",kick:"Restrictions",title:"Any dietary restrictions?",hint:"Select all that apply.",list:DIETS},
@@ -1290,9 +1317,9 @@ function header(){
  return `<header class="top"><div class="top-in">
  <div class="wordmark" id="home" role="link" aria-label="Home">${WORDMARK_H()}</div>
  <nav class="tabs">${order.map(k=>`<button class="tab ${S.view==="home"&&tab===k?"on":""}" data-t="${k}">${COLLEGES[k].name}</button>`).join("")}
-  ${XTABS.map(([v,l])=>`<button class="tab xtab ${S.view===v?"on":""}" data-go="${v}">${v==="feed"?`<img src="img/ratemyplate.png" alt="" class="tabico">`:""}${l}</button>`).join("")}
+  ${XTABS.map(([v,l])=>`<button class="tab xtab ${S.view===v?"on":""}" data-go="${v}">${v==="feed"?`<img src="site/img/ratemyplate.png" alt="" class="tabico">`:""}${l}</button>`).join("")}
   <div class="more"><button class="tab moretab ${XTABS.some(x=>x[0]===S.view)?"on":""}" id="morebtn" aria-haspopup="true" aria-expanded="false">${XTABS.find(x=>x[0]===S.view)?.[1]||"More"} <span aria-hidden="true">▾</span></button>
-   <div class="moremenu hidden" id="moremenu">${XTABS.map(([v,l])=>`<button class="mitem" data-go="${v}">${v==="feed"?`<img src="img/ratemyplate.png" alt="" class="tabico">`:""}${l}</button>`).join("")}</div></div></nav>
+   <div class="moremenu hidden" id="moremenu">${XTABS.map(([v,l])=>`<button class="mitem" data-go="${v}">${v==="feed"?`<img src="site/img/ratemyplate.png" alt="" class="tabico">`:""}${l}</button>`).join("")}</div></div></nav>
  <div class="search"><span class="mag">${MAG}</span><input id="q" type="text" placeholder="Search dishes" autocomplete="off" aria-label="Search dishes" aria-controls="sres">${SR?`<button class="mic" id="mic" type="button" aria-label="Search by voice" title="Search by voice">${MIC}</button>`:""}<div class="sresults hidden" id="sres" role="listbox"></div></div>
  <div class="me"><button class="gear" id="gear" aria-label="Settings" title="Settings">${GEAR}</button><button class="avatar" id="av" aria-label="Account menu">${avatarHTML(u.name,u.avatar,"hdr")}</button>
   <div class="menu ${S.menuOpen?"":"hidden"}"><div class="who"><b>${esc(u.name)}</b>${esc(u.email)} · ${COLLEGES[u.college].name}</div>
@@ -1542,7 +1569,7 @@ function renderFeed(){
  if(S.feedCollege!=="all")posts=posts.filter(p=>p.college===S.feedCollege);
  posts.sort(S.feedSort==="top"?(a,b)=>b.likes-a.likes||b.ts-a.ts:(a,b)=>b.ts-a.ts);
  const d=S.postDraft||{};
- $("#app").innerHTML=header()+`<main><div class="hero rmp-hero"><img src="img/ratemyplate.png" alt="" class="rmp-logo"><h1>Rate My Plate</h1></div>
+ $("#app").innerHTML=header()+`<main><div class="hero rmp-hero"><img src="site/img/ratemyplate.png" alt="" class="rmp-logo"><h1>Rate My Plate</h1></div>
   <p class="legend" style="margin:-6px 0 16px">Show off your bowls, builds and coffee orders. Like the best plates, comment, and climb the leaderboard.</p>
   
   <div class="feedwrap"><div>${`
