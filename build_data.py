@@ -175,7 +175,7 @@ def guess_photo(n):
 
 # ---------- halls, hours (Eastern time, 24h decimals), dates ----------
 BICO_DATES = ["Sun Nov 8", "Mon Nov 9", "Tue Nov 10", "Wed Nov 11", "Thu Nov 12", "Fri Nov 13", "Sat Nov 14"]
-SWAT_DATES = ["Sun Nov 15", "Mon Nov 16", "Tue Nov 17", "Wed Nov 18", "Thu Nov 19", "Fri Nov 20", "Sat Nov 14"]
+SWAT_DATES = ["Sun Nov 15", "Mon Nov 9", "Tue Nov 10", "Wed Nov 11", "Thu Nov 12", "Fri Nov 13", "Sat Nov 14"]
 
 def wk(mon_fri, sat, sun):
     return [sun] + [mon_fri] * 5 + [sat]
@@ -208,12 +208,12 @@ HALLS = [
                  [["brunch", 10, 14], ["dinner", 17, 19.5]])},
     {"id": "swatdc", "college": "S", "name": "The Dining Center", "raw": "raw_swat.txt", "fmt": "swat",
      "marksVeg": True, "blurb": "Swarthmore's dining hall, nine stations", "dates": SWAT_DATES,
-     "coverage": "Main dishes; Friday Nov 20 and Thursday dinner were not published yet",
+     "coverage": "Full menu, all stations",
      "source": "The Dash", "sourceUrl": "https://dash.swarthmore.edu/menu/dining-center/",
-     "hoursSource": "swarthmore.edu Dining Locations & Hours (Sept-May)",
-     "hours": [[["brunch", 10, 14], ["dinner", 16, 21]]]
-              + [[["breakfast", 7, 11], ["lunch", 11, 14], ["dinner", 16.5, 21.5]]] * 4
-              + [[["breakfast", 7, 11], ["lunch", 11, 14], ["dinner", 16.5, 20]]]
+     "hoursSource": "The Dash menu (meal times shifted to Eastern time)",
+     "hours": [[["brunch", 10, 14], ["dinner", 16, 20], ["fifth", 20, 21]]]
+              + [[["breakfast", 7, 11], ["lunch", 11, 14], ["midday", 14, 16.5], ["dinner", 16.5, 20], ["fifth", 20, 21.5]]] * 3
+              + [[["breakfast", 7, 11], ["lunch", 11, 14], ["midday", 14, 16.5], ["dinner", 16.5, 20]]] * 2
               + [[["breakfast", 7, 11], ["lunch", 11, 14], ["dinner", 16, 20]]]},
 ]
 
@@ -237,7 +237,7 @@ for h in HALLS:
                 diets.add("vegetarian")
             allergens = sorted({SWAT_ALLERGENS[l] for l in labels if l in SWAT_ALLERGENS})
             other = sorted({SWAT_OTHER[l] for l in labels if l in SWAT_OTHER})
-            listed = True
+            listed = bool(labels)
         did = slug(name)
         cat = guess_category(name, meal, station)
         d = dishes.setdefault(did, {
@@ -262,6 +262,11 @@ for key, v in nut.items():
     if d and hall in d["labels"]:
         d.setdefault("nutrition", {})[hall] = v
 out = {"scrapedAt": "2026-11-13", "halls": halls_out, "dishes": dishes}
+_dp = ROOT / "dish_photos.json"
+_have = set(json.loads(_dp.read_text())) if _dp.exists() else set()
+for _d in out["dishes"].values():
+    if _d["id"] in _have:
+        _d["img"] = 1
 (ROOT / "menu.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")))
 print(len(dishes), "dishes;", sum(len(d["served"]) for d in dishes.values()), "servings;",
       round((ROOT / "menu.json").stat().st_size / 1024), "KB")

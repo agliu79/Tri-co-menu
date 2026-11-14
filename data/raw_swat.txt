@@ -1,328 +1,879 @@
-# Swarthmore Dining Center, The Dash upcoming menu (Sat Nov 14 - Fri Nov 20 2026), labels as published
+# Swarthmore Dining Center, Mon Nov 9 - Sun Nov 15 2026, from The Dash (data/source/swat_menu_week_nov9.txt)
 # day(0=Sun)|meal|station|item|labels
 6|breakfast|Field of Greens|Greek Yogurt|milk
 6|breakfast|Field of Greens|Cottage Cheese|gluten free,milk
+6|breakfast|Field of Greens|Vanilla Yogurt|gluten free,milk
+6|breakfast|Field of Greens|Assorted Fruits|
 6|breakfast|Field of Greens|Fruit Salad|gluten free,vegan
+6|breakfast|Field of Greens|Grapefruit|
+6|breakfast|Field of Greens|Sliced Melon|vegan
 6|breakfast|Field of Greens|Hard Boiled Eggs|egg,gluten free,vegetarian
-6|breakfast|Free Zone|Home Fries (Free Zone)|gluten free,vegan
+6|breakfast|Free Zone|Homesfries FreeZone|gluten free,vegan
 6|breakfast|Free Zone|Chicken Sausage|gluten free
+6|breakfast|Free Zone|Bacon|gluten free,pork
 6|breakfast|World of Flavor|Phoenix Sandwich|egg,milk,vegetarian,wheat
 6|breakfast|World of Flavor|Scrambled Eggs|egg,gluten free,vegetarian
 6|breakfast|World of Flavor|Eggs to Order|egg,gluten free
-6|breakfast|World of Flavor|Bacon|gluten free,pork
+6|breakfast|World of Flavor|Breakfast Bread|egg,milk,soy,vegetarian,wheat
 6|breakfast|World of Flavor|Vegan Sausage|soy,vegan,wheat
 6|breakfast|World of Flavor|Hashbrowns|gluten free,soy,vegan
 6|breakfast|The Classics|Oatmeal|gluten free,vegan
+6|breakfast|The Classics|Brown Sugar|gluten free,vegan
+6|breakfast|The Classics|Cinnamon Sugar|gluten free,vegan
+6|breakfast|The Classics|Craisins|gluten free,vegan
+6|breakfast|The Classics|Raisins|gluten free,vegan
+6|breakfast|The Classics|Toasted Almonds|gluten free,tree nut,vegan
 6|breakfast|Daily Kneads|Chocolate Espresso Banana Bread|soy,vegan,wheat
 6|breakfast|Daily Kneads|Assorted Donuts|egg,milk,soy,wheat
+6|breakfast|Daily Kneads|Assorted Pastries|egg,milk,wheat
+6|lunch|Fired Up|Oatmeal|gluten free,vegan
 6|lunch|Fired Up|Cheese Pizza|milk,vegetarian,wheat
 6|lunch|Fired Up|Pepperoni Pizza|milk,pork,wheat
-6|lunch|Free Zone|Chocolate Chip Waffles (Free Zone)|
-6|lunch|Free Zone|Cheese Pizza (Free Zone)|gluten free,vegan
+6|lunch|Free Zone|Chocolate Chip Waffles FZ|
+6|lunch|Free Zone|Berry Compote|gluten free,vegan
+6|lunch|Free Zone|Cheese Pizza FZ|gluten free,vegan
+6|lunch|Free Zone|Bacon|gluten free,pork
+6|lunch|Free Zone|Homesfries FreeZone|gluten free,vegan
 6|lunch|Free Zone|Pumpkin Spice Overnight Oats|gluten free,vegan
+6|lunch|Free Zone|Chicken Sausage|gluten free
+6|lunch|World of Flavor|Phoenix Sandwich|egg,milk,vegetarian,wheat
 6|lunch|World of Flavor|French Toast Sticks|soy,vegetarian,wheat
+6|lunch|World of Flavor|Scrambled Eggs|egg,gluten free,vegetarian
+6|lunch|World of Flavor|Eggs to Order|egg,gluten free
 6|lunch|World of Flavor|Hamburger|gluten free,halal
-6|lunch|The Classics|Chicken & Waffles|egg,milk,wheat
+6|lunch|World of Flavor|Vegan Sausage|soy,vegan,wheat
+6|lunch|World of Flavor|Hashbrowns|gluten free,soy,vegan
+6|lunch|World of Flavor|White Rice|gluten free,vegan
+6|lunch|The Classics|Chicken Tenders|egg,milk,wheat
+6|lunch|The Classics|Waffles|egg,milk,wheat
+6|lunch|The Classics|Hot Honey|
+6|lunch|The Classics|Honey|vegetarian
+6|lunch|The Classics|Mixed Berries|gluten free,vegan
+6|lunch|The Classics|Toasted Almonds|gluten free,tree nut,vegan
+6|lunch|The Classics|Whipped Cream|gluten free,milk
 6|lunch|The Classics|Pimento Grits|milk,vegetarian
 6|lunch|The Classics|Vanilla Chia Seed Pudding|gluten free,vegan
 6|lunch|The Classics|Roasted Green Beans|gluten free,vegan
+6|lunch|Grillin' Out|French Fries|gluten free,vegan
 6|lunch|Grillin' Out|Grilled Chicken Breast|gluten free,halal
 6|lunch|Grillin' Out|Cheeseburger|halal,milk,sesame,soy,wheat
-6|lunch|Grillin' Out|French Fries|gluten free,vegan
-6|lunch|Verdant & Vegan|Breakfast Totchos|gluten free,soy,vegetarian
+6|lunch|Verdant & Vegan|Tater Tots|gluten free,soy,vegetarian
 6|lunch|Verdant & Vegan|Tofu Scramble|gluten free,soy,vegan
+6|lunch|Verdant & Vegan|Avocado|gluten free,vegan
+6|lunch|Verdant & Vegan|Black Beans|gluten free,vegan
+6|lunch|Verdant & Vegan|Jalapeno|gluten free,vegan
+6|lunch|Verdant & Vegan|Salsa|gluten free,vegan
 6|lunch|Verdant & Vegan|Vegan Cheese Sauce|gluten free,tree nut,vegan
-6|dinner|Free Zone|Lemon Herb Roast Chicken (Free Zone)|halal
-6|dinner|Free Zone|Roasted Mini Potatoes|gluten free,vegan
+6|dinner|Free Zone|Cheese Pizza FZ|gluten free,vegan
+6|dinner|Free Zone|Lemon Herb Roast Chicken FZ|halal
 6|dinner|Free Zone|Kidney Beans|gluten free,vegan
+6|dinner|Free Zone|Roasted Mini Potatoes|gluten free,vegan
+6|dinner|Free Zone|Roasted Green Beans|gluten free,vegan
 6|dinner|World of Flavor|Bang Bang Chicken|egg,milk,soy,wheat
-6|dinner|World of Flavor|Bang Bang Shrimp|egg,sesame,shellfish,soy,wheat
-6|dinner|World of Flavor|Steamed Edamame|gluten free,soy,vegan
+6|dinner|World of Flavor|Bang Bang shrimp|egg,sesame,shellfish,soy,wheat
 6|dinner|World of Flavor|White Rice|gluten free,vegan
+6|dinner|World of Flavor|Cucumbers|gluten free,vegan
+6|dinner|World of Flavor|Shredded Carrots|gluten free,vegan
+6|dinner|World of Flavor|Steamed Edamame|gluten free,soy,vegan
+6|dinner|World of Flavor|Napa Cabbage Greens|gluten free,vegan
+6|dinner|World of Flavor|Asian Sesame Dressing|sesame,soy,wheat
 6|dinner|The Classics|Grilled Beef Chateau Steak|gluten free,halal
-6|dinner|The Classics|Roasted Mini Potatoes with Chimichurri|gluten free,vegan
+6|dinner|The Classics|Chimichuri|gluten free,vegan
 6|dinner|The Classics|Asparagus|vegan
 6|dinner|Daily Kneads|Matcha Cheesecake|egg,milk,soy,wheat
 6|dinner|Daily Kneads|Vanilla Pudding|gluten free,milk,soy
-6|dinner|Daily Kneads|M&M Blondies|egg,soy,wheat
+6|dinner|Daily Kneads|M & M Blondies|egg,soy,wheat
 6|dinner|Daily Kneads|Brownie Cookie Sandwich|
 6|dinner|Fired Up|Cheese Pizza|milk,vegetarian,wheat
 6|dinner|Fired Up|Pepperoni Pizza|milk,pork,wheat
-6|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+6|dinner|Grillin' Out|Eggs to Order|egg,gluten free
 6|dinner|Grillin' Out|French Fries|gluten free,vegan
+6|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+6|dinner||Romaine Lettuce|vegan
+0|brunch|Fired Up|Oatmeal|gluten free,vegan
 0|brunch|Fired Up|Cheese Pizza|milk,vegetarian,wheat
 0|brunch|Fired Up|Pepperoni Pizza|milk,pork,wheat
 0|brunch|Free Zone|Vanilla Chia Seed Pudding|gluten free,vegan
-0|brunch|Free Zone|Home Fries (Free Zone)|gluten free,vegan
+0|brunch|Free Zone|Blueberries|gluten free,vegan
+0|brunch|Free Zone|Granola FZ|vegan
+0|brunch|Free Zone|Homesfries FreeZone|gluten free,vegan
+0|brunch|Free Zone|Bacon|gluten free,pork
 0|brunch|Free Zone|Turkey Bacon|
-0|brunch|World of Flavor|Tortilla Española|egg,gluten free,milk,vegetarian
+0|brunch|World of Flavor|Tortilla Espanola|egg,gluten free,milk,vegetarian
 0|brunch|World of Flavor|Chocolate Chip Croissant Strata|egg,milk,soy,vegetarian,wheat
 0|brunch|World of Flavor|Roasted Tomatoes|gluten free,vegan
-0|brunch|World of Flavor|Bacon|gluten free,pork
+0|brunch|World of Flavor|White Rice|gluten free,vegan
+0|brunch|World of Flavor|Sour Cream|gluten free,milk,vegetarian
+0|brunch|World of Flavor|Whipped Cream|gluten free,milk
 0|brunch|The Classics|Lemon Herb Roast Chicken|kosher
 0|brunch|The Classics|Crispy Potato Wedges|gluten free,vegan
 0|brunch|The Classics|Roasted Asparagus|gluten free,vegan
 0|brunch|Verdant & Vegan|Vegan Shakshuka|gluten free,vegan
 0|brunch|Verdant & Vegan|Pita Bread|soy,vegan,wheat
+0|brunch|Verdant & Vegan|Toasted Almonds|gluten free,tree nut,vegan
+0|brunch|Verdant & Vegan|Toasted Coconut|gluten free,tree nut
 0|brunch|Verdant & Vegan|Roasted Eggplant|gluten free,vegan
 0|brunch|Verdant & Vegan|Vegan White Chocolate Scone|soy,wheat
 0|brunch|Daily Kneads|Cheddar & Chive Muffins|egg,milk,soy,vegetarian,wheat
 0|brunch|Daily Kneads|Chocolate Chip Scones|egg,milk,soy,wheat
-0|dinner|Free Zone|Chickpea Pasta with Marinara|vegan
+0|brunch||Romaine Lettuce|vegan
+0|dinner|Free Zone|Chickpea Pasta w Marinara|vegan
 0|dinner|Free Zone|Roasted Chicken Thighs|gluten free,halal
 0|dinner|Free Zone|Steamed Broccoli|gluten free,vegan
 0|dinner|Free Zone|Herb White Beans|gluten free,vegan
 0|dinner|Free Zone|Garden Salad|gluten free,vegan
+0|dinner|Free Zone|Pumpkin Muffins FZ|
 0|dinner|World of Flavor|Cheese Ravioli with Alfredo|egg,milk,soy,vegetarian,wheat
-0|dinner|World of Flavor|Cheese Ravioli with Marinara|egg,milk,soy,vegetarian,wheat
+0|dinner|World of Flavor|Cheese Ravioli w/ Marinara|egg,milk,soy,vegetarian,wheat
 0|dinner|World of Flavor|Garlic Roasted Chicken|gluten free,halal
+0|dinner|World of Flavor|Italian Sausage|
+0|dinner|World of Flavor|Red Chili Flakes|
 0|dinner|World of Flavor|Garlic Roasted Broccoli|gluten free,vegan
 0|dinner|World of Flavor|Garlic Bread|milk,soy,vegetarian,wheat
 0|dinner|The Classics|Grilled Pork Chops|gluten free,pork
 0|dinner|The Classics|Wild Mushroom Ragout|milk,wheat
 0|dinner|The Classics|Baked Potato|gluten free,vegan
+0|dinner|The Classics|Applesauce|gluten free,vegan
 0|dinner|The Classics|Biscuits|egg,milk,soy,vegetarian,wheat
+0|dinner|The Classics|Whipped Butter|gluten free,milk,vegetarian
 0|dinner|The Classics|Green Beans|gluten free,vegan
 0|dinner|Daily Kneads|Chocolate Chip Blondies|egg,milk,soy,wheat
 0|dinner|Daily Kneads|Mint Oreo Cheesecake|egg,milk,soy,wheat
 0|dinner|Daily Kneads|Vanilla Pudding|gluten free,milk,soy
 0|dinner|Daily Kneads|Mango Lime Cupcakes|egg,milk,soy,wheat
-0|dinner|Verdant & Vegan|Cavatappi with Olive Oil|soy,vegan,wheat
+0|dinner|Verdant & Vegan|Cavatappi w/ Olive Oil|soy,vegan,wheat
 0|dinner|Verdant & Vegan|Lentil Bolognese|gluten free,vegan
 0|dinner|Verdant & Vegan|Vegan Garlic Alfredo|gluten free,soy,vegan
 0|dinner|Spice of Life|Beef Shawarma|gluten free,halal
 0|dinner|Spice of Life|Tomato Cucumber Salad|gluten free,vegan
+0|dinner|Spice of Life|White Sauce|egg,gluten free,milk,vegetarian
 0|dinner|Spice of Life|Yellow Rice|gluten free,vegan
 0|dinner|Fired Up|Cheese Pizza|milk,vegetarian,wheat
 0|dinner|Fired Up|Pepperoni Pizza|milk,pork,wheat
-0|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+0|dinner|Grillin' Out|Eggs to Order|egg,gluten free
 0|dinner|Grillin' Out|French Fries|gluten free,vegan
+0|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+0|dinner||White Rice|gluten free,vegan
+0|dinner||Romaine Lettuce|vegan
+0|fifth|Field of Greens|Greek Yogurt|milk
+0|fifth|Field of Greens|Granola|vegan,wheat
+0|fifth|World of Flavor|Grilled Chicken Breast|gluten free,halal
+0|fifth|World of Flavor|Potato Buns|egg,milk,sesame,soy,vegetarian,wheat
+0|fifth|World of Flavor|Lettuce Leaf|
+0|fifth|World of Flavor|Sliced Tomatoes|vegan
+0|fifth|World of Flavor|Sliced Red Onions|gluten free,vegan
+0|fifth|World of Flavor|Crispy Naked Wings|gluten free
+0|fifth|World of Flavor|BBQ Sauce|gluten free,vegan
+0|fifth|World of Flavor|Buffalo Sauce|gluten free,milk
+0|fifth|World of Flavor|Thai Chili Sauce|gluten free
+0|fifth|World of Flavor|French Fries|gluten free,vegan
+0|fifth|World of Flavor|Cheese Sauce|gluten free,milk,vegetarian
+0|fifth|World of Flavor|Sour Cream|gluten free,milk,vegetarian
+0|fifth|World of Flavor|Bacon Bits|gluten free,pork
+0|fifth|World of Flavor|Chopped Scallion|
+0|fifth|Daily Kneads|Assorted Cookies|egg,milk,soy,tree nut,wheat
+0|fifth|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+0|fifth|Fired Up|Pepperoni Pizza|milk,pork,wheat
 1|breakfast|Field of Greens|Greek Yogurt|milk
+1|breakfast|Field of Greens|Cottage Cheese|gluten free,milk
+1|breakfast|Field of Greens|Vanilla Yogurt|gluten free,milk
+1|breakfast|Field of Greens|Assorted Fruits|
 1|breakfast|Field of Greens|Fruit Salad|gluten free,vegan
+1|breakfast|Field of Greens|Grapefruit|
+1|breakfast|Field of Greens|Sliced Melon|vegan
 1|breakfast|Field of Greens|Hard Boiled Eggs|egg,gluten free,vegetarian
+1|breakfast|Free Zone|Homesfries FreeZone|gluten free,vegan
+1|breakfast|Free Zone|Chicken Sausage|gluten free
+1|breakfast|Free Zone|Bacon|gluten free,pork
 1|breakfast|World of Flavor|Phoenix Sandwich|egg,milk,vegetarian,wheat
 1|breakfast|World of Flavor|Scrambled Eggs|egg,gluten free,vegetarian
-1|breakfast|World of Flavor|Bacon|gluten free,pork
+1|breakfast|World of Flavor|Eggs to Order|egg,gluten free
+1|breakfast|World of Flavor|Breakfast Bread|egg,milk,soy,vegetarian,wheat
 1|breakfast|World of Flavor|Vegan Sausage|soy,vegan,wheat
 1|breakfast|World of Flavor|Hashbrowns|gluten free,soy,vegan
 1|breakfast|The Classics|Oatmeal|gluten free,vegan
-1|breakfast|Daily Kneads|Southern Buttermilk Biscuits (Vegan)|soy,vegan,wheat
-1|breakfast|Daily Kneads|Assorted Donuts|egg,milk,soy,wheat
-1|lunch|Fired Up|Spinach, Tomato & Ricotta Pizza|milk,vegetarian,wheat
+1|breakfast|The Classics|Brown Sugar|gluten free,vegan
+1|breakfast|The Classics|Cinnamon Sugar|gluten free,vegan
+1|breakfast|The Classics|Craisins|gluten free,vegan
+1|breakfast|The Classics|Raisins|gluten free,vegan
+1|breakfast|The Classics|Toasted Almonds|gluten free,tree nut,vegan
+1|breakfast|Daily Kneads|Assorted Pastries|egg,milk,wheat
+1|breakfast||Assorted Donuts|egg,milk,soy,wheat
+1|breakfast||Southern "Buttermilk" Biscuits|soy,vegan,wheat
+1|lunch|Fired Up|Spinach, Tomato, Ricotta Pizza|milk,vegetarian,wheat
 1|lunch|Fired Up|Cheese Pizza|milk,vegetarian,wheat
 1|lunch|Fired Up|Pepperoni Pizza|milk,pork,wheat
 1|lunch|Fired Up|Chicken Noodle Soup|halal,soy,wheat
 1|lunch|Fired Up|Miso Soup|gluten free,sesame,soy,vegan
 1|lunch|Field of Greens|Tabbouleh|vegan,wheat
-1|lunch|Free Zone|General Tso's Chicken (Free Zone)|gluten free,kosher
+1|lunch|Free Zone|General Tso's Chicken-FZ|gluten free,kosher
 1|lunch|Free Zone|General Tso's Wild Mushrooms|gluten free,vegan
-1|lunch|Free Zone|Chocolate Chip Blondies (Free Zone)|gluten free,vegan
-1|lunch|World of Flavor|Sweet and Sour Chicken|egg,milk,soy,wheat
+1|lunch|Free Zone|White Rice|gluten free,vegan
+1|lunch|Free Zone|Steamed Broccoli|gluten free,vegan
+1|lunch|Free Zone|Napa Cabbage Greens|gluten free,vegan
+1|lunch|Free Zone|Chocolate Chip Blondies FZ|gluten free,vegan
+1|lunch|World of Flavor|Sweet And Sour Chicken|egg,milk,soy,wheat
 1|lunch|World of Flavor|Sweet and Sour Tofu|sesame,soy,vegan
 1|lunch|World of Flavor|Scallion Pancake|sesame,soy,vegan,wheat
-1|lunch|The Classics|Mashed Potato Bar|gluten free,milk,vegetarian
+1|lunch|World of Flavor|Sour Cream|gluten free,milk,vegetarian
+1|lunch|The Classics|Mashed Potatoes|gluten free,milk,vegetarian
+1|lunch|The Classics|Bacon Bits|gluten free,pork
+1|lunch|The Classics|Chicken Gravy|milk,wheat
+1|lunch|The Classics|Chives|
 1|lunch|The Classics|Popcorn Chicken|wheat
+1|lunch|The Classics|Shredded Cheese|gluten free,milk,vegetarian
+1|lunch|The Classics|Corn|gluten free,vegan
 1|lunch|Daily Kneads|Churro Cheesecake|egg,milk,soy,wheat
+1|lunch|Daily Kneads|Oreo Krispie Treat|milk,soy,wheat
 1|lunch|Daily Kneads|Tiramisu|egg,milk,wheat
 1|lunch|Daily Kneads|Pistachio Cannoli Tart|egg,milk,soy,tree nut,wheat
+1|lunch|Verdant & Vegan|Vegan Lemon Olive Oil Cake|soy,vegan,wheat
 1|lunch|Verdant & Vegan|Steamed Bao Buns|vegan,wheat
 1|lunch|Verdant & Vegan|Vegan Beef Bulgogi|soy,vegan
 1|lunch|Verdant & Vegan|Napa Cabbage Slaw|sesame,soy,vegan
-1|lunch|Verdant & Vegan|Vegan Lemon Olive Oil Cake|soy,vegan,wheat
-1|lunch|Spice of Life|Roasted Chicken with Schug|gluten free,halal
+1|lunch|Verdant & Vegan|Pickled Vegetables|
+1|lunch|Verdant & Vegan|Chopped Scallion|
+1|lunch|Verdant & Vegan|Fresh Cilantro|gluten free,vegan
+1|lunch|Verdant & Vegan|Hoisin Sauce|sesame,soy,vegan,wheat
+1|lunch|Verdant & Vegan|Sesame Seeds|gluten free,sesame,vegan
+1|lunch|Spice of Life|Roasted Chicken w/ Schug|gluten free,halal
 1|lunch|Spice of Life|Herb Roasted Carrots & Cauliflower|gluten free,vegan
 1|lunch|Spice of Life|Lemongrass Jasmine Rice|gluten free,tree nut,vegan
+1|lunch|Spice of Life|Tzatziki Sauce|gluten free,milk,vegetarian
 1|lunch|Grillin' Out|Hamburger|gluten free,halal
 1|lunch|Grillin' Out|Cheeseburger|halal,milk,sesame,soy,wheat
-1|lunch|Grillin' Out|Steakhouse Burger|egg,milk,soy,wheat
-1|lunch|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+1|lunch|Grillin' Out|Eggs to Order|egg,gluten free
 1|lunch|Grillin' Out|French Fries|gluten free,vegan
-1|dinner|Fired Up|Spinach, Tomato & Ricotta Pizza|milk,vegetarian,wheat
+1|lunch|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+1|lunch|Grillin' Out|Steakhouse Burger|egg,milk,soy,wheat
+1|lunch||Romaine Lettuce|vegan
+1|midday|Grillin' Out|French Fries|gluten free,vegan
+1|midday|Grillin' Out|Chicken Tenders|egg,milk,wheat
+1|midday|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+1|midday|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+1|midday|Fired Up|Pepperoni Pizza|milk,pork,wheat
+1|midday|Free Zone|Romaine Lettuce|vegan
+1|dinner|Fired Up|Spinach, Tomato, Ricotta Pizza|milk,vegetarian,wheat
 1|dinner|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+1|dinner|Fired Up|Pepperoni Pizza|milk,pork,wheat
 1|dinner|Fired Up|Chicken Noodle Soup|halal,soy,wheat
-1|dinner|Free Zone|Chicken with Spinach & Tomato|halal
+1|dinner|Fired Up|Miso Soup|gluten free,sesame,soy,vegan
+1|dinner|Free Zone|Chicken w/ Spinach & Tomato|halal
 1|dinner|Free Zone|Chickpea & Olive Salad|vegan
-1|dinner|Free Zone|Chickpea Pasta with Marinara|vegan
+1|dinner|Free Zone|Chickpea Pasta w Marinara|vegan
+1|dinner|Free Zone|Steamed Broccoli|gluten free,vegan
+1|dinner|Free Zone|Chocolate Chip Blondies FZ|gluten free,vegan
+1|dinner|Free Zone|Tabbouleh|vegan,wheat
 1|dinner|World of Flavor|Curry Chicken|gluten free,halal
 1|dinner|World of Flavor|Aloo Gobi|gluten free,vegan
 1|dinner|World of Flavor|Basmati Rice|gluten free,vegan
 1|dinner|World of Flavor|Garlic Naan|egg,milk,vegetarian,wheat
 1|dinner|World of Flavor|Pakora|vegan
-1|dinner|The Classics|Braised Beef Pot Roast with Rosemary Gravy|gluten free,kosher
+1|dinner|World of Flavor|White Rice|gluten free,vegan
+1|dinner|World of Flavor|Green Chutney|gluten free,milk,vegetarian
+1|dinner|The Classics|Braised Beef Pot Roast w Rosemary Gravy|gluten free,kosher
 1|dinner|The Classics|Roasted Garlic Mashed Potatoes|gluten free,milk,vegetarian
-1|dinner|The Classics|Spinach Salad with Feta, Apple & Cranberry|gluten free,milk,tree nut,vegetarian
+1|dinner|The Classics|Spinach Salad w/ Feta, Apple, & Cranberry|gluten free,milk,tree nut,vegetarian
 1|dinner|The Classics|Roasted Brussels Sprouts|gluten free,vegan
+1|dinner|The Classics|Raita Sauce|milk,vegetarian
 1|dinner|Daily Kneads|Pistachio Cannoli Tart|egg,milk,soy,tree nut,wheat
+1|dinner|Daily Kneads|Churro Cheesecake|egg,milk,soy,wheat
+1|dinner|Daily Kneads|Oreo Krispie Treat|milk,soy,wheat
+1|dinner|Daily Kneads|Tiramisu|egg,milk,wheat
 1|dinner|Daily Kneads|Ice Cream Bar|milk
-1|dinner|Verdant & Vegan|Baked Potato Bar|gluten free,vegan
+1|dinner|Verdant & Vegan|Baked Potato|gluten free,vegan
 1|dinner|Verdant & Vegan|Three-Bean Chili|gluten free,vegan
 1|dinner|Verdant & Vegan|Vegan Beef Crumbles|soy,vegan
+1|dinner|Verdant & Vegan|Steamed Broccoli with Garlic Oil|
+1|dinner|Verdant & Vegan|Sauteed Peppers and Onions|gluten free,vegan
+1|dinner|Verdant & Vegan|Chives|
+1|dinner|Verdant & Vegan|Pickled Jalapeno|
+1|dinner|Verdant & Vegan|Vegan Cheese Sauce|gluten free,tree nut,vegan
+1|dinner|Verdant & Vegan|Vegan Lemon Olive Oil Cake|soy,vegan,wheat
 1|dinner|Spice of Life|Tilapia with Lemon Beurre Blanc|fish,halal,milk
-1|dinner|Spice of Life|Orzo with Garlic and Herbs|soy,vegan,wheat
+1|dinner|Spice of Life|Orzo w/ Garlic and Herbs|soy,vegan,wheat
 1|dinner|Spice of Life|Roasted Green Beans|gluten free,vegan
 1|dinner|Grillin' Out|Hamburger|gluten free,halal
-1|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+1|dinner|Grillin' Out|Cheeseburger|halal,milk,sesame,soy,wheat
+1|dinner|Grillin' Out|Steakhouse Burger|egg,milk,soy,wheat
+1|dinner|Grillin' Out|Eggs to Order|egg,gluten free
 1|dinner|Grillin' Out|French Fries|gluten free,vegan
+1|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+1|dinner||Romaine Lettuce|vegan
+1|fifth|Field of Greens|Greek Yogurt|milk
+1|fifth|Field of Greens|Granola|vegan,wheat
+1|fifth|World of Flavor|Grilled Chicken Breast|gluten free,halal
+1|fifth|World of Flavor|Potato Buns|egg,milk,sesame,soy,vegetarian,wheat
+1|fifth|World of Flavor|Lettuce Leaf|
+1|fifth|World of Flavor|Sliced Tomatoes|vegan
+1|fifth|World of Flavor|Sliced Red Onions|gluten free,vegan
+1|fifth|World of Flavor|Crispy Naked Wings|gluten free
+1|fifth|World of Flavor|BBQ Sauce|gluten free,vegan
+1|fifth|World of Flavor|Buffalo Sauce|gluten free,milk
+1|fifth|World of Flavor|Thai Chili Sauce|gluten free
+1|fifth|World of Flavor|French Fries|gluten free,vegan
+1|fifth|World of Flavor|Cheese Sauce|gluten free,milk,vegetarian
+1|fifth|World of Flavor|Sour Cream|gluten free,milk,vegetarian
+1|fifth|World of Flavor|Bacon Bits|gluten free,pork
+1|fifth|World of Flavor|Chopped Scallion|
+1|fifth|Daily Kneads|Assorted Cookies|egg,milk,soy,tree nut,wheat
+1|fifth|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+1|fifth|Fired Up|Pepperoni Pizza|milk,pork,wheat
 2|breakfast|Field of Greens|Greek Yogurt|milk
+2|breakfast|Field of Greens|Cottage Cheese|gluten free,milk
+2|breakfast|Field of Greens|Vanilla Yogurt|gluten free,milk
+2|breakfast|Field of Greens|Assorted Fruits|
+2|breakfast|Field of Greens|Fruit Salad|gluten free,vegan
+2|breakfast|Field of Greens|Grapefruit|
+2|breakfast|Field of Greens|Sliced Melon|vegan
 2|breakfast|Field of Greens|Hard Boiled Eggs|egg,gluten free,vegetarian
+2|breakfast|Free Zone|Homesfries FreeZone|gluten free,vegan
+2|breakfast|Free Zone|Chicken Sausage|gluten free
+2|breakfast|Free Zone|Bacon|gluten free,pork
 2|breakfast|World of Flavor|Phoenix Sandwich|egg,milk,vegetarian,wheat
 2|breakfast|World of Flavor|Scrambled Eggs|egg,gluten free,vegetarian
-2|breakfast|World of Flavor|Bacon|gluten free,pork
+2|breakfast|World of Flavor|Eggs to Order|egg,gluten free
+2|breakfast|World of Flavor|Breakfast Bread|egg,milk,soy,vegetarian,wheat
 2|breakfast|World of Flavor|Vegan Sausage|soy,vegan,wheat
 2|breakfast|World of Flavor|Hashbrowns|gluten free,soy,vegan
 2|breakfast|The Classics|Oatmeal|gluten free,vegan
-2|breakfast|Daily Kneads|Vegan Chocolate Chip Muffins|soy,wheat
+2|breakfast|The Classics|Brown Sugar|gluten free,vegan
+2|breakfast|The Classics|Cinnamon Sugar|gluten free,vegan
+2|breakfast|The Classics|Craisins|gluten free,vegan
+2|breakfast|The Classics|Raisins|gluten free,vegan
+2|breakfast|The Classics|Toasted Almonds|gluten free,tree nut,vegan
+2|breakfast|Daily Kneads|Assorted Pastries|egg,milk,wheat
 2|breakfast|Daily Kneads|Assorted Donuts|egg,milk,soy,wheat
+2|breakfast|Daily Kneads|Vegan Chocolate Chip Muffins|soy,wheat
 2|lunch|Fired Up|Bacon, Jalapeño & Ranch Pizza|egg,milk,pork,wheat
 2|lunch|Fired Up|6 Bean Chili|gluten free,vegan
 2|lunch|Fired Up|New England Clam Chowder|milk,shellfish,wheat
 2|lunch|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+2|lunch|Fired Up|Pepperoni Pizza|milk,pork,wheat
 2|lunch|Field of Greens|Sweet Potato Walnut Salad|gluten free,tree nut,vegan
 2|lunch|Free Zone|Ancho Spiced Brisket|gluten free,kosher
+2|lunch|Free Zone|Tortilla Chips|vegan
+2|lunch|Free Zone|Avocado|gluten free,vegan
+2|lunch|Free Zone|Black Beans|gluten free,vegan
 2|lunch|Free Zone|Cilantro Lime Rice|vegan
-2|lunch|Free Zone|Fudge Brownies (Free Zone)|gluten free,vegan
-2|lunch|World of Flavor|Nacho Bar|vegan
+2|lunch|Free Zone|Cilantro Lime slaw|gluten free,vegan
+2|lunch|Free Zone|Fresh Cilantro|gluten free,vegan
+2|lunch|Free Zone|Fudge Brownies FZ|gluten free,vegan
 2|lunch|World of Flavor|Chicken Tinga|gluten free,halal
 2|lunch|World of Flavor|Taco Ground Beef|gluten free,halal
+2|lunch|World of Flavor|Three-Bean Chili|gluten free,vegan
+2|lunch|World of Flavor|Cheese Sauce|gluten free,milk,vegetarian
+2|lunch|World of Flavor|Diced Tomatoes|gluten free,vegan
 2|lunch|World of Flavor|Guacamole|gluten free,vegan
+2|lunch|World of Flavor|Pickled Jalapeno|
+2|lunch|World of Flavor|Shredded Lettuce|gluten free,vegan
+2|lunch|World of Flavor|Black Olives|gluten free,vegan
+2|lunch|World of Flavor|Sour Cream|gluten free,milk,vegetarian
+2|lunch|World of Flavor|Salsa|gluten free,vegan
 2|lunch|The Classics|Chicken Pot Pie|halal,milk,wheat
+2|lunch|The Classics|Chives|
+2|lunch|The Classics|French Fried Onions|vegan,wheat
+2|lunch|The Classics|Puff Pastry Squares|milk,vegetarian,wheat
+2|lunch|The Classics|Roasted Green Beans|gluten free,vegan
 2|lunch|The Classics|Roasted Honey Glazed Carrots|gluten free,vegetarian
+2|lunch|The Classics|Shredded Cheese|gluten free,milk,vegetarian
+2|lunch|The Classics|White Rice|gluten free,vegan
 2|lunch|Verdant & Vegan|Mapo Tofu|gluten free,sesame,soy,vegan
 2|lunch|Verdant & Vegan|Scallion Pancake|sesame,soy,vegan,wheat
+2|lunch|Verdant & Vegan|Sesame Seeds|gluten free,sesame,vegan
 2|lunch|Verdant & Vegan|Baby Bok Choy|gluten free,vegan
-2|lunch|Verdant & Vegan|Mint Oreo Cupcakes (Vegan)|soy,wheat
+2|lunch|Verdant & Vegan|Mint Oreo Cupcakes|soy,wheat,vegan
 2|lunch|Spice of Life|Beef & Lamb Gyro|gluten free,halal,soy
+2|lunch|Spice of Life|Pita Bread|soy,vegan,wheat
+2|lunch|Spice of Life|French Fries|gluten free,vegan
 2|lunch|Spice of Life|Spicy Whipped Feta|gluten free,milk,vegetarian
+2|lunch|Spice of Life|Whole Red Onions|gluten free,vegan
+2|lunch|Spice of Life|Tzatziki Sauce|gluten free,milk,vegetarian
 2|lunch|Grillin' Out|Chicken Bacon Ranch Sandwich|egg,milk,wheat
 2|lunch|Grillin' Out|Chicken Sandwich|milk,soy,wheat
 2|lunch|Grillin' Out|Chicken Tenders|egg,milk,wheat
-2|lunch|Grillin' Out|French Fries|gluten free,vegan
+2|lunch|Grillin' Out|Eggs to Order|egg,gluten free
+2|lunch|Grillin' Out|Grilled Chicken Breast|gluten free,halal
 2|lunch|Daily Kneads|Cookie Stuffed Brownie|egg,milk,soy,wheat
+2|lunch|Daily Kneads|Kitchen Sink Cookies|egg,milk,soy,wheat
 2|lunch|Daily Kneads|Pumpkin Tiramisu|milk,soy,wheat
-2|lunch|Daily Kneads|Vanilla Crème Brûlée|egg,milk
+2|lunch|Daily Kneads|Vanilla Creme Brûlée|egg,milk
+2|lunch|Daily Kneads|Cookie Butter Cannoli|egg,milk,soy,wheat
+2|lunch|Daily Kneads|Oatmeal Cherry Cookies|egg,milk,soy,vegetarian,wheat
 2|lunch|Daily Kneads|Toffee Soaked Carrot Cake|egg,milk,soy,wheat
 2|lunch|Daily Kneads|Vegan White Chocolate Chip Cookies|soy,vegan,wheat
+2|lunch||Romaine Lettuce|vegan
+2|midday|Grillin' Out|French Fries|gluten free,vegan
+2|midday|Grillin' Out|Chicken Tenders|egg,milk,wheat
+2|midday|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+2|midday|Free Zone|Roasted Chicken w/ Sundried Tomato Pesto|gluten free,halal
+2|midday|Free Zone|Roasted Mini Potatoes|gluten free,vegan
+2|midday|Free Zone|Sauteed Garlic Kale|gluten free,vegan
+2|midday|Free Zone|Chopped Vegetable Salad|gluten free,vegan
+2|midday|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+2|midday|Fired Up|Pepperoni Pizza|milk,pork,wheat
+2|midday||Romaine Lettuce|vegan
 2|dinner|Fired Up|Bacon, Jalapeño & Ranch Pizza|egg,milk,pork,wheat
 2|dinner|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+2|dinner|Fired Up|Pepperoni Pizza|milk,pork,wheat
 2|dinner|Fired Up|Cajun Corn Chowder|milk,vegetarian,wheat
 2|dinner|Fired Up|Italian Wedding Soup|egg,halal,milk,soy,wheat
-2|dinner|Free Zone|Chicken Tinga Hard Tacos|gluten free,halal
-2|dinner|World of Flavor|Burrito Bowl with Beef Barbacoa|gluten free,halal
+2|dinner|Free Zone|Hard Taco Shell|gluten free,vegan
+2|dinner|Free Zone|Chicken Tinga|gluten free,halal
+2|dinner|Free Zone|Avocado|gluten free,vegan
+2|dinner|Free Zone|Diced Tomatoes|gluten free,vegan
+2|dinner|Free Zone|Limes|gluten free,vegan
+2|dinner|Free Zone|Roasted Peppers|
+2|dinner|Free Zone|White Rice|gluten free,vegan
+2|dinner|Free Zone|Cereal Treats|
 2|dinner|World of Flavor|Ancho Chicken Thigh|halal
+2|dinner|World of Flavor|Beef Barbacoa|gluten free,halal
 2|dinner|World of Flavor|Black Beans|gluten free,vegan
 2|dinner|World of Flavor|Guacamole|gluten free,vegan
+2|dinner|World of Flavor|Pico de Gallo|gluten free,vegan
+2|dinner|World of Flavor|Salsa Roja|gluten free,vegan
+2|dinner|World of Flavor|Salsa Verde|gluten free,vegan
+2|dinner|World of Flavor|Shredded Cheese|gluten free,milk,vegetarian
+2|dinner|World of Flavor|Shredded Lettuce|gluten free,vegan
+2|dinner|World of Flavor|Sour Cream|gluten free,milk,vegetarian
+2|dinner|World of Flavor|Cilantro Lime Rice|vegan
 2|dinner|World of Flavor|Sweet Potato Walnut Salad|gluten free,tree nut,vegan
-2|dinner|The Classics|Penne Alfredo with Roasted Garlic|milk,vegetarian,wheat
+2|dinner|The Classics|Penne Alfredo w/ Roasted Garlic|milk,vegetarian,wheat
 2|dinner|The Classics|Garlic Sautéed Shrimp|halal,milk,shellfish
 2|dinner|The Classics|Roasted Chicken|gluten free,halal
+2|dinner|The Classics|Steamed Broccoli|gluten free,vegan
+2|dinner|The Classics|Blistered Cherry Tomatoes|gluten free,vegan
+2|dinner|The Classics|Basil Pesto|
+2|dinner|The Classics|Parmesan Cheese|gluten free,milk,vegetarian
+2|dinner|The Classics|Red Chili Flakes|
 2|dinner|The Classics|Garlic Bread|milk,soy,vegetarian,wheat
-2|dinner|Verdant & Vegan|Loaded Plantains|gluten free,vegan
+2|dinner|Verdant & Vegan|Plantains|gluten free,vegan
+2|dinner|Verdant & Vegan|Mojo sauce|gluten free,vegan
+2|dinner|Verdant & Vegan|Pickled Red Onion|gluten free,vegan
+2|dinner|Verdant & Vegan|Sauteed Peppers and Onions|gluten free,vegan
 2|dinner|Verdant & Vegan|Vegan Beef Crumbles|soy,vegan
+2|dinner|Verdant & Vegan|Mint Oreo Cupcakes|soy,wheat,vegan
 2|dinner|Spice of Life|Beef Rendang|halal,tree nut
 2|dinner|Spice of Life|Lemongrass Jasmine Rice|gluten free,tree nut,vegan
 2|dinner|Spice of Life|Roti with Garlic Oil|vegetarian,wheat
+2|dinner|Spice of Life|Green Beans|gluten free,vegan
+2|dinner|Grillin' Out|Chicken Bacon Ranch Sandwich|egg,milk,wheat
 2|dinner|Grillin' Out|Chicken Sandwich|milk,soy,wheat
 2|dinner|Grillin' Out|Chicken Tenders|egg,milk,wheat
+2|dinner|Grillin' Out|Eggs to Order|egg,gluten free
 2|dinner|Grillin' Out|French Fries|gluten free,vegan
+2|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+2|dinner|Daily Kneads|Cookie Stuffed Brownie|egg,milk,soy,wheat
 2|dinner|Daily Kneads|Kitchen Sink Cookies|egg,milk,soy,wheat
-2|dinner|Daily Kneads|Cookie Butter Cannoli|egg,milk,soy,wheat
+2|dinner|Daily Kneads|Pumpkin Tiramisu|milk,soy,wheat
+2|dinner|Daily Kneads|Vanilla Creme Brûlée|egg,milk
+2|dinner||Cookie Butter Cannoli|egg,milk,soy,wheat
+2|dinner||Oatmeal Cherry Cookies|egg,milk,soy,vegetarian,wheat
+2|dinner||Romaine Lettuce|vegan
+2|dinner||Toffee Soaked Carrot Cake|egg,milk,soy,wheat
+2|dinner||Vegan White Chocolate Chip Cookies|soy,vegan,wheat
+2|fifth|Field of Greens|Greek Yogurt|milk
+2|fifth|Field of Greens|Granola|vegan,wheat
+2|fifth|World of Flavor|Grilled Chicken Breast|gluten free,halal
+2|fifth|World of Flavor|Potato Buns|egg,milk,sesame,soy,vegetarian,wheat
+2|fifth|World of Flavor|Lettuce Leaf|
+2|fifth|World of Flavor|Sliced Tomatoes|vegan
+2|fifth|World of Flavor|Sliced Red Onions|gluten free,vegan
+2|fifth|World of Flavor|Crispy Naked Wings|gluten free
+2|fifth|World of Flavor|BBQ Sauce|gluten free,vegan
+2|fifth|World of Flavor|Buffalo Sauce|gluten free,milk
+2|fifth|World of Flavor|Thai Chili Sauce|gluten free
+2|fifth|World of Flavor|French Fries|gluten free,vegan
+2|fifth|World of Flavor|Cheese Sauce|gluten free,milk,vegetarian
+2|fifth|World of Flavor|Sour Cream|gluten free,milk,vegetarian
+2|fifth|World of Flavor|Bacon Bits|gluten free,pork
+2|fifth|World of Flavor|Chopped Scallion|
+2|fifth|Daily Kneads|Assorted Cookies|egg,milk,soy,tree nut,wheat
+2|fifth|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+2|fifth|Fired Up|Pepperoni Pizza|milk,pork,wheat
 3|breakfast|Field of Greens|Greek Yogurt|milk
+3|breakfast|Field of Greens|Cottage Cheese|gluten free,milk
+3|breakfast|Field of Greens|Vanilla Yogurt|gluten free,milk
+3|breakfast|Field of Greens|Assorted Fruits|
+3|breakfast|Field of Greens|Fruit Salad|gluten free,vegan
+3|breakfast|Field of Greens|Grapefruit|
+3|breakfast|Field of Greens|Sliced Melon|vegan
 3|breakfast|Field of Greens|Hard Boiled Eggs|egg,gluten free,vegetarian
+3|breakfast|Free Zone|Homesfries FreeZone|gluten free,vegan
+3|breakfast|Free Zone|Chicken Sausage|gluten free
+3|breakfast|Free Zone|Bacon|gluten free,pork
 3|breakfast|World of Flavor|Phoenix Sandwich|egg,milk,vegetarian,wheat
 3|breakfast|World of Flavor|Scrambled Eggs|egg,gluten free,vegetarian
-3|breakfast|World of Flavor|Bacon|gluten free,pork
+3|breakfast|World of Flavor|Eggs to Order|egg,gluten free
+3|breakfast|World of Flavor|Breakfast Bread|egg,milk,soy,vegetarian,wheat
 3|breakfast|World of Flavor|Vegan Sausage|soy,vegan,wheat
 3|breakfast|World of Flavor|Hashbrowns|gluten free,soy,vegan
 3|breakfast|The Classics|Oatmeal|gluten free,vegan
+3|breakfast|The Classics|Brown Sugar|gluten free,vegan
+3|breakfast|The Classics|Cinnamon Sugar|gluten free,vegan
+3|breakfast|The Classics|Craisins|gluten free,vegan
+3|breakfast|The Classics|Raisins|gluten free,vegan
+3|breakfast|The Classics|Toasted Almonds|gluten free,tree nut,vegan
+3|breakfast|Daily Kneads|Assorted Donuts|egg,milk,soy,wheat
+3|breakfast|Daily Kneads|Assorted Pastries|egg,milk,wheat
 3|breakfast|Daily Kneads|Vegan Chocolate Chip Muffins|soy,wheat
 3|lunch|Fired Up|Sausage & Caramelized Onion Pizza|milk,wheat
 3|lunch|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+3|lunch|Fired Up|Pepperoni Pizza|milk,pork,wheat
 3|lunch|Fired Up|Chicken Florentine Soup|halal,milk,soy,wheat
 3|lunch|Fired Up|Cabbage & White Bean Soup|gluten free,vegan
 3|lunch|Field of Greens|Watermelon & Feta Salad|milk,vegetarian
 3|lunch|Free Zone|Rosemary Roasted Chicken|gluten free,halal
 3|lunch|Free Zone|Baked Sweet Potatoes|gluten free,vegan
+3|lunch|Free Zone|Kidney Beans|gluten free,vegan
+3|lunch|Free Zone|Green Beans|gluten free,vegan
 3|lunch|Free Zone|Garden Salad|gluten free,vegan
 3|lunch|World of Flavor|Shrimp Fried Rice|egg,gluten free,halal,sesame,shellfish,soy
 3|lunch|World of Flavor|Vegetable Fried Rice|gluten free,sesame,soy,vegan
 3|lunch|World of Flavor|Chicken Fried Rice|egg,gluten free,halal,sesame,soy
 3|lunch|World of Flavor|Vegetable Spring Rolls|sesame,soy,vegan,wheat
-3|lunch|The Classics|Breaded Salmon with Lemon Beurre Blanc|alcohol,fish,milk,wheat
+3|lunch|World of Flavor|White Rice|gluten free,vegan
+3|lunch|World of Flavor|Chili Garlic Oil|gluten free,vegan
+3|lunch|World of Flavor|Crispy Shallots|vegan,wheat
+3|lunch|World of Flavor|Crispy Wonton Strip|soy,vegan,wheat
+3|lunch|World of Flavor|Soy Sauce|gluten free,soy,vegan
+3|lunch|The Classics|Breaded Salmon w Lemon Buerre Blanc|alcohol,fish,milk,wheat
 3|lunch|The Classics|Roasted Asparagus|gluten free,vegan
 3|lunch|The Classics|Herbed Orzo|soy,vegan,wheat
 3|lunch|Daily Kneads|Cookie Butter Cupcakes|egg,milk,soy,vegetarian,wheat
+3|lunch|Daily Kneads|Kitchen Sink Cookies|egg,milk,soy,wheat
 3|lunch|Daily Kneads|Chocolate Pudding|milk,vegetarian
 3|lunch|Daily Kneads|Cookie Butter Bars|egg,milk,soy,wheat
-3|lunch|Verdant & Vegan|Thai Coconut Curry with Roasted Tofu|gluten free,soy,tree nut,vegan
+3|lunch|Daily Kneads|Cookie Butter Cannoli|egg,milk,soy,wheat
+3|lunch|Verdant & Vegan|Coconut Curry Sauce|gluten free,soy,tree nut,vegan
 3|lunch|Verdant & Vegan|Rice Noodles|gluten free,vegan
-3|lunch|Verdant & Vegan|Chopped Peanuts (curry topping)|gluten free,peanut,vegan
+3|lunch|Verdant & Vegan|Roasted Tofu|gluten free,soy,vegan
+3|lunch|Verdant & Vegan|Chopped Peanuts|gluten free,peanut,vegan
+3|lunch|Verdant & Vegan|Garlic Chips|
+3|lunch|Verdant & Vegan|Limes|gluten free,vegan
+3|lunch|Verdant & Vegan|Mint|gluten free,vegan
+3|lunch|Verdant & Vegan|Thai Basil|vegan
+3|lunch|Verdant & Vegan|Vegan Lemon Olive Oil Cake|soy,vegan,wheat
 3|lunch|Spice of Life|Za'atar Spiced Chicken|gluten free,halal,sesame
-3|lunch|Spice of Life|Roasted Eggplant with Pepper & Onion|gluten free,vegetarian
+3|lunch|Spice of Life|Roasted Eggplant w/ Pepper & Onion|gluten free,vegetarian
 3|lunch|Spice of Life|Rice Pilaf|gluten free,vegan
+3|lunch|Spice of Life|Toum|vegan
 3|lunch|Grillin' Out|Grilled Cheese Sandwich|milk,vegetarian,wheat
-3|lunch|Grillin' Out|Jalapeño Popper Grilled Cheese|egg,milk,vegetarian,wheat
-3|lunch|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+3|lunch|Grillin' Out|Jalapeno Popper Grilled Cheese|egg,milk,vegetarian,wheat
+3|lunch|Grillin' Out|Eggs to Order|egg,gluten free
 3|lunch|Grillin' Out|French Fries|gluten free,vegan
+3|lunch|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+3|lunch||Romaine Lettuce|vegan
+3|midday|Grillin' Out|French Fries|gluten free,vegan
+3|midday|Grillin' Out|Chicken Tenders|egg,milk,wheat
+3|midday|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+3|midday|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+3|midday|Fired Up|Pepperoni Pizza|milk,pork,wheat
+3|midday|Daily Kneads|Romaine Lettuce|vegan
 3|dinner|Fired Up|Sausage & Caramelized Onion Pizza|milk,wheat
 3|dinner|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+3|dinner|Fired Up|Pepperoni Pizza|milk,pork,wheat
+3|dinner|Fired Up|Chicken Florentine Soup|halal,milk,soy,wheat
 3|dinner|Fired Up|Cabbage & White Bean Soup|gluten free,vegan
-3|dinner|Free Zone|Bulgogi Beef Pot Roast (Free Zone)|gluten free,kosher
-3|dinner|Free Zone|Steamed Jasmine Rice with Ginger|gluten free,vegan
+3|dinner|Field of Greens|Watermelon & Feta Salad|milk,vegetarian
+3|dinner|Free Zone|Bulgogi Beef Pot Roast FZ|gluten free,kosher
+3|dinner|Free Zone|Steamed Jasmine Rice w/ Ginger|gluten free,vegan
 3|dinner|Free Zone|Steamed Snap Peas|gluten free,vegan
-3|dinner|Free Zone|Pumpkin Cookies (Free Zone)|gluten free
+3|dinner|Free Zone|Fruit Salad|gluten free,vegan
+3|dinner|Free Zone|Pumpkin Cookies FZ|gluten free
 3|dinner|World of Flavor|Chicken Karaage|egg,milk,soy,wheat
 3|dinner|World of Flavor|Teriyaki Salmon|fish,halal,sesame,soy,wheat
+3|dinner|World of Flavor|Lemongrass Jasmine Rice|gluten free,tree nut,vegan
+3|dinner|World of Flavor|White Rice|gluten free,vegan
 3|dinner|World of Flavor|House Made Pickled Cucumbers|gluten free,vegan
-3|dinner|The Classics|Smoked Pork Ribs with BBQ Sauce|pork
+3|dinner|World of Flavor|Kewpie Mayonnaise|egg,gluten free,soy,vegetarian
+3|dinner|World of Flavor|Lemons|gluten free,vegan
+3|dinner|World of Flavor|Shaved Cabbage|gluten free,vegan
+3|dinner|The Classics|Smoked Pork Ribs w/ Barbeque Sauce|pork
 3|dinner|The Classics|Baked Beans|vegan
 3|dinner|The Classics|Battered Potato Wedges|vegan
 3|dinner|The Classics|Corn Muffin|egg,milk,vegetarian,wheat
 3|dinner|The Classics|Creamy Coleslaw|egg,vegetarian
+3|dinner|The Classics|BBQ Sauce|gluten free,vegan
+3|dinner|Daily Kneads|Kitchen Sink Cookies|egg,milk,soy,wheat
 3|dinner|Daily Kneads|S'mores Bars|milk,soy,wheat
-3|dinner|Daily Kneads|Banana Pudding Cheesecake|egg,milk,soy,wheat
+3|dinner|Daily Kneads|Cookie Butter Cupcakes|egg,milk,soy,vegetarian,wheat
 3|dinner|Verdant & Vegan|Mango Curry Tempeh|tree nut,vegan,wheat
 3|dinner|Verdant & Vegan|Basmati Rice|gluten free,vegan
+3|dinner|Verdant & Vegan|Limes|gluten free,vegan
+3|dinner|Verdant & Vegan|Toasted Coconut|gluten free,tree nut
+3|dinner|Verdant & Vegan|Mint Oreo Cupcakes|soy,wheat,vegan
 3|dinner|Spice of Life|Grilled Flank Steak|gluten free,halal
 3|dinner|Spice of Life|Baba Ghanoush|gluten free,sesame,vegan
-3|dinner|Spice of Life|Hummus|gluten free,sesame,vegan
 3|dinner|Spice of Life|Garlic Pita Wedges|soy,vegan,wheat
 3|dinner|Spice of Life|Tabbouleh|vegan,wheat
+3|dinner|Spice of Life|Hummus|gluten free,sesame,vegan
+3|dinner|Spice of Life|Yellow Rice|gluten free,vegan
 3|dinner|Grillin' Out|Grilled Cheese Sandwich|milk,vegetarian,wheat
-3|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+3|dinner|Grillin' Out|Jalapeno Popper Grilled Cheese|egg,milk,vegetarian,wheat
+3|dinner|Grillin' Out|Eggs to Order|egg,gluten free
 3|dinner|Grillin' Out|French Fries|gluten free,vegan
+3|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+3|dinner||Banana Pudding Cheesecake|egg,milk,soy,wheat
+3|dinner||Romaine Lettuce|vegan
+3|fifth|Field of Greens|Greek Yogurt|milk
+3|fifth|Field of Greens|Granola|vegan,wheat
+3|fifth|World of Flavor|Grilled Chicken Breast|gluten free,halal
+3|fifth|World of Flavor|Potato Buns|egg,milk,sesame,soy,vegetarian,wheat
+3|fifth|World of Flavor|Lettuce Leaf|
+3|fifth|World of Flavor|Sliced Tomatoes|vegan
+3|fifth|World of Flavor|Sliced Red Onions|gluten free,vegan
+3|fifth|World of Flavor|Crispy Naked Wings|gluten free
+3|fifth|World of Flavor|BBQ Sauce|gluten free,vegan
+3|fifth|World of Flavor|Buffalo Sauce|gluten free,milk
+3|fifth|World of Flavor|Thai Chili Sauce|gluten free
+3|fifth|World of Flavor|French Fries|gluten free,vegan
+3|fifth|World of Flavor|Cheese Sauce|gluten free,milk,vegetarian
+3|fifth|World of Flavor|Sour Cream|gluten free,milk,vegetarian
+3|fifth|World of Flavor|Bacon Bits|gluten free,pork
+3|fifth|World of Flavor|Chopped Scallion|
+3|fifth|Daily Kneads|Assorted Cookies|egg,milk,soy,tree nut,wheat
+3|fifth|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+3|fifth|Fired Up|Pepperoni Pizza|milk,pork,wheat
 4|breakfast|Field of Greens|Greek Yogurt|milk
+4|breakfast|Field of Greens|Cottage Cheese|gluten free,milk
+4|breakfast|Field of Greens|Vanilla Yogurt|gluten free,milk
+4|breakfast|Field of Greens|Assorted Fruits|
+4|breakfast|Field of Greens|Fruit Salad|gluten free,vegan
+4|breakfast|Field of Greens|Grapefruit|
+4|breakfast|Field of Greens|Sliced Melon|vegan
 4|breakfast|Field of Greens|Hard Boiled Eggs|egg,gluten free,vegetarian
+4|breakfast|Free Zone|Homesfries FreeZone|gluten free,vegan
+4|breakfast|Free Zone|Chicken Sausage|gluten free
+4|breakfast|Free Zone|Bacon|gluten free,pork
 4|breakfast|World of Flavor|Phoenix Sandwich|egg,milk,vegetarian,wheat
 4|breakfast|World of Flavor|Scrambled Eggs|egg,gluten free,vegetarian
-4|breakfast|World of Flavor|Bacon|gluten free,pork
+4|breakfast|World of Flavor|Eggs to Order|egg,gluten free
+4|breakfast|World of Flavor|Breakfast Bread|egg,milk,soy,vegetarian,wheat
 4|breakfast|World of Flavor|Vegan Sausage|soy,vegan,wheat
 4|breakfast|World of Flavor|Hashbrowns|gluten free,soy,vegan
 4|breakfast|The Classics|Oatmeal|gluten free,vegan
+4|breakfast|The Classics|Brown Sugar|gluten free,vegan
+4|breakfast|The Classics|Cinnamon Sugar|gluten free,vegan
+4|breakfast|The Classics|Craisins|gluten free,vegan
+4|breakfast|The Classics|Raisins|gluten free,vegan
+4|breakfast|The Classics|Toasted Almonds|gluten free,tree nut,vegan
+4|breakfast|Daily Kneads|Assorted Donuts|egg,milk,soy,wheat
+4|breakfast|Daily Kneads|Assorted Pastries|egg,milk,wheat
 4|breakfast|Daily Kneads|Banana Bread|soy,vegan,wheat
 4|lunch|Fired Up|Bang Bang Chicken Pizza|egg,milk,soy,wheat
 4|lunch|Fired Up|Cheese Pizza|milk,vegetarian,wheat
-4|lunch|Fired Up|Smokey Squash Chili with Quinoa & Pinto Beans|gluten free,vegan
+4|lunch|Fired Up|Pepperoni Pizza|milk,pork,wheat
+4|lunch|Fired Up|Smokey Squash Chili w/Quinoa, Pinto Beans|gluten free,vegan
 4|lunch|Fired Up|Tomato Bisque|milk,vegetarian,wheat
 4|lunch|Field of Greens|Corn & Cucumber Salad|gluten free,vegan
-4|lunch|Free Zone|Lemon Herb Roast Chicken (Free Zone)|halal
+4|lunch|Free Zone|Lemon Herb Roast Chicken FZ|halal
 4|lunch|Free Zone|Chickpea & Olive Salad|vegan
-4|lunch|Free Zone|Snickerdoodle Edible Cookie Dough (Free Zone)|gluten free,vegan
-4|lunch|World of Flavor|Ramen Bar with Chicken Lemongrass Broth|gluten free,sesame,soy
-4|lunch|World of Flavor|Ramen with Miso Broth|sesame,soy,vegan,wheat
+4|lunch|Free Zone|White Rice|gluten free,vegan
+4|lunch|Free Zone|Green Beans|gluten free,vegan
+4|lunch|Free Zone|Snickerdoodle Edible Cookie Dough FZ|gluten free,vegan
+4|lunch|World of Flavor|Chicken Lemongrass Broth|gluten free,sesame,soy
+4|lunch|World of Flavor|Chicken Thigh|halal
+4|lunch|World of Flavor|Ramen Noodles|vegan,wheat
+4|lunch|World of Flavor|Miso Broth|gluten free,sesame,soy,vegan
+4|lunch|World of Flavor|Bamboo Shoots|gluten free,vegan
+4|lunch|World of Flavor|Bean Sprouts|gluten free,vegan
+4|lunch|World of Flavor|Chopped Scallion|
+4|lunch|World of Flavor|Corn|gluten free,vegan
+4|lunch|World of Flavor|French Fried Onions|vegan,wheat
+4|lunch|World of Flavor|Furikake|gluten free,sesame,vegan
+4|lunch|World of Flavor|Baby Bok Choy|gluten free,vegan
+4|lunch|World of Flavor|Roasted Shiitake Mushrooms|vegan
 4|lunch|World of Flavor|Soy Marinated Eggs|egg,gluten free,soy,vegetarian
-4|lunch|The Classics|Roasted Chicken Thighs with Garlic Confit|gluten free,halal
-4|lunch|The Classics|Pesto Campanelle with Roasted Tomato|milk,vegetarian,wheat
+4|lunch|The Classics|Roasted Chicken Thighs w Garlic Confit|gluten free,halal
+4|lunch|The Classics|Pesto Campanelle w/ Roasted Tomato|milk,vegetarian,wheat
 4|lunch|The Classics|Garlic Bread Knots|milk,soy,tree nut,vegetarian,wheat
+4|lunch|The Classics|Roasted Green Beans|gluten free,vegan
 4|lunch|Daily Kneads|Chocolate Chip Cookies|egg,milk,wheat
+4|lunch|Daily Kneads|Vanilla Cupcakes|egg,milk,soy,wheat
 4|lunch|Daily Kneads|Salted Caramel Pretzel Brownies|egg,milk,soy,wheat
+4|lunch|Daily Kneads|Vanilla Pudding|gluten free,milk,soy
+4|lunch|Daily Kneads|Assorted Cookies|egg,milk,soy,tree nut,wheat
 4|lunch|Daily Kneads|Mint Oreo Cheesecake|egg,milk,soy,wheat
+4|lunch|Daily Kneads|Smore's Magic Bar|milk,soy,wheat
+4|lunch|Daily Kneads|Banana Pudding Cheesecake|egg,milk,soy,wheat
+4|lunch|Daily Kneads|Cookie Butter Cupcakes|egg,milk,soy,vegetarian,wheat
 4|lunch|Verdant & Vegan|Crispy Tofu in Chili Crunch|gluten free,soy,vegan
 4|lunch|Verdant & Vegan|Lo Mein with Garlic and Ginger|soy,vegan,wheat
 4|lunch|Verdant & Vegan|Kimchi|gluten free,vegan
-4|lunch|Spice of Life|Mezze Plate with Dolmades|gluten free,vegan
+4|lunch|Verdant & Vegan|Roasted Broccoli|
+4|lunch|Verdant & Vegan|Sesame Seeds|gluten free,sesame,vegan
+4|lunch|Verdant & Vegan|Vegan White Chocolate Chip Cookies|soy,vegan,wheat
+4|lunch|Spice of Life|Baba Ghanoush|gluten free,sesame,vegan
+4|lunch|Spice of Life|Dolmades|gluten free,vegan
+4|lunch|Spice of Life|Pickled Red Onion|gluten free,vegan
+4|lunch|Spice of Life|Pita Chips|soy,vegan,wheat
 4|lunch|Spice of Life|Roasted Red Pepper Hummus|gluten free,sesame,vegan
-4|lunch|Spice of Life|Feta with Olive Oil, Lemon & Mint|gluten free,milk,vegetarian
+4|lunch|Spice of Life|Tabbouleh|vegan,wheat
+4|lunch|Spice of Life|Feta w/ Olive Oil, Lemon, Mint|gluten free,milk,vegetarian
+4|lunch|Spice of Life|Hummus|gluten free,sesame,vegan
 4|lunch|Grillin' Out|Hamburger|gluten free,halal
 4|lunch|Grillin' Out|Cheeseburger|halal,milk,sesame,soy,wheat
+4|lunch|Grillin' Out|Marinara Sauce|vegan
 4|lunch|Grillin' Out|Mozzarella Sticks|egg,milk,soy,vegetarian,wheat
+4|lunch|Grillin' Out|Jalapeno Popper Grilled Cheese|egg,milk,vegetarian,wheat
+4|lunch|Grillin' Out|Eggs to Order|egg,gluten free
 4|lunch|Grillin' Out|French Fries|gluten free,vegan
+4|lunch|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+4|lunch||Romaine Lettuce|vegan
+4|midday|Grillin' Out|French Fries|gluten free,vegan
+4|midday|Grillin' Out|Chicken Tenders|egg,milk,wheat
+4|midday|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+4|midday|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+4|midday|Fired Up|Pepperoni Pizza|milk,pork,wheat
+4|midday||Romaine Lettuce|vegan
+4|dinner|Daily Kneads|Leek & Taleggio Cheese Bread Pudding|egg,milk,soy,vegetarian,wheat
+4|dinner|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+4|dinner|Fired Up|Pepperoni Pizza|milk,pork,wheat
+4|dinner|Free Zone|FZ Beef Pot Roast|gluten free,kosher
+4|dinner|Grillin' Out|Eggs to Order|egg,gluten free
+4|dinner|Grillin' Out|French Fries|gluten free,vegan
+4|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+4|dinner||Allergen Free Biscuits|
+4|dinner||Baby Kale Salad w/ Squash, Pear, Pepitas|gluten free,vegan
+4|dinner||Beef Gravy - FZ|gluten free,kosher
+4|dinner||Braised Greens|gluten free,vegan
+4|dinner||Braised Lamb Sugo|halal
+4|dinner||Chicken Pot Pie|egg,halal,milk,soy,wheat
+4|dinner||Creamed Local Greens|milk,vegetarian,wheat
+4|dinner||Crispy Chicken w/ Mushroom Conserva|gluten free,halal
+4|dinner||Crispy Mushrooms for Squash Soup|gluten free,vegan
+4|dinner||Curry Spiced Pumpkin & Honeynut Squash Soup|gluten free,tree nut
+4|dinner||French Onion Soup w/ Gruyere Croutons|alcohol,milk,soy,wheat
+4|dinner||FZ-Whipped Spiced Sweet Potato|gluten free,vegan
+4|dinner||Goat Cheese Polenta|gluten free,milk,vegetarian
+4|dinner||Herb Roasted Fingerling Potatoes|gluten free,vegan
+4|dinner||Herbed Quinoa w/ Beets & Cranberries|gluten free,vegan
+4|dinner||Parsnips w/ Brown Butter and Rosemary|gluten free,milk,vegetarian
+4|dinner||Roasted Root Vegetables|gluten free,vegan
+4|dinner||Romaine Lettuce|vegan
+4|dinner||Smoked Salmon w/ Creole Mustard Glaze|fish,halal
+4|dinner||Smoked Tofu w/ Fall-Spiced Squash Puree|gluten free,soy,vegan
+4|dinner||Whipped Spiced Sweet Potato|gluten free,milk,vegetarian
+4|dinner||White Rice|gluten free,vegan
+4|dinner||Roasted Brussels Sprouts|gluten free,vegan
+4|dinner||Roasted Brussels Sprouts, Fennel & Apple|gluten free,vegan
+5|breakfast|Field of Greens|Greek Yogurt|milk
+5|breakfast|Field of Greens|Cottage Cheese|gluten free,milk
+5|breakfast|Field of Greens|Vanilla Yogurt|gluten free,milk
+5|breakfast|Field of Greens|Assorted Fruits|
+5|breakfast|Field of Greens|Fruit Salad|gluten free,vegan
+5|breakfast|Field of Greens|Grapefruit|
+5|breakfast|Field of Greens|Sliced Melon|vegan
+5|breakfast|Field of Greens|Hard Boiled Eggs|egg,gluten free,vegetarian
+5|breakfast|Free Zone|Homesfries FreeZone|gluten free,vegan
+5|breakfast|Free Zone|Chicken Sausage|gluten free
+5|breakfast|Free Zone|Bacon|gluten free,pork
+5|breakfast|World of Flavor|Phoenix Sandwich|egg,milk,vegetarian,wheat
+5|breakfast|World of Flavor|Scrambled Eggs|egg,gluten free,vegetarian
+5|breakfast|World of Flavor|Eggs to Order|egg,gluten free
+5|breakfast|World of Flavor|Breakfast Bread|egg,milk,soy,vegetarian,wheat
+5|breakfast|World of Flavor|Vegan Sausage|soy,vegan,wheat
+5|breakfast|World of Flavor|Hashbrowns|gluten free,soy,vegan
+5|breakfast|The Classics|Oatmeal|gluten free,vegan
+5|breakfast|The Classics|Brown Sugar|gluten free,vegan
+5|breakfast|The Classics|Cinnamon Sugar|gluten free,vegan
+5|breakfast|The Classics|Craisins|gluten free,vegan
+5|breakfast|The Classics|Raisins|gluten free,vegan
+5|breakfast|The Classics|Toasted Almonds|gluten free,tree nut,vegan
+5|breakfast|Daily Kneads|Assorted Donuts|egg,milk,soy,wheat
+5|breakfast|Daily Kneads|Assorted Pastries|egg,milk,wheat
+5|breakfast|Daily Kneads|Banana Bread|soy,vegan,wheat
+5|lunch|Fired Up|Hawaiian Pizza|milk,pork,wheat
+5|lunch|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+5|lunch|Fired Up|Pepperoni Pizza|milk,pork,wheat
+5|lunch|Fired Up|Broccoli Cheddar soup|milk,vegetarian,wheat
+5|lunch|Fired Up|Navy Bean Soup|milk,pork,wheat
+5|lunch|Field of Greens|Roasted Broccoli Caesar|fish,milk
+5|lunch|Daily Kneads|Coconut caramel cheesecake|egg,milk,soy,tree nut,wheat
+5|lunch|Daily Kneads|Dirt Pudding|milk,soy,wheat
+5|lunch|Daily Kneads|Yellow Cupcakes w/ Vanilla Frosting|egg,milk,soy,wheat
+5|lunch|Daily Kneads|Birthday Cake Brookies|egg,milk,soy,wheat
+5|lunch|The Classics|Amoroso Hoagie Roll|soy,vegan,wheat
+5|lunch|The Classics|Shaved Beef Steak|gluten free
+5|lunch|The Classics|Cheese Sauce|gluten free,milk,vegetarian
+5|lunch|The Classics|Fried Onions|gluten free,vegan
+5|lunch|The Classics|Sautéed Mushrooms|gluten free,vegan
+5|lunch|The Classics|Sliced Cherry Peppers|gluten free,vegan
+5|lunch|The Classics|Steak Fries|gluten free,vegan
+5|lunch|Verdant & Vegan|Herb Farro|vegan,wheat
+5|lunch|Verdant & Vegan|Herb Roasted Tofu|gluten free,soy,vegan
+5|lunch|Verdant & Vegan|Beet Falafel|gluten free,sesame,tree nut,vegan
+5|lunch|Verdant & Vegan|Lemon Tahini Sauce|gluten free,sesame,vegan
+5|lunch|Verdant & Vegan|Pickled Red Onion|gluten free,vegan
+5|lunch|Verdant & Vegan|Roasted Cauliflower|gluten free,vegan
+5|lunch|Verdant & Vegan|Shawarma Spiced Chickpeas|gluten free,vegan
+5|lunch|Verdant & Vegan|Pita Chips|soy,vegan,wheat
+5|lunch|Verdant & Vegan|White Rice|gluten free,vegan
+5|lunch|Verdant & Vegan|Pumpkin Snickerdoodle Cookie|soy,vegan,wheat
+5|lunch|Spice of Life|Greek Spiced Chicken|gluten free,halal
+5|lunch|Spice of Life|Pita Bread|soy,vegan,wheat
+5|lunch|Spice of Life|Yellow Rice|gluten free,vegan
+5|lunch|Spice of Life|Diced Tomatoes|gluten free,vegan
+5|lunch|Spice of Life|Shredded Lettuce|gluten free,vegan
+5|lunch|Spice of Life|Tzatziki Sauce|gluten free,milk,vegetarian
+5|lunch|Spice of Life|Whole Red Onions|gluten free,vegan
+5|lunch|Free Zone|Braised Kale|gluten free,vegan
+5|lunch|Free Zone|Cucumber & Tomato Salad|gluten free,vegan
+5|lunch|Free Zone|Chocolate Pudding FZ|gluten free,vegan
+5|lunch|Grillin' Out|Cheese Quesadilla|milk,vegetarian,wheat
+5|lunch|Grillin' Out|Philly Cheesesteak Quesadilla|milk,wheat
+5|lunch|Grillin' Out|Chicken Tenders|egg,milk,wheat
+5|lunch|Grillin' Out|Eggs to Order|egg,gluten free
+5|lunch|Grillin' Out|French Fries|gluten free,vegan
+5|lunch|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+5|lunch|World of Flavor|Chicken Milanese|egg,halal,milk,soy,wheat
+5|lunch|World of Flavor|Milk Braised Pork Shoulder|milk,pork
+5|lunch|World of Flavor|Creamy Polenta|gluten free,milk,vegetarian
+5|lunch|World of Flavor|Braised Kale & White Beans|gluten free,vegan
+5|lunch|World of Flavor|Arugula Salad|vegan
+5|lunch||Romaine Lettuce|vegan
+5|midday|Grillin' Out|French Fries|gluten free,vegan
+5|midday|Grillin' Out|Chicken Tenders|egg,milk,wheat
+5|midday|Grillin' Out|Grilled Chicken Breast|gluten free,halal
+5|midday|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+5|midday|Fired Up|Pepperoni Pizza|milk,pork,wheat
+5|midday|The Classics|Romaine Lettuce|vegan
+5|dinner|Fired Up|Hawaiian Pizza|milk,pork,wheat
+5|dinner|Fired Up|Cheese Pizza|milk,vegetarian,wheat
+5|dinner|Fired Up|Pepperoni Pizza|milk,pork,wheat
+5|dinner|Fired Up|Navy Bean Soup|milk,pork,wheat
+5|dinner|Fired Up|Broccoli Cheddar soup|milk,vegetarian,wheat
+5|dinner|Field of Greens|Roasted Broccoli Caesar|fish,milk
+5|dinner|Free Zone|Rosemary Roasted Chicken|gluten free,halal
+5|dinner|Free Zone|Baked Potato|gluten free,vegan
+5|dinner|Free Zone|Green Beans|gluten free,vegan
+5|dinner|Free Zone|Cucumber & Tomato Salad|gluten free,vegan
+5|dinner|Free Zone|Chocolate Pudding FZ|gluten free,vegan
+5|dinner|World of Flavor|Jamaican Curry Chicken|gluten free,halal,tree nut
+5|dinner|World of Flavor|Jamaican Rice and Peas|gluten free,tree nut,vegan
+5|dinner|World of Flavor|Plantains|gluten free,vegan
+5|dinner|World of Flavor|White Rice|gluten free,vegan
+5|dinner|World of Flavor|Pineapple and Jalapeno Salsa|gluten free,vegan
+5|dinner|The Classics|Mushroom Chicken Gravy|gluten free,milk,vegetarian
+5|dinner|The Classics|Corn Muffin|egg,milk,vegetarian,wheat
+5|dinner|The Classics|Whipped Butter|gluten free,milk,vegetarian
+5|dinner|The Classics|Roasted Asparagus|gluten free,vegan
+5|dinner|Verdant & Vegan|Lo Mein w/ Stir Fry Sauce|soy,vegan,wheat
+5|dinner|Verdant & Vegan|Teriyaki Tofu|sesame,soy,vegan
+5|dinner|Verdant & Vegan|Broccoli Florets|gluten free,vegan
+5|dinner|Verdant & Vegan|Chopped Scallion|
+5|dinner|Verdant & Vegan|Red Peppers|gluten free,vegan
+5|dinner|Verdant & Vegan|Sesame Seeds|gluten free,sesame,vegan
+5|dinner|Verdant & Vegan|Shaved Cabbage|gluten free,vegan
+5|dinner|Verdant & Vegan|Steamed Snap Peas|gluten free,vegan
+5|dinner|Verdant & Vegan|Sliced Mushrooms|gluten free,vegan
+5|dinner|Verdant & Vegan|Sliced White Onion|gluten free,vegan
+5|dinner|Verdant & Vegan|Shredded Carrots|gluten free,vegan
+5|dinner|Verdant & Vegan|Stir Fry Sauce|gluten free,sesame,soy,vegan
+5|dinner|Verdant & Vegan|Pumpkin Snickerdoodle Cookie|soy,vegan,wheat
+5|dinner|Grillin' Out|Cheese Quesadilla|milk,vegetarian,wheat
+5|dinner|Grillin' Out|Philly Cheesesteak Quesadilla|milk,wheat
+5|dinner|Grillin' Out|Eggs to Order|egg,gluten free
+5|dinner|Grillin' Out|French Fries|gluten free,vegan
+5|dinner|Grillin' Out|Grilled Chicken Breast|gluten free,halal

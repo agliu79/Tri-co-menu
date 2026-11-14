@@ -5,7 +5,7 @@ const ALLERGENS=[{k:"milk",label:"Milk"},{k:"egg",label:"Egg"},{k:"wheat",label:
 const CUISINES=[["mediterranean","Mediterranean"],["italian","Italian"],["chinese","Chinese"],["korean","Korean"],["japanese","Japanese"],["thai","Thai"],["vietnamese","Vietnamese"],["american","American"],["plant-based","Plant-based"],["mexican","Mexican"],["indian","Indian"],["middle-eastern","Middle Eastern"]].map(([k,label])=>({k,label}));
 const GOALS=[{k:"weight",label:"Weight loss",hint:"Lighter option"},{k:"muscle",label:"Muscle building",hint:"Protein-forward"},{k:"recomp",label:"Body recomposition",hint:"Lean protein"},{k:"cardio",label:"Cardiovascular health",hint:"Heart-friendly"},{k:"micro",label:"Micronutrient sufficiency",hint:"Veg-packed"},{k:"fibre",label:"More fibre",hint:"Fibre-rich"}];
 const CATS=["Breakfast","Entrées","Grill & Deli","Pizza & Pasta","Soups & Chili","Salads","Sides","Desserts & Bakery"];
-const MEALS={breakfast:"Breakfast",brunch:"Brunch",lunch:"Lunch",dinner:"Dinner"};
+const MEALS={breakfast:"Breakfast",brunch:"Brunch",lunch:"Lunch",midday:"Mid-Day Munches",dinner:"Dinner",fifth:"5th Meal"};
 const DAYS=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 const HALL=Object.fromEntries(DATA.halls.map(h=>[h.id,h]));
 const D=DATA.dishes;
@@ -85,15 +85,15 @@ function renderVerify(){const d=S.draft;
  $("#app").innerHTML=`<div class="shell"><div class="panel" id="reg"><div class="wordmark">${WORDMARK}</div>
   <div class="kicker">Check your email</div><h1 style="font-size:28px;margin-top:6px">Enter your code</h1>
   <p class="sub">We sent a sign-in code to <b>${esc(d.email)}</b>. It can take a minute, so check spam too.</p>
-  <label class="f" for="code">Code</label><input class="inp" id="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456" style="font-size:22px;letter-spacing:.2em">
+  <label class="f" for="code">8-digit code</label><input class="inp" id="code" type="text" inputmode="numeric" pattern="[0-9]{8}" autocomplete="one-time-code" maxlength="8" placeholder="12345678" aria-describedby="err" style="font-size:22px;letter-spacing:.2em">
   <div class="err" id="err"></div><button class="btn full" id="vgo">Verify</button>
   <p class="verify"><button class="linkbtn" id="resend">Send a new code</button> · <button class="linkbtn" id="chg">Use a different email</button></p></div></div>`;
  const inp=$("#code");inp.addEventListener("keydown",e=>{e.stopPropagation();if(e.key==="Enter")go();});setTimeout(()=>inp.focus(),50);
- inp.oninput=()=>{inp.value=inp.value.replace(/\D/g,"");};
+ inp.oninput=()=>{inp.value=inp.value.replace(/\D/g,"").slice(0,8);$("#err").textContent="";if(inp.value.length===8)go();};
  $("#vgo").onclick=go;
  $("#resend").onclick=async()=>{try{await sendCode(d.email);toast("New code sent");}catch(e){$("#err").textContent=e.message;}};
  $("#chg").onclick=()=>{S.view=null;render();};
- async function go(){const t=inp.value.trim();if(t.length<6){$("#err").textContent="Enter the code from the email.";return;}
+ async function go(){if($("#vgo").disabled)return;const t=inp.value.trim();if(!/^\d{8}$/.test(t)){$("#err").textContent="Enter the 8-digit code from the email.";return;}
   $("#vgo").disabled=true;$("#err").textContent="";
   try{await verifyCode(d.email,t);await Shared.init();
    const prof=await Shared.db?.doc("data/users/"+Shared.uid+"/profile").get?.().catch(()=>null);
@@ -188,7 +188,7 @@ function fmtH(x){const h=Math.floor(x),m=Math.round((x-h)*60);const ap=h>=12?"pm
 function ago(ts){const m=Math.round((Date.now()-ts)/60000);if(m<1)return "just now";if(m<60)return m+"m ago";const h=Math.round(m/60);if(h<24)return h+"h ago";return new Date(ts).toLocaleDateString(undefined,{month:"short",day:"numeric"});}
 function toast(msg){const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2600);}
 function rerender(){if(!S.user||S.view==="survey")return;const ae=document.activeElement;if(ae&&ae.matches&&ae.matches("textarea,input[type=text],#q,.cmtform input"))return;render();}
-function stockSrc(it){return it.photo&&STOCK[it.photo]?`img/${it.photo}.jpg`:null;}
+function stockSrc(it){return it.img?`img/dishes/${it.id}.jpg`:it.photo&&STOCK[it.photo]?`img/${it.photo}.jpg`:null;}
 function pic(it){const s=stockSrc(it);return s?`<div class="pic" style="background-image:url('${s}')"></div>`:`<div class="pic blank"><span>${esc(it.category)}</span></div>`;}
 function heartBtn(id,big){const on=Shared.favs.has(id);return `<button class="heart ${on?"on":""} ${big?"big":""}" data-fav="${id}" aria-label="${on?"Remove from":"Add to"} favorites" aria-pressed="${on}">${on?HEART:HEART_O}</button>`;}
 function wireHearts(){document.querySelectorAll("[data-fav]").forEach(b=>b.onclick=async e=>{e.stopPropagation();const id=b.dataset.fav;await Shared.toggleFav(id);toast(Shared.favs.has(id)?"Added to favorites":"Removed from favorites");render();});}
@@ -612,7 +612,7 @@ function openProfileEditor(){
   m.querySelector("#prm")&&(m.querySelector("#prm").onclick=()=>{pic=null;draw();});
   m.querySelector("#pcancel").onclick=()=>m.remove();
   m.querySelector("#psave").onclick=async()=>{const name=nm.value.trim().replace(/\s+/g," ");let err="";
-   if(name.length<2||name.length>40||!/^[\p{L}][\p{L}\p{M} .'’-]*$/u.test(name))err="Use your real name: letters, spaces, hyphens and apostrophes only.";
+   if(name.length<2||name.length>40||!/^[\p{L}][\p{L}\p{M}\p{N} .'’-]*$/u.test(name))err="Use your name: letters, numbers, spaces, hyphens and apostrophes.";
    else if(hasBad(name))err=MOD_MSG;
    if(err){m.querySelector("#perr2").textContent=err;return;}
    S.user={...S.user,name,avatar:pic||null};local.set("tce_user",S.user);saveProfile();
@@ -688,7 +688,7 @@ const WORDMARK=`<img src="img/logo-dark.png" alt="Tri-Co Eatmaxxing">`;
 const WORDMARK_H=()=>`<img class="lg-dark" src="img/logo-dark.png" alt="Tri-Co Eatmaxxing"><img class="lg-light" src="img/logo-light.png" alt="" aria-hidden="true">`;
 const onScroll=()=>document.body.classList.toggle("scrolled",window.scrollY>8);
 window.addEventListener("scroll",onScroll,{passive:true});
-const collegeOf=email=>{const g=CFG.guestEmails&&CFG.guestEmails[email.trim().toLowerCase()];if(g&&COLLEGES[g])return g;const m=/^[^@\s]+@([a-z0-9.-]+)$/i.exec(email.trim());if(!m)return null;const dom=m[1].toLowerCase();return Object.keys(COLLEGES).find(k=>dom===COLLEGES[k].domain)||null;};
+const collegeOf=raw=>{const email=String(raw||"").replace(/[\s\u00a0\u200b-\u200d\u2060\ufeff]/g,"").toLowerCase();const g=CFG.guestEmails&&CFG.guestEmails[email.trim().toLowerCase()];if(g&&COLLEGES[g])return g;const m=/^[^@\s]+@([a-z0-9.-]+)$/i.exec(email.trim());if(!m)return null;const dom=m[1].toLowerCase();return Object.keys(COLLEGES).find(k=>dom===COLLEGES[k].domain)||null;};
 
 /* ================= registration ================= */
 function renderRegister(){
@@ -709,14 +709,13 @@ function renderRegister(){
  document.querySelectorAll("#reg .inp").forEach(i=>{i.addEventListener("pointerdown",()=>setTimeout(()=>i.focus(),0));i.addEventListener("keydown",e=>{e.stopPropagation();if(e.key==="Enter"){e.preventDefault();submit();}});});
  setTimeout(()=>{try{$("#nm").focus()}catch(e){}},50);
  $("#go").onclick=submit;
- function submit(){const name=$("#nm").value.trim().replace(/\s+/g," "),email=$("#em").value.trim().toLowerCase();let m="";
+ function submit(){const name=$("#nm").value.trim().replace(/\s+/g," "),email=$("#em").value.replace(/[\s\u00a0\u200b-\u200d\u2060\ufeff]/g,"").toLowerCase();let m="";
   const k=collegeOf(email),local=email.split("@")[0]||"";
   if(!name)m="Please enter your name.";
-  else if(name.length<2||name.length>40||!/^[\p{L}][\p{L}\p{M} .'’-]*$/u.test(name))m="Use your real name: letters, spaces, hyphens and apostrophes only.";
+  else if(name.length<2||name.length>40||!/^[\p{L}][\p{L}\p{M}\p{N} .'’-]*$/u.test(name))m="Use your name: letters, numbers, spaces, hyphens and apostrophes.";
   else if(hasBad(name))m=MOD_MSG;
-  else if(!/^[a-z0-9](?:[a-z0-9._+-]{0,62}[a-z0-9])?@[a-z0-9.-]+\.[a-z]{2,}$/.test(email)||/\.\./.test(email))m="That doesn't look like a valid email address.";
+  else if(!/^[a-z0-9._%+'-]{1,64}@[a-z0-9.-]+\.[a-z]{2,}$/.test(email))m="That doesn't look like a valid email address.";
   else if(!k)m="Only Bryn Mawr, Haverford and Swarthmore students can join. Use your @brynmawr.edu, @haverford.edu or @swarthmore.edu address.";
-  else if(hasBad(local))m=MOD_MSG;
   if(m){$("#err").textContent=m;return;}
   S.draft={name,email,college:k,prefs:{diets:[],allergens:[],cuisines:{},goals:[]}};
   if(SUPA_ON){const b=$("#go");b.disabled=true;b.textContent="Sending code…";sendCode(email).then(()=>{S.view="verify";render();}).catch(e=>{$("#err").textContent=e.message;b.disabled=false;b.textContent="Email me a code";});return;}
@@ -761,9 +760,9 @@ function header(){
  return `<header class="top"><div class="top-in">
  <div class="wordmark" id="home" role="link" aria-label="Home">${WORDMARK_H()}</div>
  <nav class="tabs">${order.map(k=>`<button class="tab ${S.view==="home"&&tab===k?"on":""}" data-t="${k}">${COLLEGES[k].name}</button>`).join("")}
-  ${XTABS.map(([v,l])=>`<button class="tab xtab ${S.view===v?"on":""}" data-go="${v}">${l}</button>`).join("")}
+  ${XTABS.map(([v,l])=>`<button class="tab xtab ${S.view===v?"on":""}" data-go="${v}">${v==="feed"?`<img src="img/ratemyplate.png" alt="" class="tabico">`:""}${l}</button>`).join("")}
   <div class="more"><button class="tab moretab ${XTABS.some(x=>x[0]===S.view)?"on":""}" id="morebtn" aria-haspopup="true" aria-expanded="false">${XTABS.find(x=>x[0]===S.view)?.[1]||"More"} <span aria-hidden="true">▾</span></button>
-   <div class="moremenu hidden" id="moremenu">${XTABS.map(([v,l])=>`<button class="mitem" data-go="${v}">${l}</button>`).join("")}</div></div></nav>
+   <div class="moremenu hidden" id="moremenu">${XTABS.map(([v,l])=>`<button class="mitem" data-go="${v}">${v==="feed"?`<img src="img/ratemyplate.png" alt="" class="tabico">`:""}${l}</button>`).join("")}</div></div></nav>
  <div class="search"><span class="mag">${MAG}</span><input id="q" type="text" placeholder="Search dishes" autocomplete="off" aria-label="Search dishes" aria-controls="sres">${SR?`<button class="mic" id="mic" type="button" aria-label="Search by voice" title="Search by voice">${MIC}</button>`:""}<div class="sresults hidden" id="sres" role="listbox"></div></div>
  <div class="me"><button class="gear" id="gear" aria-label="Settings" title="Settings">${GEAR}</button><button class="avatar" id="av" aria-label="Account menu">${avatarHTML(u.name,u.avatar,"hdr")}</button>
   <div class="menu ${S.menuOpen?"":"hidden"}"><div class="who"><b>${esc(u.name)}</b>${esc(u.email)} · ${COLLEGES[u.college].name}</div>
@@ -1013,7 +1012,7 @@ function renderFeed(){
  if(S.feedCollege!=="all")posts=posts.filter(p=>p.college===S.feedCollege);
  posts.sort(S.feedSort==="top"?(a,b)=>b.likes-a.likes||b.ts-a.ts:(a,b)=>b.ts-a.ts);
  const d=S.postDraft||{};
- $("#app").innerHTML=header()+`<main><div class="hero"><h1>Rate My Plate</h1></div>
+ $("#app").innerHTML=header()+`<main><div class="hero rmp-hero"><img src="img/ratemyplate.png" alt="" class="rmp-logo"><h1>Rate My Plate</h1></div>
   <p class="legend" style="margin:-6px 0 16px">Show off your bowls, builds and coffee orders. Like the best plates, comment, and climb the leaderboard.</p>
   
   <div class="feedwrap"><div>${`
