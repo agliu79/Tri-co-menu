@@ -657,28 +657,63 @@ function renderProfile(){
  document.querySelectorAll("[data-open]").forEach(e=>e.onclick=()=>openDish(e.dataset.open));
  $("#pedit").onclick=()=>{S.view="survey";S.step=0;S.draft=null;render();};
  $("#pprof").onclick=openProfileEditor;$("#pav").onclick=openProfileEditor;$("#pfuel").onclick=()=>go("fuel");
- $("#pout").onclick=()=>{local.del("tce_user");S.user=null;S.view=null;S.draft=null;S.tab=null;render();};
+ $("#pout").onclick=()=>signOut();
  $("#goleaders").onclick=()=>go("leaders");
 }
 
 /* ================= leaderboard ================= */
+/* ================= people: public profiles ================= */
+function rankOf(uid,kt=karmaTable()){const i=kt.findIndex(x=>x.uid===uid);return i<0?0:kt.filter(x=>x.karma>kt[i].karma).length+1;}
+function userLink(uid,name,cls=""){return `<button class="ulink ${cls}" data-user="${esc(uid)}">${esc(name)}</button>`;}
+function openUser(uid){if(!uid)return;if(S.view!=="user")S.prevView=S.view==="detail"?"home":S.view;if(uid===Shared.uid){go("profile");return;}S.viewUid=uid;S.view="user";render();scrollTo(0,0);}
+document.addEventListener("click",e=>{const b=e.target.closest&&e.target.closest("[data-user]");if(b){e.preventDefault();e.stopPropagation();openUser(b.dataset.user);}},true);
+function karmaGrid(x,you){return `<div class="kgrid"><div><b>${x.likes}</b>likes on ${you?"your":"their"} plates</div><div><b>${x.comments}</b>comments received</div><div><b>${x.posts}</b>plates posted</div><div><b>${x.reviews}</b>dish reviews</div><div><b>${x.photos}</b>review photos</div></div>`;}
+function renderUser(){
+ const uid=S.viewUid;const kt=karmaTable();const who=Shared.who(uid);
+ const x=kt.find(k=>k.uid===uid)||{uid,...who,karma:0,likes:0,comments:0,posts:0,reviews:0,photos:0};
+ const rank=rankOf(uid,kt);const total=kt.length;
+ const plates=Shared.posts().filter(p=>p.uid===uid).sort((a,b)=>b.ts-a.ts);
+ const doc=Shared.docs[uid]||{};
+ const reviews=Object.entries(doc.reviews||{}).filter(([id,r])=>D[id]&&r&&typeof r.stars==="number"&&!Shared.hidden('review:'+uid+'|'+id,uid)).map(([id,r])=>({id,...r,text:clean(r.text)})).sort((a,b)=>(b.ts||0)-(a.ts||0));
+ const known=!!Shared.docs[uid];
+ $("#app").innerHTML=header()+`<main>
+  <button class="linkbtn" id="uback" style="margin-bottom:12px">← Back</button>
+  ${known?`<div class="profhead">${avatarHTML(x.name,who.avatar,"big")}
+   <div><h1>${esc(x.name)}</h1><div class="legend" style="margin:2px 0 0">${COLLEGES[who.college]?.name||""}</div></div>
+   <div class="karma"><b>${x.karma}</b><span>karma${rank?` · #${rank} of ${total}`:""}</span></div></div>
+  <section class="box"><h3>Karma</h3>${karmaGrid(x,false)}<p class="note2">${KARMA_RULES}</p></section>
+  <section class="box"><h3>Plates (${plates.length})</h3>${plates.length?`<div class="ugrid">${plates.map(p=>`<button class="uplate" data-zoom="${esc(p.src)}" aria-label="${esc(p.title||"Plate")}"><span class="ph" style="background-image:url('${esc(p.src)}')"></span><b>${esc(p.title||"Plate")}</b><small>${HEART} ${p.likes} · ${p.comments.length} comment${p.comments.length===1?"":"s"}</small></button>`).join("")}</div>`:`<p class="legend" style="margin:0">No plates posted yet.</p>`}</section>
+  <section class="box"><h3>Reviews (${reviews.length})</h3>${reviews.length?reviews.map(r=>`<div class="urev"><button class="linkbtn" data-open="${r.id}" style="font-weight:700">${esc(D[r.id].name)}</button> <span class="stars" style="font-size:13px">${stars(r.stars)}</span>${r.text?`<p>${esc(r.text)}</p>`:""}</div>`).join(""):`<p class="legend" style="margin:0">No reviews yet.</p>`}</section>`
+  :`<div class="empty">This student's profile isn't available.</div>`}
+  ${footer()}</main>`;
+ wireHeader();
+ $("#uback").onclick=()=>{history.length>1&&S.prevView?go(S.prevView):go("leaders");};
+ document.querySelectorAll("[data-zoom]").forEach(b=>b.onclick=()=>showImage(b.dataset.zoom));
+ document.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>openDish(b.dataset.open));
+}
+function signOut(){return(async()=>{if(Shared.backend==="supabase"){try{await sbClient.auth.signOut();}catch(e){}Shared.mode="signedout";Shared.backend=null;Shared.uid="local";Shared.docs={};}local.del("tce_user");S.user=null;S.menuOpen=false;S.view=null;S.draft=null;S.tab=null;render();})();}
+
 function renderLeaders(){
- const kt=karmaTable().filter(x=>x.karma>0);const plates=Shared.posts().sort((a,b)=>b.likes-a.likes||b.ts-a.ts).slice(0,10);
+ const all=karmaTable();const kt=all.filter(x=>x.karma>0);const plates=Shared.posts().sort((a,b)=>b.likes-a.likes||b.ts-a.ts).slice(0,10);
+ const me=all.find(x=>x.uid===Shared.uid)||{karma:0,likes:0,comments:0,posts:0,reviews:0,photos:0};const myRank=me.karma>0?rankOf(Shared.uid,kt):0;
+ const row=(x,i)=>`<button class="lbrow ${x.uid===Shared.uid?"me":""}" data-user="${esc(x.uid)}"><span class="rk">${rankOf(x.uid,kt)}</span>${avatarHTML(x.name,x.avatar,"lb")}<div><b>${esc(x.name)}${x.uid===Shared.uid?" (you)":""}</b><small>${COLLEGES[x.college]?.name||""} · ${x.posts} plate${x.posts===1?"":"s"}, ${x.likes} like${x.likes===1?"":"s"}</small></div><span class="lbscore">${x.karma}</span></button>`;
  $("#app").innerHTML=header()+`<main><div class="hero"><h1>Leaderboard</h1></div>
+  <button class="mycard" data-user="${esc(Shared.uid)}">${avatarHTML(S.user.name,S.user.avatar,"big")}
+   <div><span class="kicker">You</span><b>${esc(S.user.name)}</b><small>${myRank?`#${myRank} of ${kt.length} on the leaderboard`:"Not on the board yet. Post a plate or review a dish to start earning karma."}</small></div>
+   <div class="karma"><b>${me.karma}</b><span>karma</span></div></button>
   <div class="lbwrap"><section class="box"><h3>Top plates</h3>
-   ${plates.length?plates.map((p,i)=>`<div class="lbrow"><span class="rk">${i+1}</span><button class="lbimg" data-zoom="${esc(p.src)}" style="background-image:url('${esc(p.src)}')" aria-label="View photo"></button><div><b>${esc(p.title||"Plate")}</b><small>${esc(p.name)} · ${COLLEGES[p.college].name}</small></div><span class="lbscore">${p.likes} like${p.likes===1?"":"s"}</span></div>`).join("")
+   ${plates.length?plates.map((p,i)=>`<div class="lbrow"><span class="rk">${i+1}</span><button class="lbimg" data-zoom="${esc(p.src)}" style="background-image:url('${esc(p.src)}')" aria-label="View photo"></button><div><b>${esc(p.title||"Plate")}</b><small class="lbwho">${avatarHTML(p.name,p.avatar,"xs")}${userLink(p.uid,p.name)} · ${COLLEGES[p.college].name}</small></div><span class="lbscore">${p.likes} like${p.likes===1?"":"s"}</span></div>`).join("")
     :`<p class="legend">No plates yet. Post one on Rate My Plate.</p>`}</section>
   <section class="box"><h3>Most karma</h3>
-   ${kt.length?kt.slice(0,20).map((x,i)=>`<div class="lbrow ${x.uid===Shared.uid?"me":""}"><span class="rk">${i+1}</span><span class="miniav" style="background:${COLLEGES[x.college].color}">${esc(x.name[0]||"?")}</span><div><b>${esc(x.name)}${x.uid===Shared.uid?" (you)":""}</b><small>${COLLEGES[x.college].name} · ${x.posts} plate${x.posts===1?"":"s"}, ${x.likes} like${x.likes===1?"":"s"}</small></div><span class="lbscore">${x.karma}</span></div>`).join("")
-    :`<p class="legend">Nobody has karma yet.</p>`}
-   <p class="note2">${KARMA_RULES}</p></section></div>
-  ${Shared.mode==="local"?`<div class="note">You're seeing only this browser's activity. Open the shared link signed in to Claude to see everyone.</div>`:""}
+   ${kt.length?kt.slice(0,20).map(row).join("")+(myRank>20?`<div class="lbgap">⋯</div>`+row(kt.find(x=>x.uid===Shared.uid)):""):`<p class="legend">Nobody has karma yet.</p>`}
+   <p class="note2">${KARMA_RULES} Tap anyone to see their profile.</p></section></div>
+  ${Shared.mode==="local"?`<div class="note">You're seeing only this browser's activity.</div>`:""}
   ${footer()}</main>`;
  wireHeader();document.querySelectorAll("[data-zoom]").forEach(b=>b.onclick=()=>showImage(b.dataset.zoom));
 }
 
 /* ================= router ================= */
-function render(){applyThemeOnce();if(!S.user){S.view==="survey"?renderSurvey():S.view==="verify"&&S.draft?renderVerify():renderRegister();}else if(S.view==="survey")renderSurvey();else if(S.view==="detail")renderDetail();else if(S.view==="favs"||S.view==="profile")renderProfile();else if(S.view==="feed")renderFeed();else if(S.view==="leaders")renderLeaders();else if(S.view==="fuel")renderFuel();else renderHome();bottomNav();if(typeof onScroll==="function")onScroll();}
+function render(){applyThemeOnce();if(!S.user){S.view==="survey"?renderSurvey():S.view==="verify"&&S.draft?renderVerify():renderRegister();}else if(S.view==="survey")renderSurvey();else if(S.view==="detail")renderDetail();else if(S.view==="favs"||S.view==="profile")renderProfile();else if(S.view==="feed")renderFeed();else if(S.view==="leaders")renderLeaders();else if(S.view==="fuel")renderFuel();else if(S.view==="user")renderUser();else renderHome();bottomNav();if(typeof onScroll==="function")onScroll();}
 function go(v){S.view=v;S.menuOpen=false;render();scrollTo(0,0);}
 function bottomNav(){let n=$("#bnav");if(!S.user||S.view==="survey"){n&&n.remove();return;}if(!n){n=document.createElement("nav");n.id="bnav";n.className="bnav";n.setAttribute("aria-label","Main");document.body.appendChild(n);}
  const cur=S.view==="detail"?"home":S.view;n.innerHTML=[["home","Menus"],["feed","Rate My Plate"],["leaders","Leaders"],["profile","Profile"],["fuel","Fuel"]].map(([v,l])=>`<button data-go="${v}" class="${cur===v?"on":""}" aria-current="${cur===v?"page":"false"}">${l}</button>`).join("");
@@ -780,7 +815,7 @@ function wireHeader(){
  $("#av").onclick=e=>{e.stopPropagation();S.menuOpen=!S.menuOpen;$(".menu").classList.toggle("hidden",!S.menuOpen);};
  $("#edit").onclick=()=>{S.menuOpen=false;S.view="survey";S.step=0;S.draft=null;render();};
  $("#gear").onclick=e=>{e.stopPropagation();S.menuOpen=false;$(".menu").classList.add("hidden");openSettings();};
- $("#out").onclick=async()=>{if(Shared.backend==="supabase"){try{await sbClient.auth.signOut();}catch(e){}Shared.mode="signedout";Shared.backend=null;Shared.uid="local";Shared.docs={};}local.del("tce_user");S.user=null;S.menuOpen=false;S.view=null;S.draft=null;S.tab=null;render();};
+ $("#out").onclick=()=>signOut();
  const q=$("#q"),box=$("#sres");let sel=-1,res=[];
  const draw=()=>{res=searchDishes(q.value);if(!q.value.trim()){box.classList.add("hidden");return;}
   box.innerHTML=res.length?res.map((it,i)=>{const n=nextServing(it),h=HALL[n.hall];const s=stockSrc(it);
@@ -957,7 +992,7 @@ function renderDetail(){
     <div class="err" id="rerr"></div><button class="btn" id="post">${mineRaw?"Update review":"Post review"}</button>
     ${mineRaw?` <button class="linkbtn red" id="delrev" style="margin-left:10px">Delete my review</button>`:""}</div>
    <div class="box"><h3>Reviews (${reviews.length})</h3>
-    ${reviews.length?reviews.map(rv=>`<div class="rv"><div class="who">${avatarHTML(rv.name,rv.avatar,"xs")}${esc(rv.name)}${rv.mine?" (you)":""} <small>· ${COLLEGES[rv.college].name}${rv.ts?" · "+ago(rv.ts):""}</small></div><div class="stars" style="font-size:13px;margin-top:4px">${stars(rv.stars)}</div>${rv.text?`<p>${esc(rv.text)}</p>`:""}${!rv.mine?`<button class="linkbtn" data-report="${esc('review:'+rv.uid+'|'+it.id)}" style="font-size:12px;color:var(--muted)">Report review</button>`:""}
+    ${reviews.length?reviews.map(rv=>`<div class="rv"><div class="who">${avatarHTML(rv.name,rv.avatar,"xs")}${userLink(rv.uid,rv.name)}${rv.mine?" (you)":""} <small>· ${COLLEGES[rv.college].name}${rv.ts?" · "+ago(rv.ts):""}</small></div><div class="stars" style="font-size:13px;margin-top:4px">${stars(rv.stars)}</div>${rv.text?`<p>${esc(rv.text)}</p>`:""}${!rv.mine?`<button class="linkbtn" data-report="${esc('review:'+rv.uid+'|'+it.id)}" style="font-size:12px;color:var(--muted)">Report review</button>`:""}
       ${rv.photos.length?`<div class="rvphotos">${rv.photos.map(p=>`<div class="ph-wrap"><button class="img" data-zoom="${esc(p.src)}" style="background-image:url('${esc(p.src)}')" aria-label="View photo"></button>${Shared.canDelete(rv.uid)?`<button class="ph-del" data-delph="${esc(rv.uid)}|${p.i}">Delete</button>`:`<button class="ph-del" data-report="${esc(p.rkey)}" title="Report this photo">Report</button>`}</div>`).join("")}</div>`:""}</div>`).join("")
      :`<p style="color:var(--muted)">No reviews yet. Be the first, photos welcome.</p>`}</div>
   </div>${footer()}</main>`;
@@ -1021,13 +1056,13 @@ function renderFeed(){
     <div class="seg" style="margin:0">${[["all","All"],...Object.entries(COLLEGES).map(([k,c])=>[k,c.name])].map(([v,l])=>`<button data-fc="${v}" class="${S.feedCollege===v?"on":""}">${l}</button>`).join("")}</div>
    </div>
    ${posts.length?posts.map(p=>`<article class="post">
-    <div class="ptop"><div class="pwho">${avatarHTML(p.name,p.avatar,"sm")}<b>${esc(p.name)}</b> <small>· ${COLLEGES[p.college].name}${p.where?" · "+esc(p.where):""}</small></div><small>${ago(p.ts)}</small></div>
+    <div class="ptop"><div class="pwho"><button class="ulink" data-user="${esc(p.uid)}" aria-label="${esc(p.name)}'s profile">${avatarHTML(p.name,p.avatar,"sm")}</button><b>${userLink(p.uid,p.name)}</b> <small>· ${COLLEGES[p.college].name}${p.where?" · "+esc(p.where):""}</small></div><small>${ago(p.ts)}</small></div>
     <button class="ph" data-zoom="${esc(p.src)}" style="background-image:url('${esc(p.src)}')" aria-label="View photo"></button>
     <div class="pb"><h3>${esc(p.title||"")}</h3>${p.caption?`<div>${esc(p.caption)}</div>`:""}
      <div class="acts"><button class="likebtn ${p.liked?"on":""}" data-like="${esc(p.key)}" aria-pressed="${p.liked}">${p.liked?HEART:HEART_O}<span>${p.likes}</span></button>
       <span class="legend" style="margin:0">${p.comments.length} comment${p.comments.length===1?"":"s"}</span>
       ${Shared.canDelete(p.uid)?`<button class="linkbtn red" data-delpost="${esc(p.key)}" style="margin-left:auto">Delete post</button>`:`<button class="linkbtn" data-report="${esc(p.rk)}" style="margin-left:auto;color:var(--muted)">Report</button>`}${Shared.isOwner&&p.reports?`<span class="pill red">Reported ${p.reports}×</span>`:""}</div>
-     <div class="cmts">${p.comments.map(c=>`<div class="cmt">${avatarHTML(c.name,c.avatar,"xs")}<b>${esc(c.name)}</b> ${esc(c.text)} <small style="color:var(--muted)">${ago(c.ts)}</small>${Shared.canDelete(c.uid)?` <button class="linkbtn" data-delcmt="${esc(p.key)}|${esc(c.uid)}|${c.i}">delete</button>`:` <button class="linkbtn" style="color:var(--muted);font-size:12px" data-report="${esc(c.rk)}">report</button>`}</div>`).join("")}
+     <div class="cmts">${p.comments.map(c=>`<div class="cmt">${avatarHTML(c.name,c.avatar,"xs")}<b>${userLink(c.uid,c.name)}</b> ${esc(c.text)} <small style="color:var(--muted)">${ago(c.ts)}</small>${Shared.canDelete(c.uid)?` <button class="linkbtn" data-delcmt="${esc(p.key)}|${esc(c.uid)}|${c.i}">delete</button>`:` <button class="linkbtn" style="color:var(--muted);font-size:12px" data-report="${esc(c.rk)}">report</button>`}</div>`).join("")}
       <form class="cmtform" data-cmt="${esc(p.key)}"><input type="text" maxlength="300" placeholder="Add a comment" aria-label="Add a comment"><button class="btn sm" type="submit">Post</button></form></div></div></article>`).join("")
     :`<div class="empty" style="border:1.5px dashed var(--line)">No plates yet. Post the first one.</div>`}`}
   </div>
