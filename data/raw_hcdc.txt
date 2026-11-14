@@ -1,0 +1,176 @@
+# Haverford Dining Center, Meal Choice Connect "HAVERFORD MENU", week of Sun Nov 8 - Sat Nov 14 2026
+# condiments, toppings, deli components and generic "du jour" placeholders left out
+1|breakfast|The Main Line|Scrambled Eggs
+1|breakfast|The Main Line|Tater Tots
+1|breakfast|The Main Line|Berry Pancakes
+1|breakfast|The Main Line|Pork Sausage Patty
+1|breakfast|The Main Line|Halal Chicken Sausage Links
+1|breakfast|The Main Line|Vegan Sausage
+1|breakfast|The Main Line|Spinach Tofu Scramble
+1|breakfast|Hot Cereal|Oatmeal
+1|breakfast|Breakfast Bar|Granola
+1|breakfast|Breakfast Bar|Plain Non-fat Greek Yogurt
+1|breakfast|The Bread Basket|Chocolate Croissant
+1|breakfast|The Bread Basket|Blueberry Burst Muffin
+1|breakfast|Breakfast Favorites|Omelet Bar
+2|breakfast|The Main Line|Scrambled Eggs
+2|breakfast|The Main Line|Diced Potatoes
+2|breakfast|The Main Line|French Toast Sticks
+2|breakfast|The Main Line|Hickory Smoked Bacon
+2|breakfast|The Main Line|Halal Chicken Sausage Links
+2|breakfast|The Main Line|Vegan Sausage
+2|breakfast|The Main Line|Spinach Tofu Scramble
+2|breakfast|Hot Cereal|Oatmeal
+2|breakfast|The Bread Basket|Double Chocolate Chip Muffin
+2|breakfast|Breakfast Favorites|Omelet Bar
+3|breakfast|The Main Line|Scrambled Eggs
+3|breakfast|The Main Line|Tater Tots
+3|breakfast|The Main Line|Chocolate Chip Pancakes
+3|breakfast|The Main Line|Pork Sausage Link
+3|breakfast|The Main Line|Turkey Bacon
+3|breakfast|The Main Line|Vegan Sausage
+3|breakfast|The Main Line|Broccoli & Cheddar Tofu Scramble
+3|breakfast|Hot Cereal|Oatmeal
+3|breakfast|Breakfast Favorites|Omelet Bar
+4|breakfast|The Main Line|Scrambled Eggs
+4|breakfast|The Main Line|Diced Potatoes
+4|breakfast|The Main Line|French Toast Sticks
+4|breakfast|The Main Line|Hickory Smoked Bacon
+4|breakfast|The Main Line|Chicken Sausage Patty
+4|breakfast|The Main Line|Vegan Sausage
+4|breakfast|The Main Line|Broccoli & Cheddar Tofu Scramble
+4|breakfast|Hot Cereal|Oatmeal
+4|breakfast|Breakfast Favorites|Omelet Bar
+5|breakfast|The Main Line|Scrambled Eggs
+5|breakfast|The Main Line|Shredded Potatoes
+5|breakfast|The Main Line|Belgian Waffles
+5|breakfast|The Main Line|Pork Sausage Patty
+5|breakfast|The Main Line|Halal Chicken Sausage Links
+5|breakfast|The Main Line|Vegan Sausage
+5|breakfast|The Main Line|Just Egg Vegetable Skillet
+5|breakfast|Hot Cereal|Oatmeal
+5|breakfast|Breakfast Favorites|Omelet Bar
+0|brunch|The Main Line|Buttermilk Biscuits
+0|brunch|The Main Line|Scrambled Eggs
+0|brunch|The Main Line|Homefried Sliced Potatoes
+0|brunch|The Main Line|French Toast
+0|brunch|The Main Line|Hickory Smoked Bacon
+0|brunch|The Main Line|Turkey Sausage Links
+0|brunch|The Main Line|Vegan Sausage
+0|brunch|The Main Line|Pico de Gallo Tofu Scramble
+0|brunch|The Main Line|Spinach & Bacon Strata
+0|brunch|Soup Station|Chicken Pot Pie Stew
+0|brunch|Deli|Tricolored Tortellini Salad with Sun-Dried Tomato*
+0|brunch|Deli|Hummus V
+0|brunch|Deli|Halal Chicken Salad
+0|brunch|Breakfast Favorites|Omelet Bar
+6|brunch|The Main Line|Buttermilk Biscuits
+6|brunch|The Main Line|Scrambled Eggs
+6|brunch|The Main Line|Diced Potatoes
+6|brunch|The Main Line|Pancakes
+6|brunch|The Main Line|Pork Sausage Patty
+6|brunch|The Main Line|Halal Chicken Sausage Links
+6|brunch|The Main Line|Vegan Sausage
+6|brunch|The Main Line|Pico de Gallo Tofu Scramble
+6|brunch|The Main Line|Andouille & Poblano Egg Bake
+6|brunch|Soup Station|Chicken & Roasted Corn Chowder
+6|brunch|Deli|Street Corn Pasta
+6|brunch|Deli|Hummus V
+6|brunch|Deli|Halal Chicken Salad
+1|lunch|The Main Line|Chicken Parmesan
+1|lunch|The Main Line|Spaghetti with Marinara Sauce
+1|lunch|The Main Line|Pasta Fagioli
+1|lunch|The Main Line|Seasoned Green Beans
+1|lunch|The Main Line|Sesame & Soy Chicken
+1|lunch|Composed Salad|Lentil Tabbouleh
+1|lunch|Pizza/Pasta|Fresh Baked Cheese Pizza
+1|lunch|Sandwich Station|Italian Hoagie
+1|lunch|Salad Station|Halal Rotisserie Chicken Breast
+2|lunch|The Main Line|Pulled Pork Barbecue
+2|lunch|The Main Line|Plant Based Pulled Pork BBQ
+2|lunch|The Main Line|Aged Cheddar Macaroni and Cheese
+2|lunch|The Main Line|Cauliflower with Tomato & Basil
+2|lunch|The Main Line|Cornbread Muffin
+2|lunch|Composed Salad|Arugula & Farro Salad with Asparagus & Parmesan
+2|lunch|Sandwich Station|Sriracha Shrimp Salad Wrap
+2|lunch|Pizza/Pasta|Fresh Baked Cheese Pizza
+3|lunch|The Main Line|Breaded Chicken Tenderloins
+3|lunch|The Main Line|Veggie Griller
+3|lunch|The Main Line|Curly Fries
+3|lunch|The Main Line|Peas with Mushrooms & Onions
+3|lunch|Composed Salad|Watermelon & Feta Salad
+3|lunch|Pizza/Pasta|Fresh Baked Cheese Pizza
+3|lunch|Pizza/Pasta|Fresh Baked Everything Pizza
+4|lunch|The Main Line|Corned Beef Griller
+4|lunch|The Main Line|Beyond Hot Italian Sausage
+4|lunch|The Main Line|Onion Battered Green Beans
+4|lunch|The Main Line|Seasoned Baby Carrots
+4|lunch|Composed Salad|Apple Avocado Salad with Tangerine Dressing
+4|lunch|Pizza/Pasta|Fresh Baked Cheese Pizza
+4|lunch|Pizza/Pasta|Garlic Knots
+5|lunch|The Main Line|South Street Cheesesteak Quesadilla
+5|lunch|The Main Line|Ancho Chile Plant Based Meatballs
+5|lunch|The Main Line|French Fries
+5|lunch|The Main Line|Roasted Mushrooms, Fennel & Fresh Herbs
+5|lunch|Composed Salad|Chicken Caesar Salad
+5|lunch|Pizza/Pasta|Fresh Baked Cheese Pizza
+0|dinner|The Main Line|Sesame & Soy Chicken
+0|dinner|The Main Line|Ricotta, Tomato, Basil & Mozzarella Ravioli
+0|dinner|The Main Line|Pasta Provencal
+0|dinner|The Main Line|Seasoned Baby Carrots
+0|dinner|Soup Station|Chicken Pot Pie Stew
+0|dinner|Deli|Tricolored Tortellini Salad with Sun-Dried Tomato*
+0|dinner|Dessert Station|Creme Brulee Cheesecake
+0|dinner|Dessert Station|Apple Lattice Pie
+1|dinner|The Main Line|Battered Cod Nuggets
+1|dinner|The Main Line|Sundried Tomato Pesto Gnocchi
+1|dinner|The Main Line|Seasoned Wedge Fries
+1|dinner|The Main Line|Roasted Corn
+1|dinner|Featured Bar|Ramen Bar
+1|dinner|Featured Bar|Pork Dumplings
+1|dinner|Pizza/Pasta|Fresh Baked Cheese Pizza
+1|dinner|Dessert Station|Madeleines
+1|dinner|Dessert Station|Cookie Butter Beignets
+2|dinner|The Main Line|General Tso's Chicken
+2|dinner|The Main Line|General Tso's Tofu V
+2|dinner|The Main Line|Jasmine Rice
+2|dinner|The Main Line|Ginger Sesame Carrots
+2|dinner|The Main Line|Fresh Seasoned Broccoli
+2|dinner|Featured Bar|Ramen Bar
+2|dinner|Featured Bar|Pork Dumplings
+2|dinner|Pizza/Pasta|Fresh Baked Cheese Pizza
+2|dinner|Dessert Station|Ultimate Chocolate Cake
+2|dinner|Dessert Station|Cherry Lattice Pie
+3|dinner|The Main Line|Meatballs
+3|dinner|The Main Line|Spaghetti with Marinara Sauce
+3|dinner|The Main Line|Ratatouille & Beans
+3|dinner|The Main Line|Seasoned Green Beans
+3|dinner|The Main Line|Garlic Bread
+3|dinner|Featured Bar|Mini Pancake Bar
+3|dinner|Pizza/Pasta|Fresh Baked Cheese Pizza
+3|dinner|Dessert Station|Limoncello Mascarpone Cake
+3|dinner|Dessert Station|Mini Chocolate Ganache Cake
+4|dinner|The Main Line|Monterey Cajun Chicken
+4|dinner|The Main Line|Mashed Sweet Potatoes
+4|dinner|The Main Line|Roasted Corn & Poblano Peppers
+4|dinner|The Main Line|Couscous with Braised Vegetables
+4|dinner|Featured Bar|Mini Pancake Bar
+4|dinner|Pizza/Pasta|Fresh Baked Cheese Pizza
+4|dinner|Dessert Station|Mississippi Mud Cake
+4|dinner|Dessert Station|Mixed Berry Beignet
+4|dinner|Dessert Station|Blueberry Lattice Pie
+5|dinner|The Main Line|Grilled Salmon Teriyaki
+5|dinner|The Main Line|Jackfruit Stir Fry
+5|dinner|The Main Line|Rice & Orzo Pilaf with Peas
+5|dinner|The Main Line|Roasted Butternut Squash & Brussels Sprouts
+5|dinner|Pizza/Pasta|Fresh Baked Cheese Pizza
+5|dinner|Dessert Station|Chocolate Chip Cookie Cake
+5|dinner|Dessert Station|Apple Lattice Pie
+6|dinner|The Main Line|Southern Style Fried Chicken
+6|dinner|The Main Line|Vegetable Sierra Stew
+6|dinner|The Main Line|Garlic Mashed Potatoes
+6|dinner|The Main Line|Seasoned Sweet Yellow Corn
+6|dinner|Soup Station|Chicken & Roasted Corn Chowder
+6|dinner|Deli|Street Corn Pasta
+6|dinner|Dessert Station|Chocolate Swiss Chalet Cake
+6|dinner|Dessert Station|Cherry Lattice Pie

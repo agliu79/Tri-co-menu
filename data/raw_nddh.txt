@@ -1,0 +1,201 @@
+# New Dorm Dining Hall, full menu. Mon Nov 9 - Sat Nov 14 2026 from the BMC dining menu (data/source/bmc_menu_week_nov9.txt); Sunday kept from Meal Choice Connect
+# day(0=Sun)|meal|station|item as printed (* vegetarian, V vegan, PwW prepared without wheat)
+0|dinner|Pan Asian|Panang Chicken
+0|dinner|Pan Asian|Tofu with Tamarind Sauce V
+0|dinner|Pan Asian|Udon Noodles V
+0|dinner|Pan Asian|Philadelphia Sushi Roll
+0|dinner|Pan Asian|Chicken Dumplings
+0|dinner|Pan Asian|Spicy Green Beans V
+0|dinner|Pan Asian|Jasmine Rice V
+0|dinner|Pan Asian|Wakame Salad V
+0|dinner|Pan Asian|Miso Soup V
+1|lunch||Shrimp Lo Mein
+1|lunch||Tofu Adobo V
+1|lunch||Japanese Eggplant V
+1|lunch||Roasted Butternut Squash and Mushrooms Tacos V
+1|lunch||Broccoli Florets
+1|lunch||Sauteed Collard Greens
+1|lunch||Farro V
+1|lunch||Lemon Mustard Chicken
+1|lunch||Seasoned Ground Halal Beef
+1|lunch||Greek Pizza*
+1|lunch||Pepperoni Pizza
+1|lunch||Cheese Pizza*
+1|lunch||Bruschetta Pizza
+1|lunch||Salmon Wild Rice Chowder
+1|lunch||Rocky Road Brownies*
+1|lunch||Double Chocolate Chip Cookies V
+1|dinner||Green Curry Beef
+1|dinner||Sushi: 5-Spice Tofu V
+1|dinner||Japanese Eggplant V
+1|dinner||Polenta Enchilada Bake V
+1|dinner||Broccoli Florets
+1|dinner||Sauteed Collard Greens
+1|dinner||Farro V
+1|dinner||Lemon Mustard Chicken
+1|dinner||Seasoned Ground Halal Beef
+1|dinner||Prosciutto & Lemon Arugula Pizza
+1|dinner||Cheese Pizza*
+1|dinner||Pepperoni Pizza
+1|dinner||Bread Knots*
+1|dinner||Salmon Wild Rice Chowder
+1|dinner||Coconut Cake
+1|dinner||Vegan Spice Cake with Cream Cheese Frosting V
+2|lunch||Glass Noodles with Beef
+2|lunch||Nepal Tofu with Tomato V
+2|lunch||Sauteed Asian Mustard Greens
+2|lunch||Roasted Red Pepper Cheesy Quesadillas V
+2|lunch||Steamed Leaf Spinach
+2|lunch||Spicy Adobo Potatoes V
+2|lunch||Herbed Spelt V
+2|lunch||Baked Vegan Nuggets
+2|lunch||Blue Cheese & Caramelized Pear Pizza*
+2|lunch||Pepperoni Pizza
+2|lunch||Cheese Pizza*
+2|lunch||Bruschetta Pizza
+2|lunch||Cream of Wild Mushroom Soup*
+2|lunch||Selection of Cookies*
+2|lunch||Flourless Chocolate Cake
+2|lunch||Peanut Butter Cupcake V
+2|dinner||Glazed Tuna A
+2|dinner||Sushi: Sesame Salmon Salad
+2|dinner||Lentil Tacos with Roasted Cauliflower V
+2|dinner||Steamed Leaf Spinach
+2|dinner||Spicy Adobo Potatoes V
+2|dinner||Roasted Lemon-Pepper Chickpeas V
+2|dinner||Herbed Spelt V
+2|dinner||Baked Vegan Nuggets
+2|dinner||Beef Taco Pizza
+2|dinner||Cheese Pizza*
+2|dinner||Pepperoni Pizza
+2|dinner||Bread Knots*
+2|dinner||Cream of Wild Mushroom Soup*
+2|dinner||Apple Cider Donut Cake with Penuche Glaze*
+2|dinner||Gingerbread Cake V
+3|lunch||Red Chili Chicken
+3|lunch||Tofu in Black Bean Sauce
+3|lunch||Sautéed Baby Bok Choy V
+3|lunch||Refried Bean & Sweet Potato Tacos V
+3|lunch||Asparagus
+3|lunch||Roasted Vegetables V
+3|lunch||Barley Pilaf V
+3|lunch||Seasoned Impossible Meat V
+3|lunch||Onion & Smoked Gouda Pizza*
+3|lunch||Pepperoni Pizza
+3|lunch||Cheese Pizza*
+3|lunch||Bruschetta Pizza
+3|lunch||Chicken Escarole Soup
+3|lunch||Chocolate Mousse Brownies
+3|lunch||Almond Cookie & Cream Cupcakes V
+3|dinner||Thai Pork BBQ P
+3|dinner||Sushi: Tuna Salad Roll
+3|dinner||Tofu in Black Bean Sauce
+3|dinner||One Pot Stove Top Enchiladas V
+3|dinner||Asparagus
+3|dinner||Roasted Vegetables V
+3|dinner||Barley Pilaf V
+3|dinner||Smokey Oven-roasted Chickpeas
+3|dinner||Garlic & Spinach Pizza
+3|dinner||Cheese Pizza*
+3|dinner||Pepperoni Pizza
+3|dinner||Bread Knots*
+3|dinner||Chicken Escarole Soup
+3|dinner||Strawberry Cake
+3|dinner||Vanilla Cake V
+4|lunch||Eggplant Chicken Stir-fry
+4|lunch||Vietnamese Tofu V
+4|lunch||Sesame Sauteed Napa Cabbage
+4|lunch||Lentil Tacos V
+4|lunch||Steamed Cauliflower
+4|lunch||Roasted Chickpeas V
+4|lunch||Kamut Pearls V
+4|lunch||Seasoned Impossible Meat V
+4|lunch||Mascarpone & Zucchini Pizza*
+4|lunch||Pepperoni Pizza
+4|lunch||Cheese Pizza*
+4|lunch||Bruschetta Pizza
+4|lunch||Ribollita V
+4|lunch||Magic Cookie Bars*
+4|lunch||Oatmeal Cookie Bars V
+4|dinner||Beef with Broccoli
+4|dinner||Sushi: Chicken Teriyaki
+4|dinner||Vietnamese Tofu V
+4|dinner||Sofritas V
+4|dinner||Steamed Cauliflower
+4|dinner||Roasted Chickpeas V
+4|dinner||Chilled Pork
+4|dinner||Kamut Pearls V
+4|dinner||Seasoned Impossible Meat V
+4|dinner||Santa Fe Chicken Pizza
+4|dinner||Cheese Pizza*
+4|dinner||Pepperoni Pizza
+4|dinner||Bread Knots*
+4|dinner||Ribollita V
+4|dinner||Apple Crumble*
+4|dinner||Chocolate Cake with Lemon Glaze V
+5|lunch||Oden
+5|lunch||Spicy Mango Tofu V
+5|lunch||Sauteed Cabbage V
+5|lunch||Barbacoa Fajitas V
+5|lunch||Diced Sweet Potatoes V
+5|lunch||Tomatillo Poblano White Beans V
+5|lunch||Long Grain & Wild Rice Blend V
+5|lunch||Chipotle Tofu Topping V
+5|lunch||Florentine Pizza*
+5|lunch||Pepperoni Pizza
+5|lunch||Cheese Pizza*
+5|lunch||Bruschetta Pizza
+5|lunch||Chili Con Carne
+5|lunch||Rice Krispy Treats
+5|lunch||Ginger Snap Cookies V
+5|dinner||Japanese Ginger Pork
+5|dinner||Sushi: Spicy Surimi Salad
+5|dinner||Spicy Mango Tofu V
+5|dinner||Ancho Chile Meatballs V
+5|dinner||Diced Sweet Potatoes V
+5|dinner||Tomatillo Poblano White Beans V
+5|dinner||Long Grain & Wild Rice Blend V
+5|dinner||Sliced Chicken
+5|dinner||Flaked Salmon
+5|dinner||Blue Cheese Chicken Pizza
+5|dinner||Cheese Pizza*
+5|dinner||Pepperoni Pizza
+5|dinner||Bread Knots*
+5|dinner||Chili Con Carne
+5|dinner||Flourless Chocolate Torte*
+5|dinner||Cheesecake V
+6|brunch||Banana Muffins V
+6|brunch||Blueberry Muffins*
+6|brunch||Hickory Smoked Bacon
+6|brunch||Pork Sausage Link
+6|brunch||Beyond Sausage Patty V
+6|brunch||Scrambled Eggs*
+6|brunch||Hard Cooked Eggs
+6|brunch||Pancakes
+6|brunch||Diced Potatoes*
+6|brunch||Gluten-free Waffles V
+6|brunch||Selection of Scones
+6|brunch||Selection of Artisan French Danish
+6|brunch||Cantaloupe Melon
+6|brunch||Honeydew Melon
+6|brunch||Selection of Donuts
+6|brunch||Turkey Rice Soup
+6|brunch||Kung Pao White Beans V
+6|brunch||Roasted Zucchini Ribbons
+6|brunch||Jasmine Rice V
+6|brunch||Rice Vermicelli V
+6|brunch||Cot Hu Tieu V
+6|brunch||Ginger Sesame Carrots
+6|dinner||Herbed Kalamata Chicken Breast
+6|dinner||Spicy Noodle Coconut Curry V
+6|dinner||Kung Pao White Beans V
+6|dinner||Brown Rice V
+6|dinner||Seasoned Ground Turkey
+6|dinner||Balsamic Tofu Topping
+6|dinner||Chicken Caesar Pizza
+6|dinner||Cheese Pizza*
+6|dinner||Pepperoni Pizza
+6|dinner||Bread Knots*
+6|dinner||Turkey Rice Soup
+6|dinner||Oreo Cream Pie*
+6|dinner||Jen's Chocolate Cake V

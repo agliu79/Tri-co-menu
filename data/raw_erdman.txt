@@ -1,0 +1,281 @@
+# Erdman Dining Hall, full menu. Mon Nov 9 - Sat Nov 14 2026 from the BMC dining menu (data/source/bmc_menu_week_nov9.txt); Sunday kept from Meal Choice Connect
+# day(0=Sun)|meal|station|item as printed (* vegetarian, V vegan, PwW prepared without wheat)
+0|brunch|Breakfast Favorites|Coffee Cake*
+0|brunch|Breakfast Favorites|Creamed Chipped Beef
+0|brunch|Breakfast Favorites|French Toast Sticks*
+0|brunch|Breakfast Favorites|Hickory Smoked Bacon P
+0|brunch|Breakfast Favorites|Turkey Sausage
+0|brunch|Breakfast Favorites|Yogurt Bar
+0|brunch|Breakfast Favorites|Scrambled Eggs*
+0|brunch|Breakfast Favorites|Hard Cooked Egg*
+0|brunch|Finishing Touches|Chocolate Chip Loaf Cake
+0|brunch|On the Side|Shredded Potatoes V
+0|brunch|The Bread Basket|Buttermilk Biscuits*
+0|dinner|The Main Fare|Chicken Stew
+0|dinner|The Main Fare|Sesame Glazed Salmon
+0|dinner|The Main Fare|Garlic Roasted Chicken
+0|dinner|The Main Fare|Grilled Marinated Chicken Breast H
+0|dinner|On the Side|Aged Cheddar Macaroni and Cheese*
+0|dinner|On the Side|Roasted Vegetables V
+0|dinner|On the Side|Sugar Snap Peas
+0|dinner|On the Side|Beans and Rice V
+0|dinner|On the Side|Penne with Marinara V
+0|dinner|On the Side|Navy Beans V
+0|dinner|On the Side|White Rice V
+0|dinner|Finishing Touches|Sundae Bar*
+1|breakfast||Apple Cinnamon Muffin*
+1|breakfast||Berry Pancakes*
+1|breakfast||Tater Tots
+1|breakfast||Turkey Bacon PwW
+1|breakfast||Beyond Sausage V PwW
+1|breakfast||Curry Tofu Potato Scramble V PwW
+1|breakfast||Hard Cooked Eggs PwW *
+1|breakfast||Scrambled Eggs PwW *
+1|breakfast||Assorted Bagels*
+1|breakfast||Doughnuts*
+1|breakfast||Yogurt Bar
+1|breakfast||Omelet Bar
+1|breakfast||Belgian Waffle*
+1|brunch||Chicken Noodle Soup
+1|brunch||Pumpkin Chili V PwW
+1|brunch||Grilled Pesto Chicken PwW
+1|brunch||Gemelli with Pesto & Veg*
+1|brunch||“Chicken” Nuggets
+1|brunch||Sweet Potato Fries
+1|brunch||Green Beans V PwW
+1|brunch||White Bean & Veggies V PwW
+1|brunch||Mexican Romaine Corn Salad
+1|brunch||White Rice V PwW
+1|brunch||Cheese Pizza *
+1|brunch||Buffalo Chicken Pizza*
+1|brunch||Salad Bar
+1|brunch||Deli Bar
+1|brunch||Selection of Cookies*
+1|brunch||Jello Cup Parfait*
+1|brunch||Chickpea Sunflower Sandwich on Ciabatta*
+1|dinner||Spinach Mushroom Gnocchi*
+1|dinner||Meatballs
+1|dinner||Creamed Spinach*
+1|dinner||Five Cheese Ziti*
+1|dinner||Grilled Chicken Breast PwW
+1|dinner||Baked Salmon PwW
+1|dinner||Garlic Roast Broccoli V PwW
+1|dinner||Roasted Potato Medley
+1|dinner||White Beans & Mushrooms V PwW
+1|dinner||White Rice V PwW
+1|dinner||Marinara V PwW
+1|dinner||Penne V
+1|dinner||Blush* & Bolognese PwW
+1|dinner||Garlic Breadsticks*
+1|dinner||Cannoli*
+2|breakfast||Chocolate Chip Pound Cake*
+2|breakfast||Shredded Potatoes PwW V
+2|breakfast||French Toast *
+2|breakfast||Hickory Smoked Bacon PwW
+2|breakfast||Beyond Sausage V PwW
+2|breakfast||Breakfast Caprese on a Brioche Roll*
+2|breakfast||Hard Cooked Eggs PwW *
+2|breakfast||Scrambled Eggs PwW *
+2|breakfast||Assorted Bagels*
+2|breakfast||Doughnuts*
+2|breakfast||Yogurt Bar
+2|breakfast||Omelet Bar
+2|breakfast||Belgian Waffle*
+2|lunch||Curry Carrot Parsnip Soup VPwW
+2|lunch||Chicken Rice Soup PwW
+2|lunch||Cheese Steaks PwW
+2|lunch||Chicken Steaks
+2|lunch||Black Bean Quinoa Burgers V
+2|lunch||Crinkle Cut French Fries
+2|lunch||Braised Black Beans V PwW
+2|lunch||White Rice V PwW
+2|lunch||Cheese Pizza *
+2|lunch||Margherita Flatbread Pizza*
+2|lunch||Seasoned Broccoli V PwW
+2|lunch||Butternut Quinoa Salad PwW
+2|lunch||Salad Bar
+2|lunch||Deli Bar
+2|lunch||Magic Cookie Bars*
+2|lunch||Lemon Meringue Parfait*
+2|lunch||Eastern European Turkey Club on Pumpernickel
+2|dinner||Pork BBQ Ribs PwW
+2|dinner||BBQ Chicken Quarters
+2|dinner||BBQ Tofu V PwW
+2|dinner||Baked Cod PwW
+2|dinner||Bourbon Maple Baked Beans V
+2|dinner||Green Beans V PwW
+2|dinner||Broccoli with Cheese Sauce*
+2|dinner||White Rice V PwW
+2|dinner||Black Eyed Pea Gumbo PwW V
+2|dinner||Buttermilk Biscuits*
+2|dinner||Marinara V PwW
+2|dinner||Blush* & Bolognese PwW
+2|dinner||Rigatoni V
+2|dinner||Grilled Chicken Breast PwW
+2|dinner||Carrot Cake*
+3|breakfast||Buttermilk Blueberry Muffins*
+3|breakfast||Diced Potatoes
+3|breakfast||Pancakes*
+3|breakfast||Turkey Sausage Patty PwW
+3|breakfast||Beyond Sausage V PwW
+3|breakfast||Tostada with Chorizo, Egg, Pico & Queso
+3|breakfast||Hard Cooked Eggs PwW *
+3|breakfast||Scrambled Eggs PwW *
+3|breakfast||Assorted Bagels*
+3|breakfast||Doughnuts*
+3|breakfast||Yogurt Bar
+3|breakfast||Omelet Bar
+3|breakfast||Belgian Waffle*
+3|lunch||Turkey Noodle Soup
+3|lunch||Vegetable Soup V PwW
+3|lunch||Chicken Pot Pie Pasta
+3|lunch||Fish & Chips
+3|lunch||Tartar Sauce* PwW
+3|lunch||Black Bean & Corn Burgers *
+3|lunch||Brown Rice V PwW
+3|lunch||Peas & Carrots V PwW
+3|lunch||Cheese Pizza *
+3|lunch||Hot Honey Chicken Pizza*
+3|lunch||Strawberry Poppyseed Salad* PwW
+3|lunch||Salad Bar
+3|lunch||Deli Bar
+3|lunch||Selection of Cookies*
+3|lunch||Chocolate Mousse Oreo Parfait*
+3|lunch||Chicken Apple & Brie on Brioche
+3|dinner||Spicy Peach Wings
+3|dinner||Parmesan Garlic Wings
+3|dinner||Buffalo Garlic Chicken Wings
+3|dinner||Hot Honey Glazed Wings
+3|dinner||Corn Dogs
+3|dinner||Dr Praeger’s Burger V
+3|dinner||Grilled Chicken Breast PwW
+3|dinner||Baked Salmon PwW
+3|dinner||Cheese Sticks & Sriracha Ketchup
+3|dinner||Sauteed Zucchini V PWW
+3|dinner||French Fries
+3|dinner||White Rice V PwW
+3|dinner||Cannellini Beans PwW V
+3|dinner||Marinara V PwW
+3|dinner||Rigatoni V
+3|dinner||Blush* & Bolognese PwW
+3|dinner||Penne V
+3|dinner||Garlic Breadsticks*
+3|dinner||Chocolate Cheesecake*
+4|breakfast||Egg Melt Sliders*
+4|breakfast||Marble Loaf Cake*
+4|breakfast||Hickory Smoked Bacon PwW
+4|breakfast||Home Fried Potatoes V PwW
+4|breakfast||French Toast Sticks*
+4|breakfast||Beyond Sausage V PwW
+4|breakfast||Hard Cooked Eggs PwW *
+4|breakfast||Scrambled Eggs PwW *
+4|breakfast||Assorted Bagels*
+4|breakfast||Belgian Waffle*
+4|breakfast||Doughnuts*
+4|breakfast||Yogurt Bar
+4|breakfast||Omelet Bar
+4|lunch||White Chicken Chili
+4|lunch||Tuscan Bean Soup V PwW
+4|lunch||Tortellini Primavera*
+4|lunch||Thai Veggie Stir Fry V PwW
+4|lunch||Beyond Burger V
+4|lunch||Grilled Chicken Breast PwW
+4|lunch||Seasoned Vegetables V PwW
+4|lunch||Navy Beans V PwW
+4|lunch||White Rice V PwW
+4|lunch||Cheese Pizza *
+4|lunch||Mexican Tortilla Pizza*
+4|lunch||Grilled Chicken Caesar Pasta Salad
+4|lunch||Salad Bar
+4|lunch||Deli Bar
+4|lunch||Rocky Road Brownies*
+4|lunch||Cannoli Parfait*
+4|lunch||Roast Beef with Horseradish Mayo on Pretzel Roll
+4|dinner||Hot Roast Beef Sandwich
+4|dinner||Baked Flounder PwW
+4|dinner||Lemon Garlic Chicken PwW
+4|dinner||Tofu Gumbo V PwW
+4|dinner||Baked Sweet Potato V PwW
+4|dinner||Grilled Asparagus V PwW
+4|dinner||Peas & Carrots V PwW
+4|dinner||White Rice V PwW
+4|dinner||Lentils & Rice V PwW
+4|dinner||Marinara V PwW
+4|dinner||Blush* & Bolognese PwW
+4|dinner||Penne V
+4|dinner||Grilled Chicken Breast PwW
+4|dinner||Garlic Breadsticks*
+4|dinner||Strawberry Shortcake*
+5|breakfast||Lemon Cranberry Muffin*
+5|breakfast||Maple Glazed Sweet Potatoes V PwW
+5|breakfast||Chocolate Chip Pancakes*
+5|breakfast||Beyond Sausage V PwW
+5|breakfast||Pork Sausage PwW
+5|breakfast||Sausage Egg & Pepper Bowl
+5|breakfast||Hard Cooked Eggs PwW *
+5|breakfast||Scrambled Eggs* PwW
+5|breakfast||Assorted Bagels*
+5|breakfast||Doughnuts*
+5|breakfast||Yogurt Bar
+5|breakfast||Omelet Bar
+5|breakfast||Belgian Waffle*
+5|lunch||Beef Noodle Soup
+5|lunch||Five Alarm Chili V PwW
+5|lunch||Grilled Chicken Parm PwW
+5|lunch||Bean & Cheese Quesadilla*
+5|lunch||Black Bean Quinoa Burger V
+5|lunch||Diablo Panko crusted Green Beans*
+5|lunch||Herb Kidney Beans V PwW
+5|lunch||White Rice V PwW
+5|lunch||Cheese Pizza *
+5|lunch||Buffalo Chicken Flatbread
+5|lunch||Sweet Potato & Cauliflower Salad
+5|lunch||Salad Bar
+5|lunch||Deli Bar
+5|lunch||Brownie Bombe Parfait*
+5|lunch||Selection of Cookies*
+5|lunch||Pastrami & Swiss on Marble Rye
+5|dinner||Macaroni & Cheese*
+5|dinner||Southern Fried Chicken
+5|dinner||Southern Tofu Stew V
+5|dinner||Baked Salmon PwW
+5|dinner||Onion Rings
+5|dinner||Grilled Chicken Breast PwW
+5|dinner||White Rice V PwW
+5|dinner||Braised Black Beans V PwW
+5|dinner||Creole Mashed Potatoes*
+5|dinner||Steamed Veggies V PwW
+5|dinner||Tomato Rice V PwW
+5|dinner||Marinara V PwW
+5|dinner||Penne V
+5|dinner||Blush* & Bolognese PwW
+5|dinner||Garlic Breadsticks*
+5|dinner||Cheesecake with Toppings*
+6|brunch||Double Chocolate Muffin*
+6|brunch||Pancakes*
+6|brunch||Turkey Bacon PwW
+6|brunch||Pork Sausage Link PwW
+6|brunch||Beyond Sausage V PwW
+6|brunch||Hash Brown Patties
+6|brunch||Omelet Bar*
+6|brunch||Belgian Waffles*
+6|brunch||Yogurt Bar
+6|brunch||Hard Cooked Egg* PwW
+6|brunch||Scrambled Eggs* PwW
+6|brunch||Selection of Donuts
+6|brunch||Buttermilk Biscuits*
+6|dinner|National Pickle Day|Dill Pickle Soup
+6|dinner|National Pickle Day|Sausage & Broccoli Rabe Soup
+6|dinner|National Pickle Day|Pickle-brined Grilled Tofu
+6|dinner|National Pickle Day|Roasted Cauliflower Wedges with Salsa Verde & Gherkins
+6|dinner|National Pickle Day|Pickle-brined Grilled Chicken Breast
+6|dinner|National Pickle Day|Grilled Cheese with Pimiento & Sliced Pickle
+6|dinner|National Pickle Day|Deep Fried Battered Pickle Chips
+6|dinner|National Pickle Day|Garlic Rice & Peas
+6|dinner|National Pickle Day|Cajun French Fries
+6|dinner|National Pickle Day|Cheeseburger Pizza with Pickles
+6|dinner|Pickle Bar|Fire & Ice Pickles
+6|dinner|Pickle Bar|Pickle Spears
+6|dinner|Pickle Bar|Marinated Gherkins
+6|dinner|Pickle Bar|Kosher Dill Pickles
+6|dinner|Pickle Bar|Pasta Bar

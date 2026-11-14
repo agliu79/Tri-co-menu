@@ -1,0 +1,98 @@
+{
+ "pizza": {
+  "title": "White slice and supreme slice.jpg",
+  "artist": "Afshin Darian",
+  "license": "CC BY 2.0",
+  "url": "https://commons.wikimedia.org/wiki/File:White_slice_and_supreme_slice.jpg"
+ },
+ "burger": {
+  "title": "Cheeseburger with onions at Hatfield Heath Festival 2017.jpg",
+  "artist": "Acabashi",
+  "license": "CC BY-SA 4.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Cheeseburger_with_onions_at_Hatfield_Heath_Festival_2017.jpg"
+ },
+ "taco": {
+  "title": "Tacos on a plate.jpg",
+  "artist": "Evgeny Krivosheev",
+  "license": "Public domain",
+  "url": "https://commons.wikimedia.org/wiki/File:Tacos_on_a_plate.jpg"
+ },
+ "sushi": {
+  "title": "Sushi rolls placed on their display stand.jpg",
+  "artist": "Jameswasswa",
+  "license": "CC BY-SA 4.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Sushi_rolls_placed_on_their_display_stand.jpg"
+ },
+ "vegetables": {
+  "title": "Liat Portal for Foodie Disorder - Roasted Antipasti Vegetables.jpg",
+  "artist": "HaJunkiyada",
+  "license": "CC BY-SA 4.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Liat_Portal_for_Foodie_Disorder_-_Roasted_Antipasti_Vegetables.jpg"
+ },
+ "chicken": {
+  "title": "02023 0151 Roasted Chicken and Potatoes.jpg",
+  "artist": "Silar",
+  "license": "CC BY-SA 4.0",
+  "url": "https://commons.wikimedia.org/wiki/File:02023_0151_Roasted_Chicken_and_Potatoes.jpg"
+ },
+ "cake": {
+  "title": "Piece of chocolate cake on a white plate decorated with chocolate sauce.jpg",
+  "artist": "Daria Yakovleva",
+  "license": "CC0",
+  "url": "https://commons.wikimedia.org/wiki/File:Piece_of_chocolate_cake_on_a_white_plate_decorated_with_chocolate_sauce.jpg"
+ },
+ "bakery": {
+  "title": "Blueberry muffins, whole and partial.jpg",
+  "artist": "SKopp",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Blueberry_muffins,_whole_and_partial.jpg"
+ },
+ "soup": {
+  "title": "Traditional Vegetable Soup from Argentina.jpg",
+  "artist": "Horacio Cambeiro",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Traditional_Vegetable_Soup_from_Argentina.jpg"
+ },
+ "salad": {
+  "title": "Fresh salad with arugula, cabbage and tomato in a glass bowl.jpg",
+  "artist": "Horacio Cambeiro",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Fresh_salad_with_arugula,_cabbage_and_tomato_in_a_glass_bowl.jpg"
+ },
+ "cookies": {
+  "title": "Choc-Chip-Cookie.jpg",
+  "artist": "Evan-Amos",
+  "license": "Public domain",
+  "url": "https://commons.wikimedia.org/wiki/File:Choc-Chip-Cookie.jpg"
+ },
+ "pasta": {
+  "title": "Spaghetti in Spicy Tomato Sauce with Smoked Fish ready to eat.jpg",
+  "artist": "NiferO",
+  "license": "CC BY-SA 4.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Spaghetti_in_Spicy_Tomato_Sauce_with_Smoked_Fish_ready_to_eat.jpg"
+ },
+ "beef": {
+  "title": "Grilled flank steak.jpg",
+  "artist": "Wikiuser100",
+  "license": "CC BY-SA 4.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Grilled_flank_steak.jpg"
+ },
+ "eggs": {
+  "title": "Scrambled Eggs at Cracker Barrel.jpg",
+  "artist": "Studio Sarah Lou",
+  "license": "CC BY 2.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Scrambled_Eggs_at_Cracker_Barrel.jpg"
+ },
+ "pancakes": {
+  "title": "The Smoking Stack Pancakes - Laughing Dog 2026-08-25.jpg",
+  "artist": "Andy Li",
+  "license": "CC0",
+  "url": "https://commons.wikimedia.org/wiki/File:The_Smoking_Stack_Pancakes_-_Laughing_Dog_2026-08-25.jpg"
+ },
+ "noodles": {
+  "title": "Lo Mein American Style.JPG",
+  "artist": "Eric T Gunther",
+  "license": "CC BY-SA 3.0",
+  "url": "https://commons.wikimedia.org/wiki/File:Lo_Mein_American_Style.JPG"
+ }
+}

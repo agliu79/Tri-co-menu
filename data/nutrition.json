@@ -1,0 +1,19 @@
+{
+ "_source": "Meal Choice Connect item pages and menu listings, Haverford Dining Center, Nov 14 2026. Per serving.",
+ "hcdc|Scrambled Eggs": {"cal":160,"fat":11,"satfat":3.5,"carbs":1,"fiber":0,"sugar":0,"protein":15,"sodium":140,"chol":485},
+ "hcdc|Buttermilk Biscuits": {"cal":220},
+ "hcdc|Diced Potatoes": {"cal":260},
+ "hcdc|Pancakes": {"cal":230},
+ "hcdc|Pork Sausage Patty": {"cal":210},
+ "hcdc|Halal Chicken Sausage Links": {"cal":70},
+ "hcdc|Vegan Sausage": {"cal":140},
+ "hcdc|Pico de Gallo Tofu Scramble": {"cal":160},
+ "hcdc|Andouille & Poblano Egg Bake": {"cal":290},
+ "hcdc|Oatmeal": {"cal":130},
+ "hcdc|Chicken & Roasted Corn Chowder": {"cal":150},
+ "hcdc|Granola": {"cal":170},
+ "hcdc|Plain Non-fat Greek Yogurt": {"cal":70},
+ "hcdc|Street Corn Pasta": {"cal":540},
+ "hcdc|Hummus": {"cal":210},
+ "hcdc|Halal Chicken Salad": {"cal":220}
+}
