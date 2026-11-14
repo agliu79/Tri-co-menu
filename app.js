@@ -121,7 +121,7 @@ const Shared={mode:"local",uid:"local",db:null,assets:null,docs:{},canWrite:true
      let db,assets,id;
      if(SUPA_ON){
        const sb=await loadSupabase();const {data}=await sb.auth.getSession();const sess=data?.session;
-       if(!sess){this.mode="signedout";if(S.user){S.pendingUser=S.user;S.draft={name:S.user.name,email:S.user.email};S.user=null;S.view=null;S.authMode="login";S.signinNote="Log in again with your school email to continue.";render();}return;}
+       if(!sess){if(S.user?.judge){this.mode="local";return;}this.mode="signedout";if(S.user){S.pendingUser=S.user;S.draft={name:S.user.name,email:S.user.email};S.user=null;S.view=null;S.authMode="login";S.signinNote="Log in again with your school email to continue.";render();}return;}
        id=sess.user.id;db=supaDb(sb,id);assets=supaAssets(sb,id);this.backend="supabase";
        try{const r=await sb.rpc("is_admin");this.isOwner=!!r.data;}catch(e){}
        if(S.user&&sess.user.email&&S.user.email!==sess.user.email){S.user={...S.user,email:sess.user.email};local.set("tce_user",S.user);}
@@ -746,7 +746,12 @@ function renderRegister(){
   <button class="btn full" type="button" id="go">${complete?"Continue to dining survey":SUPA_ON?"Email me a code":mode==="login"?"Log in":"Continue to dining survey"}</button>
   ${complete?"":`<p class="verify">${mode==="login"?`New here? <button class="linkbtn" data-am="signup">Create an account</button>`:`Already have an account? <button class="linkbtn" data-am="login">Log in</button>`}<br>Only @brynmawr.edu, @haverford.edu and @swarthmore.edu addresses can join.${SUPA_ON?" We email you a code to prove the address is yours.":""}</p>`}</div></div>`;
  document.querySelectorAll("[data-am]").forEach(b=>b.onclick=()=>{const em=$("#em")?.value||d.email||"",nm=$("#nm")?.value||d.name||"";S.draft={...(S.draft||{}),email:em,name:nm};S.authMode=b.dataset.am;S.signinNote="";render();});
- const upd=()=>{if(!$("#em"))return;const k=collegeOf($("#em").value);document.querySelectorAll(".logo-badge").forEach(b=>{b.classList.toggle("on",b.dataset.c===k);b.classList.toggle("dim",!!k&&b.dataset.c!==k);});$("#ok").textContent=k?`${COLLEGES[k].name} email recognised.`:"";if(k)$("#err").textContent="";};
+ const isJudge=v=>String(v||"").replace(/\s/g,"").toLowerCase()===JUDGE_EMAIL;
+ const upd=()=>{if(!$("#em"))return;const judge=isJudge($("#em").value);const k=judge?(S.judgeCollege||null):collegeOf($("#em").value);
+  document.querySelectorAll(".logo-badge").forEach(b=>{b.classList.toggle("on",b.dataset.c===k);b.classList.toggle("dim",!!k&&b.dataset.c!==k);b.classList.toggle("pick",judge);b.setAttribute("role",judge?"button":"");b.tabIndex=judge?0:-1;});
+  $("#ok").textContent=judge?"Judge access: no code needed. Pick a college to start in.":k?`${COLLEGES[k].name} email recognised.`:"";if(k||judge)$("#err").textContent="";
+  if(SUPA_ON&&!complete)$("#go").textContent=judge?(mode==="login"?"Log in":"Continue to dining survey"):"Email me a code";};
+ document.querySelectorAll(".logo-badge").forEach(b=>{const pick=()=>{if(!isJudge($("#em")?.value))return;S.judgeCollege=b.dataset.c;upd();};b.onclick=pick;b.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();pick();}};});
  $("#em")&&$("#em").addEventListener("input",upd);upd();
  document.querySelectorAll("#reg .inp").forEach(i=>{i.addEventListener("pointerdown",()=>setTimeout(()=>i.focus(),0));i.addEventListener("keydown",e=>{e.stopPropagation();if(e.key==="Enter"){e.preventDefault();submit();}});});
  setTimeout(()=>{try{($("#nm")||$("#em")).focus()}catch(e){}},50);
@@ -756,11 +761,13 @@ function renderRegister(){
  async function submit(){const err=m=>{$("#err").textContent=m;};
   if(complete){const name=$("#nm").value.trim().replace(/\s+/g," ");const m=checkName(name);if(m)return err(m);
    S.draft={...d,name,college:d.college||collegeOf(d.email),prefs:d.prefs||{diets:[],allergens:[],cuisines:{},goals:[]}};S.authMode="signup";S.view="survey";S.step=0;render();return;}
-  const email=$("#em").value.replace(/[\s ​-‍⁠﻿]/g,"").toLowerCase();const k=collegeOf(email);
+  const email=$("#em").value.replace(/[\s ​-‍⁠﻿]/g,"").toLowerCase();const judge=email===JUDGE_EMAIL;const k=judge?S.judgeCollege:collegeOf(email);
   const name=mode==="signup"?$("#nm").value.trim().replace(/\s+/g," "):"";
   if(mode==="signup"){const m=checkName(name);if(m)return err(m);}
   if(!/^[a-z0-9._%+'-]{1,64}@[a-z0-9.-]+\.[a-z]{2,}$/.test(email))return err("That doesn't look like a valid email address.");
+  if(judge&&!k)return err("Pick a college to start in: tap Bryn Mawr, Haverford or Swarthmore.");
   if(!k)return err("Only Bryn Mawr, Haverford and Swarthmore students can join. Use your @brynmawr.edu, @haverford.edu or @swarthmore.edu address.");
+  if(judge)return judgeEntry(mode,name,k);
   S.draft={name,email,college:k,mode,prefs:{diets:[],allergens:[],cuisines:{},goals:[]}};
   if(SUPA_ON){busy(true,"Sending code…");
    try{await sendCode(email,{create:mode==="signup"});S.view="verify";render();}
@@ -772,6 +779,20 @@ function renderRegister(){
   if(found)return err("You already have an account with that email. Log in instead.");
   S.view="survey";S.step=0;render();}
 }
+const JUDGE_EMAIL="judge@judge.com";
+// Hackathon judges: no email code. With the database on, a guest (anonymous) Supabase session is created so they can post and like;
+// if anonymous sign-ins are switched off in Supabase, they still get the full site with data kept in their browser.
+async function judgeEntry(mode,name,college){
+ const saved=localAccounts()[JUDGE_EMAIL];
+ if(mode==="login"){if(saved){finishLogin(saved);return;}
+  S.authMode="signup";S.draft={name:"",email:JUDGE_EMAIL};S.signinNote="Judges: just sign up with your name. No code needed.";render();return;}
+ const b=$("#go");if(b){b.disabled=true;b.textContent="Setting up…";}
+ if(SUPA_ON){try{const sb=await loadSupabase();const {data}=await sb.auth.getSession();
+   if(!data?.session){const r=await sb.auth.signInAnonymously({options:{data:{judge:true}}});if(r.error)throw r.error;}
+   await Shared.init();}
+  catch(e){toast("Judge mode: posts and likes stay in this browser.");}}
+ S.draft={name,email:JUDGE_EMAIL,college,judge:true,mode:"signup",prefs:{diets:[],allergens:[],cuisines:{},goals:[]}};
+ S.view="survey";S.step=0;render();}
 function localAccounts(){return local.get("tce_accounts")||{};}
 function rememberAccount(){if(!S.user?.email)return;const a=localAccounts();a[S.user.email]=S.user;local.set("tce_accounts",a);}
 function getProfileDoc(){return new Promise(res=>{if(Shared.mode!=="shared"||!Shared.db)return res(null);const ref=Shared.db.doc("data/users/"+Shared.uid+"/profile");
@@ -806,7 +827,7 @@ function renderSurvey(){
   renderSurvey();});
  $("#bk").onclick=()=>{if(S.step>0){S.step--;renderSurvey();return;}if(S.user){S.draft=null;S.view="home";render();}else{S.view=null;render();}};
  $("#nx").onclick=()=>{if(S.step<STEPS.length-1){S.step++;renderSurvey();return;}const first=!S.user;
-  S.user={...(S.user||{}),name:S.draft.name,email:S.draft.email,college:S.draft.college,prefs:S.draft.prefs};local.set("tce_user",S.user);S.draft=null;S.signinNote="";saveProfile();if(first&&Shared.mode==="shared")Shared.saveMine(Shared.mine());S.view="home";if(first){S.tab=S.user.college;S.day=null;}render();scrollTo(0,0);toast(first?`Welcome! Here's ${COLLEGES[S.user.college].name} today.`:"Preferences saved");};
+  S.user={...(S.user||{}),name:S.draft.name,email:S.draft.email,college:S.draft.college,prefs:S.draft.prefs,...(S.draft.judge?{judge:true}:{})};local.set("tce_user",S.user);S.draft=null;S.signinNote="";saveProfile();if(first&&Shared.mode==="shared")Shared.saveMine(Shared.mine());S.view="home";if(first){S.tab=S.user.college;S.day=null;}render();scrollTo(0,0);toast(first?`Welcome! Here's ${COLLEGES[S.user.college].name} today.`:"Preferences saved");};
 }
 
 /* ================= header + search ================= */
